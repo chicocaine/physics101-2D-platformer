@@ -88,6 +88,8 @@ Use short, descriptive prefixes:
 - `PROJECT_STRUCTURE.md` → File organization and contribution standards
 - `docs/design_notes.md` → Gameplay, physics, and system design details (coming soon)
 
+---
+
 ## 💬 Communication
 Use your project Discord or issue tracker for:
 - Task coordination
