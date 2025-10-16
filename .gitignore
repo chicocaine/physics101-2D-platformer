@@ -1,0 +1,18 @@
+# Godot
+.import/
+.godot/
+export.cfg
+export_presets.cfg
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Editor backups
+*.tmp
+*.bak
+*.swp
+
+# we are also LFS tracking:
+# git lfs install
+# git lfs track "*.png" "*.wav" "*.ogg"
