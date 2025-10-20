@@ -125,7 +125,7 @@ Usage:
 const RopeSolver = preload("res://scripts/physics/RopeSolver.gd")
 
 func _physics_process(delta):
-    var tension = RopeSolver.calculate_tension(current_angle, player_mass, swing_velocity)
+	var tension = RopeSolver.calculate_tension(current_angle, player_mass, swing_velocity)
 ```
 This keeps your *game object (rope)* separate from its *underlying physics logic*.
 
@@ -137,9 +137,9 @@ This keeps your *game object (rope)* separate from its *underlying physics logic
 - Avoid editing the same `.tscn` files simultaneously
 - Prefer **instanced scenes** over large monolithic ones
 - Keep naming consistent:
-    - Scenes: `PascalCase` → `Player.tscn`
-    - Scripts: `snake_case` → `player_controller.gd`
-    - Nodes in editor: `snake_case` → `collision_shape`, `sprite_body`
+	- Scenes: `PascalCase` → `Player.tscn`
+	- Scripts: `snake_case` → `player_controller.gd`
+	- Nodes in editor: `snake_case` → `collision_shape`, `sprite_body`
 - Use signals for communication between scenes instead of direct references
 
 ---
