@@ -33,7 +33,7 @@ func _input(event):
 		handle_attack()
 
 func _on_animation_finished() -> void:
-	if animated_sprite.animation.begins_with("attack_"):
+	if animated_sprite.animation in attack_string:
 		is_attacking = false
 
 func handle_attack():
