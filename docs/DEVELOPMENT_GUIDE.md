@@ -6,15 +6,15 @@
 
 ## Adding more features
 1. Each feature or concept should be showcased in separate level/s as to be faithful to the *"Concept/s of the Level"*.
-    > Exceptions can be made if two concepts are purposefully or realistically related and are both features of the level simulation.
+	> Exceptions can be made if two concepts are purposefully or realistically related and are both features of the level simulation.
 2. Not all physics concepts in the list are required to be simulated.
-    > Though it might be something nice to work towards in the long run.
+	> Though it might be something nice to work towards in the long run.
 3. If you want to start working on a level (concept/s simulation):
-    - `git pull origin main` to fetch and merge with the latest version of `main` or the game.
-    - `git switch -c feature/'insert-level-concept/simulation-name'` to create a new branch of main to start working on the level
-    - Also consider making a documentation `.md` for that specific level or concept/simulation in the `project_DIR/docs` folder.
-        > example: MAGNETIC_FORCES.md - includes all the knows and mechanics of the "Magnetic Forces" level
-    - Once you feel that the level is ready to be shipped, push it to the repository with `git push origin feature/'insert-level-concept/simulation-name` and submit a pull request for main in Github.
+	- `git pull origin main` to fetch and merge with the latest version of `main` or the game.
+	- `git switch -c feature/'insert-level-concept/simulation-name'` to create a new branch of main to start working on the level
+	- Also consider making a documentation `.md` for that specific level or concept/simulation in the `project_DIR/docs` folder.
+		> example: MAGNETIC_FORCES.md - includes all the knows and mechanics of the "Magnetic Forces" level
+	- Once you feel that the level is ready to be shipped, push it to the repository with `git push origin feature/'insert-level-concept/simulation-name` and submit a pull request for main in Github.
 
 ## Testing, Quality, Improvements and Bug Fixes
 
@@ -24,11 +24,11 @@ You can start testing by simply pulling `main` and testing the current state of 
 ```
 example: 
     # bugs
-    Title: Pause menu doesn't close with `ESC`
-    Labels: bug, UI
-    # enhancements
-    Title: Add music and sfx toggle to the pause menu
-    Labels: enhancement, UI 
+	Title: Pause menu doesn't close with `ESC`
+	Labels: bug, UI
+	# enhancements
+	Title: Add music and sfx toggle to the pause menu
+	Labels: enhancement, UI 
 ```
 ### Improvements and Bug Fixes
 Obviously thoughout the whole development process, there will be changes, bug fixes and quality improvements.
