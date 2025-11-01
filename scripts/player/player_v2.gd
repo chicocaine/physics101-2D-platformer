@@ -11,20 +11,21 @@ extends CharacterBody2D
 @export var time_to_stop_ground := 0.15
 @export var time_to_stop_air := 1.5
 
-@onready var move_speed = move_speed_units * pixels_per_unit
-@onready var jump_height = jump_height_units * pixels_per_unit
+var move_speed
+var jump_height
 
-@onready var gravity = (2.0 * jump_height) / pow(time_to_apex, 2)
-@onready var jump_velocity = -sqrt(2.0 * gravity * jump_height)
-@onready var ground_accel = move_speed / time_to_max_speed_ground
-@onready var air_accel = move_speed / time_to_max_speed_air
-@onready var ground_friction = move_speed / time_to_stop_ground
-@onready var air_friction = move_speed / time_to_stop_air
+var gravity
+var jump_velocity
+var ground_accel
+var air_accel
+var ground_friction
+var air_friction
 
 @onready var animated_sprite = $AnimatedSprite2D
 
 func _ready() -> void:
 	velocity = Vector2.ZERO
+	_calc_physics_values()
 
 func _physics_process(delta : float) -> void:
 	var input_dir = Input.get_axis("move_left", "move_right")
@@ -57,3 +58,14 @@ func _physics_process(delta : float) -> void:
 		velocity.y *= 0.5
 	
 	move_and_slide()
+
+func _calc_physics_values() -> void:
+	move_speed = move_speed_units * pixels_per_unit
+	jump_height = jump_height_units * pixels_per_unit
+
+	gravity = (2.0 * jump_height) / pow(time_to_apex, 2)
+	jump_velocity = -sqrt(2.0 * gravity * jump_height)
+	ground_accel = move_speed / time_to_max_speed_ground
+	air_accel = move_speed / time_to_max_speed_air
+	ground_friction = move_speed / time_to_stop_ground
+	air_friction = move_speed / time_to_stop_air

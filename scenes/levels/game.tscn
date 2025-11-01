@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=4 uid="uid://bg3u0etfxqk0w"]
+[gd_scene load_steps=11 format=4 uid="uid://bg3u0etfxqk0w"]
 
 [ext_resource type="Texture2D" uid="uid://btlia5tjey0gh" path="res://assets/sprites/tiles/TX Tileset Ground.png" id="1_a1osm"]
 [ext_resource type="Texture2D" uid="uid://b7sesoj2yx6j7" path="res://assets/sprites/tiles/TX Village Props.png" id="2_limtx"]
 [ext_resource type="PackedScene" uid="uid://dcvt76g32muuk" path="res://scenes/player/player.tscn" id="3_7rg7d"]
 [ext_resource type="PackedScene" uid="uid://bkpqk4cvu6y1c" path="res://scenes/player/player_v2.tscn" id="3_limtx"]
 [ext_resource type="Texture2D" uid="uid://p21gfo0xv5l4" path="res://icon.svg" id="4_xmnyv"]
-[ext_resource type="PackedScene" uid="uid://cr56jtgfn148j" path="res://scenes/environment/rope.tscn" id="5_cx7qy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("1_a1osm")
@@ -837,7 +836,3 @@ texture = ExtResource("4_xmnyv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
 scale = Vector2(0.88924164, 0.88924164)
 shape = SubResource("RectangleShape2D_iywne")
-
-[node name="Rope" parent="." instance=ExtResource("5_cx7qy")]
-position = Vector2(361.00003, 63.999985)
-rotation = -2.3117886
