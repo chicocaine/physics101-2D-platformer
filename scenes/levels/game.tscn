@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=4 uid="uid://bg3u0etfxqk0w"]
+[gd_scene load_steps=12 format=4 uid="uid://bg3u0etfxqk0w"]
 
 [ext_resource type="Texture2D" uid="uid://btlia5tjey0gh" path="res://assets/sprites/tiles/TX Tileset Ground.png" id="1_a1osm"]
 [ext_resource type="Texture2D" uid="uid://b7sesoj2yx6j7" path="res://assets/sprites/tiles/TX Village Props.png" id="2_limtx"]
 [ext_resource type="PackedScene" uid="uid://dcvt76g32muuk" path="res://scenes/player/player.tscn" id="3_7rg7d"]
+[ext_resource type="PackedScene" uid="uid://bkpqk4cvu6y1c" path="res://scenes/player/player_v2.tscn" id="3_limtx"]
 [ext_resource type="Texture2D" uid="uid://p21gfo0xv5l4" path="res://icon.svg" id="4_xmnyv"]
 [ext_resource type="PackedScene" uid="uid://cr56jtgfn148j" path="res://scenes/environment/rope.tscn" id="5_cx7qy"]
 
@@ -795,13 +796,19 @@ tile_set = SubResource("TileSet_lbhrr")
 tile_map_data = PackedByteArray("AAAGAP7/AAAcABIAAAAGAPv/AAAaAA0AAAD+////AAASABIAAAD/////AAATABIAAAAAAP//AAAUABIAAAD///7/AAATABEAAAABAP//AAAMAA4AAAA=")
 tile_set = SubResource("TileSet_iywne")
 
-[node name="Player" parent="." instance=ExtResource("3_7rg7d")]
-position = Vector2(306, 110)
+[node name="Player_v2" parent="." instance=ExtResource("3_limtx")]
+position = Vector2(303, 131)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Player_v2"]
+position = Vector2(3, -21)
 offset = Vector2(0, -20)
 zoom = Vector2(3, 3)
+process_callback = 0
 position_smoothing_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("3_7rg7d")]
+visible = false
+position = Vector2(306, 110)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." groups=["Pushable"]]
 position = Vector2(626, -2)
