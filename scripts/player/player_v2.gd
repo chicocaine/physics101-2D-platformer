@@ -7,6 +7,10 @@ extends CharacterBody2D
 @export var move_speed_units := 8.0
 @export var jump_height_units := 4.0
 
+@export_category("Mass and Strength")
+@export var player_mass := 1.0
+@export var player_strength := 100 
+
 @export_category("Running")
 @export_range(1.0, 5.0) var running_multiplier := 1.5
 
@@ -23,6 +27,8 @@ extends CharacterBody2D
 
 var _move_speed
 var _jump_height
+var _mass
+var _strength
 var _run_mul
 
 var _gravity
@@ -33,6 +39,8 @@ var _ground_friction
 var _air_friction
 
 var _animated_sprite_offset
+
+const DEFAULT_PUSHABLE_BODY_MASS = 50.0
 
 @onready var _animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var _latch_detector : Area2D = $LatchDetector
@@ -60,7 +68,6 @@ func _process(_delta : float) -> void:
 
 func _physics_process(delta : float) -> void:
 	_update_timers(delta)
-
 	if is_on_floor():
 		_coyote_timer = coyote_time
 		_was_on_floor = true
@@ -126,6 +133,7 @@ func _physics_process(delta : float) -> void:
 	if Input.is_action_just_released("jump") and velocity.y < 0:
 		velocity.y *= 0.5
 	
+	_push()
 	move_and_slide()
 
 func _update_timers(delta : float) -> void:
@@ -135,6 +143,9 @@ func _update_timers(delta : float) -> void:
 func _calc_player_stats() -> void:
 	_move_speed = move_speed_units * pixels_per_unit
 	_jump_height = jump_height_units * pixels_per_unit
+
+	_mass = player_mass
+	_strength = player_strength
 	_run_mul = running_multiplier
 
 	_gravity = (2.0 * _jump_height) / pow(time_to_apex, 2)
@@ -148,13 +159,27 @@ func _on_latch_area_entered(area : Area2D) -> void:
 	if area.is_in_group("Latchable"):
 		_latch_target = area
 		_is_latching = true
-		print("Latched onto", _latch_target)
+		# print("Latched onto", _latch_target)
 
 func _on_latch_area_exited(area : Area2D) -> void:
 	if area == _latch_target:
 		_is_latching = false
-		print("Unlatched", _latch_target)
+		# print("Unlatched", _latch_target)
 		_latch_target = null
+
+func _push() -> void:
+	for i in range(get_slide_collision_count()):
+		var collision = get_slide_collision(i)
+		var body = collision.get_collider()
+		if body.is_in_group("Pushable") and body is RigidBody2D:
+			var normal = collision.get_normal()
+			var relative_velocity = velocity.dot(-normal)
+
+			if relative_velocity > 0:
+				if Input.get_axis("move_left", "move_right") * -normal.x > 0:
+					var body_mass = body.mass if body.has_method("mass") else DEFAULT_PUSHABLE_BODY_MASS
+					var effective_force = (relative_velocity * _mass * _strength) / body_mass
+					body.apply_central_impulse(-normal * effective_force)
 
 func _detach() -> void:
 	_is_latching = false
