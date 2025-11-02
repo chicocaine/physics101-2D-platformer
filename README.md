@@ -50,7 +50,7 @@ See [`PROJECT_STRUCTURE.md`](docs/PROJECT_STRUCTURE.md) for a detailed breakdown
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/<your-org>/physics101-2D-platformer.git
+git clone https://github.com/chicocaine/physics101-2D-platformer.git
 cd physics101-2D-platformer
 ```
 ### 2. Open in Godot
