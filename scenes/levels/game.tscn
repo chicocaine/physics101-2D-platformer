@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://bg3u0etfxqk0w"]
+[gd_scene load_steps=13 format=4 uid="uid://bg3u0etfxqk0w"]
 
 [ext_resource type="Texture2D" uid="uid://btlia5tjey0gh" path="res://assets/sprites/tiles/TX Tileset Ground.png" id="1_a1osm"]
 [ext_resource type="Texture2D" uid="uid://b7sesoj2yx6j7" path="res://assets/sprites/tiles/TX Village Props.png" id="2_limtx"]
@@ -782,6 +782,11 @@ sources/0 = SubResource("TileSetAtlasSource_lbhrr")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iywne"]
 size = Vector2(45.5, 45.5)
 
+[sub_resource type="SphereMesh" id="SphereMesh_limtx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a1osm"]
+radius = 7.0
+
 [node name="Game" type="Node2D"]
 
 [node name="Tiles" type="Node2D" parent="."]
@@ -794,16 +799,6 @@ tile_set = SubResource("TileSet_lbhrr")
 [node name="PropTileMap" type="TileMapLayer" parent="Tiles"]
 tile_map_data = PackedByteArray("AAAGAP7/AAAcABIAAAAGAPv/AAAaAA0AAAD+////AAASABIAAAD/////AAATABIAAAAAAP//AAAUABIAAAD///7/AAATABEAAAABAP//AAAMAA4AAAA=")
 tile_set = SubResource("TileSet_iywne")
-
-[node name="Player_v2" parent="." instance=ExtResource("3_limtx")]
-position = Vector2(303, 131)
-
-[node name="Camera2D" type="Camera2D" parent="Player_v2"]
-position = Vector2(3, -21)
-offset = Vector2(0, -20)
-zoom = Vector2(3, 3)
-process_callback = 0
-position_smoothing_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("3_7rg7d")]
 visible = false
@@ -836,3 +831,61 @@ texture = ExtResource("4_xmnyv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
 scale = Vector2(0.88924164, 0.88924164)
 shape = SubResource("RectangleShape2D_iywne")
+
+[node name="test_latchable4" type="Area2D" parent="." groups=["Latchable"]]
+position = Vector2(582, -119)
+collision_layer = 4
+collision_mask = 8
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="test_latchable4"]
+scale = Vector2(14.015877, 14.000002)
+mesh = SubResource("SphereMesh_limtx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="test_latchable4" groups=["Latchable"]]
+shape = SubResource("CircleShape2D_a1osm")
+
+[node name="test_latchable3" type="Area2D" parent="." groups=["Latchable"]]
+position = Vector2(582, -61)
+collision_layer = 4
+collision_mask = 8
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="test_latchable3"]
+scale = Vector2(14.015877, 14.000002)
+mesh = SubResource("SphereMesh_limtx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="test_latchable3" groups=["Latchable"]]
+shape = SubResource("CircleShape2D_a1osm")
+
+[node name="test_latchable2" type="Area2D" parent="." groups=["Latchable"]]
+position = Vector2(378, 45)
+collision_layer = 4
+collision_mask = 8
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="test_latchable2"]
+scale = Vector2(14.015877, 14.000002)
+mesh = SubResource("SphereMesh_limtx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="test_latchable2" groups=["Latchable"]]
+shape = SubResource("CircleShape2D_a1osm")
+
+[node name="test_latchable" type="Area2D" parent="." groups=["Latchable"]]
+position = Vector2(378, -18)
+collision_layer = 4
+collision_mask = 8
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="test_latchable"]
+scale = Vector2(14.015877, 14.000002)
+mesh = SubResource("SphereMesh_limtx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="test_latchable" groups=["Latchable"]]
+shape = SubResource("CircleShape2D_a1osm")
+
+[node name="Player_v2" parent="." instance=ExtResource("3_limtx")]
+position = Vector2(303, 131)
+
+[node name="Camera2D" type="Camera2D" parent="Player_v2"]
+position = Vector2(3, -21)
+offset = Vector2(0, -20)
+zoom = Vector2(2, 2)
+process_callback = 0
+position_smoothing_enabled = true

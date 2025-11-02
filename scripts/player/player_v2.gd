@@ -11,48 +11,78 @@ extends CharacterBody2D
 @export var time_to_stop_ground := 0.15
 @export var time_to_stop_air := 1.5
 
-var move_speed
-var jump_height
+var _move_speed
+var _jump_height
 
-var gravity
-var jump_velocity
-var ground_accel
-var air_accel
-var ground_friction
-var air_friction
+var _gravity
+var _jump_velocity
+var _ground_accel
+var _air_accel
+var _ground_friction
+var _air_friction
 
-@onready var animated_sprite = $AnimatedSprite2D
+var _animated_sprite_offset
+
+@onready var _animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
+@onready var _latch_detector : Area2D = $LatchDetector
+
+var _is_latching := false
+var _latch_target : Area2D = null
 
 func _ready() -> void:
 	velocity = Vector2.ZERO
+	_animated_sprite_offset = -_animated_sprite.position.y
 	_calc_physics_values()
+	
+	if not _latch_detector.area_entered.is_connected(_on_latch_area_entered):
+		_latch_detector.area_entered.connect(_on_latch_area_entered)
+	if not _latch_detector.area_exited.is_connected(_on_latch_area_exited):
+		_latch_detector.area_exited.connect(_on_latch_area_exited)
+
+func _process(_delta : float) -> void:
+	pass
 
 func _physics_process(delta : float) -> void:
+	if _is_latching and _latch_target:
+		velocity = Vector2.ZERO
+		global_position = Vector2(
+			_latch_target.global_position.x, 
+			_latch_target.global_position.y + _animated_sprite_offset
+		)
+		
+		if Input.is_action_just_pressed("jump"):
+			_detach_and_jump()
+		elif Input.is_action_just_pressed("down"):
+			_detach()
+		
+		_animated_sprite.play("idle")
+		return
+
 	var input_dir = Input.get_axis("move_left", "move_right")
-	var accel = ground_accel if is_on_floor() else air_accel
-	var friction = ground_friction if is_on_floor() else air_friction
+	var accel = _ground_accel if is_on_floor() else _air_accel
+	var friction = _ground_friction if is_on_floor() else _air_friction
 	
-	if input_dir > 0:
-		animated_sprite.flip_h = false
-	elif input_dir < 0:
-		animated_sprite.flip_h = true
+	if velocity.x > 0:
+		_animated_sprite.flip_h = false
+	elif velocity.x < 0:
+		_animated_sprite.flip_h = true
 
 	if velocity.x == 0:
-		animated_sprite.play("idle")
+		_animated_sprite.play("idle")
 	else:
-		animated_sprite.play("walk")
+		_animated_sprite.play("walk")
 
 	if input_dir != 0:
-		velocity.x = move_toward(velocity.x, input_dir * move_speed, accel * delta)
+		velocity.x = move_toward(velocity.x, input_dir * _move_speed, accel * delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0, friction * delta)
 	
 	if not is_on_floor():
-		animated_sprite.play("jump")
-		velocity.y += gravity * delta
+		_animated_sprite.play("jump")
+		velocity.y += _gravity * delta
 	else:
 		if Input.is_action_just_pressed("jump"):
-			velocity.y = jump_velocity
+			velocity.y = _jump_velocity
 	
 	if Input.is_action_just_released("jump") and velocity.y < 0:
 		velocity.y *= 0.5
@@ -60,12 +90,34 @@ func _physics_process(delta : float) -> void:
 	move_and_slide()
 
 func _calc_physics_values() -> void:
-	move_speed = move_speed_units * pixels_per_unit
-	jump_height = jump_height_units * pixels_per_unit
+	_move_speed = move_speed_units * pixels_per_unit
+	_jump_height = jump_height_units * pixels_per_unit
 
-	gravity = (2.0 * jump_height) / pow(time_to_apex, 2)
-	jump_velocity = -sqrt(2.0 * gravity * jump_height)
-	ground_accel = move_speed / time_to_max_speed_ground
-	air_accel = move_speed / time_to_max_speed_air
-	ground_friction = move_speed / time_to_stop_ground
-	air_friction = move_speed / time_to_stop_air
+	_gravity = (2.0 * _jump_height) / pow(time_to_apex, 2)
+	_jump_velocity = -sqrt(2.0 * _gravity * _jump_height)
+	_ground_accel = _move_speed / time_to_max_speed_ground
+	_air_accel = _move_speed / time_to_max_speed_air
+	_ground_friction = _move_speed / time_to_stop_ground
+	_air_friction = _move_speed / time_to_stop_air
+
+func _on_latch_area_entered(area : Area2D) -> void:
+	if area.is_in_group("Latchable"):
+		_latch_target = area
+		_is_latching = true
+		print("Latched onto", _latch_target)
+
+func _on_latch_area_exited(area : Area2D) -> void:
+	if area == _latch_target:
+		_is_latching = false
+		print("Unlatched", _latch_target)
+		_latch_target = null
+
+func _detach() -> void:
+	_is_latching = false
+	_latch_target = null
+	print("Detached from latch target")
+
+func _detach_and_jump() -> void:
+	_detach()
+	velocity.y = _jump_velocity
+	print("Detached and jumped")
