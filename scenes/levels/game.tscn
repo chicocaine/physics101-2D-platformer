@@ -1,10 +1,12 @@
-[gd_scene load_steps=13 format=4 uid="uid://bg3u0etfxqk0w"]
+[gd_scene load_steps=17 format=4 uid="uid://bg3u0etfxqk0w"]
 
 [ext_resource type="Texture2D" uid="uid://btlia5tjey0gh" path="res://assets/sprites/tiles/TX Tileset Ground.png" id="1_a1osm"]
 [ext_resource type="Texture2D" uid="uid://b7sesoj2yx6j7" path="res://assets/sprites/tiles/TX Village Props.png" id="2_limtx"]
 [ext_resource type="PackedScene" uid="uid://dcvt76g32muuk" path="res://scenes/player/player.tscn" id="3_7rg7d"]
 [ext_resource type="PackedScene" uid="uid://bkpqk4cvu6y1c" path="res://scenes/player/player_v2.tscn" id="3_limtx"]
 [ext_resource type="Texture2D" uid="uid://p21gfo0xv5l4" path="res://icon.svg" id="4_xmnyv"]
+[ext_resource type="Script" uid="uid://bmshl6tcaaass" path="res://scripts/test/test_interactable.gd" id="5_7rg7d"]
+[ext_resource type="PackedScene" uid="uid://bbsutqjq7imy5" path="res://scenes/environment/interactable.tscn" id="5_limtx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("1_a1osm")
@@ -787,6 +789,10 @@ size = Vector2(45.5, 45.5)
 [sub_resource type="CircleShape2D" id="CircleShape2D_a1osm"]
 radius = 7.0
 
+[sub_resource type="BoxMesh" id="BoxMesh_a1osm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7rg7d"]
+
 [node name="Game" type="Node2D"]
 
 [node name="Tiles" type="Node2D" parent="."]
@@ -879,6 +885,22 @@ mesh = SubResource("SphereMesh_limtx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="test_latchable" groups=["Latchable"]]
 shape = SubResource("CircleShape2D_a1osm")
+
+[node name="test_interactable" type="Node2D" parent="."]
+position = Vector2(258, 123)
+script = ExtResource("5_7rg7d")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="test_interactable"]
+scale = Vector2(16, 16)
+mesh = SubResource("BoxMesh_a1osm")
+
+[node name="Interactable" parent="test_interactable" instance=ExtResource("5_limtx")]
+interact_name = "test_interaction"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="test_interactable/Interactable"]
+scale = Vector2(0.8, 0.8)
+shape = SubResource("RectangleShape2D_7rg7d")
+debug_color = Color(0.2180979, 0.52742815, 0.9491175, 0.41960785)
 
 [node name="Player_v2" parent="." instance=ExtResource("3_limtx")]
 position = Vector2(303, 131)

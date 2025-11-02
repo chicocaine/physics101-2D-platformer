@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://bkpqk4cvu6y1c"]
+[gd_scene load_steps=58 format=3 uid="uid://bkpqk4cvu6y1c"]
 
 [ext_resource type="Script" uid="uid://be1ru7rudypw3" path="res://scripts/player/player_v2.gd" id="1_8uwif"]
 [ext_resource type="Texture2D" uid="uid://cu40vohlgovoo" path="res://assets/sprites/player/ATTACK 1.png" id="2_nu3jk"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://chycpmpuryiw3" path="res://assets/sprites/player/JUMP.png" id="6_pi6yl"]
 [ext_resource type="Texture2D" uid="uid://u48eyyt1yi3a" path="res://assets/sprites/player/RUN.png" id="7_mb3c5"]
 [ext_resource type="Texture2D" uid="uid://bkl3oi1moi4fk" path="res://assets/sprites/player/WALK.png" id="8_47ibn"]
+[ext_resource type="PackedScene" uid="uid://s0e53pnrsniy" path="res://scenes/components/interacting_component.tscn" id="9_nu3jk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wqfne"]
 atlas = ExtResource("2_nu3jk")
@@ -389,6 +390,10 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LatchDetector"]
 position = Vector2(0, -17)
 shape = SubResource("RectangleShape2D_8uwif")
+debug_color = Color(0.98374575, 0, 0.3545233, 0.41960785)
+
+[node name="InteractingComponent" parent="." instance=ExtResource("9_nu3jk")]
+position = Vector2(0, -20)
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animation_finished"]
 [connection signal="ready" from="AnimatedSprite2D" to="." method="_ready"]
