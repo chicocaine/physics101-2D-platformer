@@ -1,15 +1,22 @@
 extends CharacterBody2D
 
+@export_category("Visual Scale")
 @export var pixels_per_unit := 16.0
 
+@export_category("Speed and Jump")
 @export var move_speed_units := 8.0
 @export var jump_height_units := 4.0
 
+@export_category("Acceleration and Friction")
 @export var time_to_max_speed_ground := 0.2
 @export var time_to_max_speed_air := 0.8
 @export var time_to_apex := 0.4
 @export var time_to_stop_ground := 0.15
 @export var time_to_stop_air := 1.5
+
+@export_category("Timers")
+@export var input_buffer := 0.05
+@export var coyote_time := 0.1
 
 var _move_speed
 var _jump_height
@@ -25,6 +32,10 @@ var _animated_sprite_offset
 
 @onready var _animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var _latch_detector : Area2D = $LatchDetector
+
+var _jump_input_timer := 0.0
+var _coyote_timer := 0.0
+var _was_on_floor := false
 
 var _is_latching := false
 var _latch_target : Area2D = null
@@ -43,6 +54,17 @@ func _process(_delta : float) -> void:
 	pass
 
 func _physics_process(delta : float) -> void:
+	_update_timers(delta)
+
+	if is_on_floor():
+		_coyote_timer = coyote_time
+		_was_on_floor = true
+	elif _was_on_floor and not is_on_floor():
+		_was_on_floor = false
+	
+	if Input.is_action_just_pressed("jump"):
+		_jump_input_timer = input_buffer
+	
 	if _is_latching and _latch_target:
 		velocity = Vector2.ZERO
 		global_position = Vector2(
@@ -77,17 +99,26 @@ func _physics_process(delta : float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, friction * delta)
 	
+	var can_jump = is_on_floor() or _coyote_timer > 0
+	var wants_to_jump = _jump_input_timer > 0
+	
+	if can_jump and wants_to_jump:
+		velocity.y = _jump_velocity
+		_jump_input_timer = 0.0  
+		_coyote_timer = 0.0      
+	
 	if not is_on_floor():
 		_animated_sprite.play("jump")
 		velocity.y += _gravity * delta
-	else:
-		if Input.is_action_just_pressed("jump"):
-			velocity.y = _jump_velocity
 	
 	if Input.is_action_just_released("jump") and velocity.y < 0:
 		velocity.y *= 0.5
 	
 	move_and_slide()
+
+func _update_timers(delta : float) -> void:
+	_jump_input_timer -= delta
+	_coyote_timer -= delta
 
 func _calc_physics_values() -> void:
 	_move_speed = move_speed_units * pixels_per_unit
