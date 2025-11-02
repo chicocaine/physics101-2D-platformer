@@ -7,6 +7,9 @@ extends CharacterBody2D
 @export var move_speed_units := 8.0
 @export var jump_height_units := 4.0
 
+@export_category("Running")
+@export_range(1.0, 5.0) var running_multiplier := 1.5
+
 @export_category("Acceleration and Friction")
 @export var time_to_max_speed_ground := 0.2
 @export var time_to_max_speed_air := 0.8
@@ -20,6 +23,7 @@ extends CharacterBody2D
 
 var _move_speed
 var _jump_height
+var _run_mul
 
 var _gravity
 var _jump_velocity
@@ -37,13 +41,14 @@ var _jump_input_timer := 0.0
 var _coyote_timer := 0.0
 var _was_on_floor := false
 
+var _is_running := false
 var _is_latching := false
 var _latch_target : Area2D = null
 
 func _ready() -> void:
 	velocity = Vector2.ZERO
 	_animated_sprite_offset = -_animated_sprite.position.y
-	_calc_physics_values()
+	_calc_player_stats()
 	
 	if not _latch_detector.area_entered.is_connected(_on_latch_area_entered):
 		_latch_detector.area_entered.connect(_on_latch_area_entered)
@@ -62,6 +67,8 @@ func _physics_process(delta : float) -> void:
 	elif _was_on_floor and not is_on_floor():
 		_was_on_floor = false
 	
+	_is_running = Input.is_action_pressed("run")
+
 	if Input.is_action_just_pressed("jump"):
 		_jump_input_timer = input_buffer
 	
@@ -83,7 +90,7 @@ func _physics_process(delta : float) -> void:
 	var input_dir = Input.get_axis("move_left", "move_right")
 	var accel = _ground_accel if is_on_floor() else _air_accel
 	var friction = _ground_friction if is_on_floor() else _air_friction
-	
+
 	if velocity.x > 0:
 		_animated_sprite.flip_h = false
 	elif velocity.x < 0:
@@ -92,10 +99,15 @@ func _physics_process(delta : float) -> void:
 	if velocity.x == 0:
 		_animated_sprite.play("idle")
 	else:
-		_animated_sprite.play("walk")
+		if _is_running:
+			_animated_sprite.play("run")
+		else:
+			_animated_sprite.play("walk")
+
+	var current_move_speed = _get_move_speed()
 
 	if input_dir != 0:
-		velocity.x = move_toward(velocity.x, input_dir * _move_speed, accel * delta)
+		velocity.x = move_toward(velocity.x, input_dir * current_move_speed, accel * delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0, friction * delta)
 	
@@ -120,9 +132,10 @@ func _update_timers(delta : float) -> void:
 	_jump_input_timer -= delta
 	_coyote_timer -= delta
 
-func _calc_physics_values() -> void:
+func _calc_player_stats() -> void:
 	_move_speed = move_speed_units * pixels_per_unit
 	_jump_height = jump_height_units * pixels_per_unit
+	_run_mul = running_multiplier
 
 	_gravity = (2.0 * _jump_height) / pow(time_to_apex, 2)
 	_jump_velocity = -sqrt(2.0 * _gravity * _jump_height)
@@ -152,3 +165,8 @@ func _detach_and_jump() -> void:
 	_detach()
 	velocity.y = _jump_velocity
 	print("Detached and jumped")
+
+func _get_move_speed() -> float:
+	if _is_running:
+		return _move_speed * _run_mul
+	return _move_speed
