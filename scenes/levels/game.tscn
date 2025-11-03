@@ -833,7 +833,7 @@ texture = ExtResource("4_xmnyv")
 scale = Vector2(0.88924164, 0.88924164)
 shape = SubResource("RectangleShape2D_iywne")
 
-[node name="test_latchable4" type="Area2D" parent="." groups=["Latchable"]]
+[node name="test_latchable4" type="Area2D" parent="." groups=["Hangable"]]
 position = Vector2(582, -119)
 collision_layer = 4
 collision_mask = 8
@@ -842,10 +842,10 @@ collision_mask = 8
 scale = Vector2(14.015877, 14.000002)
 mesh = SubResource("SphereMesh_limtx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="test_latchable4" groups=["Latchable"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="test_latchable4" groups=["Hangable"]]
 shape = SubResource("CircleShape2D_a1osm")
 
-[node name="test_latchable3" type="Area2D" parent="." groups=["Latchable"]]
+[node name="test_latchable3" type="Area2D" parent="." groups=["Hangable"]]
 position = Vector2(582, -61)
 collision_layer = 4
 collision_mask = 8
@@ -854,10 +854,10 @@ collision_mask = 8
 scale = Vector2(14.015877, 14.000002)
 mesh = SubResource("SphereMesh_limtx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="test_latchable3" groups=["Latchable"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="test_latchable3" groups=["Hangable"]]
 shape = SubResource("CircleShape2D_a1osm")
 
-[node name="test_latchable2" type="Area2D" parent="." groups=["Latchable"]]
+[node name="test_latchable2" type="Area2D" parent="." groups=["Hangable"]]
 position = Vector2(378, 45)
 collision_layer = 4
 collision_mask = 8
@@ -866,10 +866,10 @@ collision_mask = 8
 scale = Vector2(14.015877, 14.000002)
 mesh = SubResource("SphereMesh_limtx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="test_latchable2" groups=["Latchable"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="test_latchable2" groups=["Hangable"]]
 shape = SubResource("CircleShape2D_a1osm")
 
-[node name="test_latchable" type="Area2D" parent="." groups=["Latchable"]]
+[node name="test_latchable" type="Area2D" parent="." groups=["Hangable"]]
 position = Vector2(378, -18)
 collision_layer = 4
 collision_mask = 8
@@ -878,7 +878,7 @@ collision_mask = 8
 scale = Vector2(14.015877, 14.000002)
 mesh = SubResource("SphereMesh_limtx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="test_latchable" groups=["Latchable"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="test_latchable" groups=["Hangable"]]
 shape = SubResource("CircleShape2D_a1osm")
 
 [node name="test_interactable" type="Node2D" parent="."]

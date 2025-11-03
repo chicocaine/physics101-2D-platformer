@@ -40,28 +40,28 @@ var _air_friction
 
 var _animated_sprite_offset
 
-const DEFAULT_PUSHABLE_BODY_MASS = 50.0
+const DEFAULT_PUSHABLE_BODY_MASS = 20.0
 
 @onready var _animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
-@onready var _latch_detector : Area2D = $LatchDetector
+@onready var _hang_detector : Area2D = $HangDetector
 
 var _jump_input_timer := 0.0
 var _coyote_timer := 0.0
 var _was_on_floor := false
 
 var _is_running := false
-var _is_latching := false
-var _latch_target : Area2D = null
+var _is_hanging := false
+var _hang_target : Area2D = null
 
 func _ready() -> void:
 	velocity = Vector2.ZERO
 	_animated_sprite_offset = -_animated_sprite.position.y
 	_calc_player_stats()
 	
-	if not _latch_detector.area_entered.is_connected(_on_latch_area_entered):
-		_latch_detector.area_entered.connect(_on_latch_area_entered)
-	if not _latch_detector.area_exited.is_connected(_on_latch_area_exited):
-		_latch_detector.area_exited.connect(_on_latch_area_exited)
+	if not _hang_detector.area_entered.is_connected(_on_hang_area_entered):
+		_hang_detector.area_entered.connect(_on_hang_area_entered)
+	if not _hang_detector.area_exited.is_connected(_on_hang_area_exited):
+		_hang_detector.area_exited.connect(_on_hang_area_exited)
 
 func _process(_delta : float) -> void:
 	pass
@@ -79,11 +79,11 @@ func _physics_process(delta : float) -> void:
 	if Input.is_action_just_pressed("jump"):
 		_jump_input_timer = input_buffer
 	
-	if _is_latching and _latch_target:
+	if _is_hanging and _hang_target:
 		velocity = Vector2.ZERO
 		global_position = Vector2(
-			_latch_target.global_position.x, 
-			_latch_target.global_position.y + _animated_sprite_offset
+			_hang_target.global_position.x, 
+			_hang_target.global_position.y + _animated_sprite_offset
 		)
 		
 		if Input.is_action_just_pressed("jump"):
@@ -155,36 +155,22 @@ func _calc_player_stats() -> void:
 	_ground_friction = _move_speed / time_to_stop_ground
 	_air_friction = _move_speed / time_to_stop_air
 
-func _on_latch_area_entered(area : Area2D) -> void:
-	if area.is_in_group("Latchable"):
-		_latch_target = area
-		_is_latching = true
-		# print("Latched onto", _latch_target)
+func _on_hang_area_entered(area : Area2D) -> void:
+	if area.is_in_group("Hangable"):
+		_hang_target = area
+		_is_hanging = true
+		# print("hanged onto", _hang_target)
 
-func _on_latch_area_exited(area : Area2D) -> void:
-	if area == _latch_target:
-		_is_latching = false
-		# print("Unlatched", _latch_target)
-		_latch_target = null
-
-func _push() -> void:
-	for i in range(get_slide_collision_count()):
-		var collision = get_slide_collision(i)
-		var body = collision.get_collider()
-		if body.is_in_group("Pushable") and body is RigidBody2D:
-			var normal = collision.get_normal()
-			var relative_velocity = velocity.dot(-normal)
-
-			if relative_velocity > 0:
-				if Input.get_axis("move_left", "move_right") * -normal.x > 0:
-					var body_mass = body.mass if body.has_method("mass") else DEFAULT_PUSHABLE_BODY_MASS
-					var effective_force = (relative_velocity * _mass * _strength) / body_mass
-					body.apply_central_impulse(-normal * effective_force)
+func _on_hang_area_exited(area : Area2D) -> void:
+	if area == _hang_target:
+		_is_hanging = false
+		# print("Unhanged", _hang_target)
+		_hang_target = null	
 
 func _detach() -> void:
-	_is_latching = false
-	_latch_target = null
-	print("Detached from latch target")
+	_is_hanging = false
+	_hang_target = null
+	print("Detached from hang target")
 
 func _detach_and_jump() -> void:
 	_detach()

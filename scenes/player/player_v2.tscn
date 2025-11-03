@@ -383,11 +383,11 @@ autoplay = "idle"
 position = Vector2(0, -15)
 shape = SubResource("CapsuleShape2D_qek5x")
 
-[node name="LatchDetector" type="Area2D" parent="."]
+[node name="HangDetector" type="Area2D" parent="."]
 collision_layer = 8
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LatchDetector"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HangDetector"]
 position = Vector2(0, -17)
 shape = SubResource("RectangleShape2D_8uwif")
 debug_color = Color(0.98374575, 0, 0.3545233, 0.41960785)
