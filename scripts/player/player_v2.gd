@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var pixels_per_unit := 16.0
 
 @export_category("Speed and Jump")
-@export var move_speed_units := 8.0
+@export var move_speed_units := 9.0
 @export var jump_height_units := 4.0
 
 @export_category("Mass and Strength")
@@ -17,7 +17,7 @@ extends CharacterBody2D
 @export_category("Acceleration and Friction")
 @export var time_to_max_speed_ground := 0.2
 @export var time_to_max_speed_air := 0.8
-@export var time_to_apex := 0.4
+@export var time_to_apex := 0.3
 @export var time_to_stop_ground := 0.15
 @export var time_to_stop_air := 1.5
 
@@ -91,7 +91,8 @@ func _physics_process(delta : float) -> void:
 		elif Input.is_action_just_pressed("down"):
 			_detach()
 		
-		_animated_sprite.play("idle")
+		if _animated_sprite.animation != "hold":
+			_animated_sprite.play("hold")
 		return
 
 	var input_dir = Input.get_axis("move_left", "move_right")
@@ -103,13 +104,17 @@ func _physics_process(delta : float) -> void:
 	elif velocity.x < 0:
 		_animated_sprite.flip_h = true
 
-	if velocity.x == 0:
-		_animated_sprite.play("idle")
-	else:
-		if _is_running:
-			_animated_sprite.play("run")
+	if is_on_floor():
+		if velocity.x == 0:
+			if _animated_sprite.animation != "idle":
+				_animated_sprite.play("idle")
 		else:
-			_animated_sprite.play("walk")
+			if _is_running:
+				if _animated_sprite.animation != "run":
+					_animated_sprite.play("run")
+			else:
+				if _animated_sprite.animation != "walk":
+					_animated_sprite.play("walk")
 
 	var current_move_speed = _get_move_speed()
 
@@ -126,14 +131,18 @@ func _physics_process(delta : float) -> void:
 		_jump_input_timer = 0.0  
 		_coyote_timer = 0.0      
 	
-	if not is_on_floor():
-		_animated_sprite.play("jump")
+	if not _was_on_floor and not is_on_floor():
+		if velocity.y < 0:
+			if _animated_sprite.animation != "jump-air":
+				_animated_sprite.play("jump-air")
+		elif velocity.y > 0:
+			if _animated_sprite.animation != "fall":
+				_animated_sprite.play("fall")
 		velocity.y += _gravity * delta
 	
 	if Input.is_action_just_released("jump") and velocity.y < 0:
 		velocity.y *= 0.5
 	
-	_push()
 	move_and_slide()
 
 func _update_timers(delta : float) -> void:

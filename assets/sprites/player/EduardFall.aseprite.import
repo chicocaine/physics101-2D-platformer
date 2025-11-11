@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dwoognp7fq34o"
+path="res://.godot/imported/EduardFall.aseprite-4cf81a91435ac6e5887856ea03ae540c.res"
+
+[deps]
+
+source_file="res://assets/sprites/player/EduardFall.aseprite"
+dest_files=["res://.godot/imported/EduardFall.aseprite-4cf81a91435ac6e5887856ea03ae540c.res"]
+
+[params]
+
