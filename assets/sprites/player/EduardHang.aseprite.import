@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://w06x7wbthu41"
+path="res://.godot/imported/EduardHang.aseprite-da5952629ea9d7c60bdd8fe6e141fb22.res"
+
+[deps]
+
+source_file="res://assets/sprites/player/EduardHang.aseprite"
+dest_files=["res://.godot/imported/EduardHang.aseprite-da5952629ea9d7c60bdd8fe6e141fb22.res"]
+
+[params]
+

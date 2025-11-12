@@ -16,6 +16,10 @@ config/version="0.1"
 run/main_scene="uid://bg3u0etfxqk0w"
 config/features=PackedStringArray("4.5")
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
+
 [input]
 
 move_left={

@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://btlia5tjey0gh" path="res://assets/sprites/tiles/TX Tileset Ground.png" id="1_a1osm"]
 [ext_resource type="Texture2D" uid="uid://b7sesoj2yx6j7" path="res://assets/sprites/tiles/TX Village Props.png" id="2_limtx"]
-[ext_resource type="PackedScene" uid="uid://bkpqk4cvu6y1c" path="res://scenes/player/player_v2.tscn" id="3_limtx"]
 [ext_resource type="Texture2D" uid="uid://p21gfo0xv5l4" path="res://icon.svg" id="4_xmnyv"]
 [ext_resource type="Script" uid="uid://bmshl6tcaaass" path="res://scripts/test/test_interactable.gd" id="5_7rg7d"]
 [ext_resource type="PackedScene" uid="uid://bbsutqjq7imy5" path="res://scenes/environment/interactable.tscn" id="5_limtx"]
+[ext_resource type="PackedScene" uid="uid://bxbvmb15uiomg" path="res://scenes/player/player_v3.tscn" id="6_limtx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("1_a1osm")
@@ -897,10 +897,10 @@ scale = Vector2(0.8, 0.8)
 shape = SubResource("RectangleShape2D_7rg7d")
 debug_color = Color(0.2180979, 0.52742815, 0.9491175, 0.41960785)
 
-[node name="Player_v2" parent="." instance=ExtResource("3_limtx")]
+[node name="Player_v3" parent="." instance=ExtResource("6_limtx")]
 position = Vector2(303, 131)
 
-[node name="Camera2D" type="Camera2D" parent="Player_v2"]
+[node name="Camera2D" type="Camera2D" parent="Player_v3"]
 position = Vector2(3, -21)
 offset = Vector2(0, -20)
 zoom = Vector2(2, 2)

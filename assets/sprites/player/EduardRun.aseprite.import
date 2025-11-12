@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://gq8nwnbx4tn0"
+path="res://.godot/imported/EduardRun.aseprite-739864820577573ec91406c0b00f8ddd.res"
+
+[deps]
+
+source_file="res://assets/sprites/player/EduardRun.aseprite"
+dest_files=["res://.godot/imported/EduardRun.aseprite-739864820577573ec91406c0b00f8ddd.res"]
+
+[params]
+
