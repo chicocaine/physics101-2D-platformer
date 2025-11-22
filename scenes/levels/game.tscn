@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bg3u0etfxqk0w"]
+[gd_scene load_steps=17 format=4 uid="uid://bg3u0etfxqk0w"]
 
 [ext_resource type="Texture2D" uid="uid://btlia5tjey0gh" path="res://assets/sprites/tiles/TX Tileset Ground.png" id="1_a1osm"]
 [ext_resource type="Texture2D" uid="uid://b7sesoj2yx6j7" path="res://assets/sprites/tiles/TX Village Props.png" id="2_limtx"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bmshl6tcaaass" path="res://scripts/test/test_interactable.gd" id="5_7rg7d"]
 [ext_resource type="PackedScene" uid="uid://bbsutqjq7imy5" path="res://scenes/environment/interactable.tscn" id="5_limtx"]
 [ext_resource type="PackedScene" uid="uid://bxbvmb15uiomg" path="res://scenes/player/player_v3.tscn" id="6_limtx"]
+[ext_resource type="PackedScene" uid="uid://cqyps52s1xmd5" path="res://scenes/environment/environment_controller.tscn" id="7_7rg7d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("1_a1osm")
@@ -819,6 +820,20 @@ texture = ExtResource("4_xmnyv")
 scale = Vector2(0.88980836, 0.88980836)
 shape = SubResource("RectangleShape2D_iywne")
 
+[node name="RigidBody2D3" type="RigidBody2D" parent="." groups=["Pushable"]]
+position = Vector2(1025, -176)
+mass = 0.5
+angular_damp = 5.0
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D3"]
+position = Vector2(1.3113022e-06, 1.3113022e-06)
+scale = Vector2(0.31596816, 0.31596816)
+texture = ExtResource("4_xmnyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D3"]
+scale = Vector2(0.88924164, 0.88924164)
+shape = SubResource("RectangleShape2D_iywne")
+
 [node name="RigidBody2D2" type="RigidBody2D" parent="." groups=["Pushable"]]
 position = Vector2(618, 42)
 mass = 0.5
@@ -898,11 +913,13 @@ shape = SubResource("RectangleShape2D_7rg7d")
 debug_color = Color(0.2180979, 0.52742815, 0.9491175, 0.41960785)
 
 [node name="Player_v3" parent="." instance=ExtResource("6_limtx")]
-position = Vector2(303, 131)
+position = Vector2(941, -219)
+friction_coeff = 0.2
 
 [node name="Camera2D" type="Camera2D" parent="Player_v3"]
-position = Vector2(3, -21)
-offset = Vector2(0, -20)
+position = Vector2(1, -16)
 zoom = Vector2(2, 2)
 process_callback = 0
 position_smoothing_enabled = true
+
+[node name="EnvironmentController" parent="." instance=ExtResource("7_7rg7d")]

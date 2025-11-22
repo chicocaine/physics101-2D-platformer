@@ -1,92 +1,258 @@
 extends RigidBody2D
+class_name PlayerPhysicsController
 
-@onready var _animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
-@onready var _hang_detector : Area2D = $HangDetector
-@onready var _ground_check : RayCast2D = $GroundCheck
+@export_category("Environment Scaling")
+@export var use_environment_gravity := true
+@export var gravity_scale_override := 1.0
 
-@export_category("Visual Scale")
-@export var pixels_per_unit := 16.0
+@export_category("Player Physical Properties")
+@export var mass_override := 1.0
+@export var friction_coeff := 0.8
+@export var restitution := 0.0
+@export var linear_drag := 0.05
+@export var air_drag := 0.01
 
-@export_category("Speed and Jump")
-@export var move_speed_units := 9.0
-@export var jump_height_units := 4.0
+@export_category("Control Forces")
+@export var move_force := 600.0
+@export var jump_impulse := 250.0
+@export var air_control_factor := 0.5
+@export var run_multiplier := 1.5
 
-@export_category("Mass and Strength")
-@export var player_mass := 1.0
-@export var player_strength := 100 
+@export_category("Speed Limits")
+@export var max_horizontal_speed := 300.0
+@export var max_fall_speed := 1200.0     
+@export var max_rise_speed := 600.0      
 
-@export_category("Running")
-@export_range(1.0, 5.0) var running_multiplier := 1.5
+@export_category("Slopes")
+@export var max_slope_angle := 40.0
 
-@export_category("Acceleration and Friction")
-@export var time_to_max_speed_ground := 0.2
-@export var time_to_max_speed_air := 0.8
-@export var time_to_apex := 0.3
-@export var time_to_stop_ground := 0.15
-@export var time_to_stop_air := 1.5
+## Still Temporary
+@export_category("Acceleration")
+@export var accel_ground := 2400.0
+@export var accel_air := 1200.0
+@export var decel_ground := 3000.0
+@export var decel_air := 1500.0
 
 @export_category("Timers")
-@export var input_buffer := 0.05
+@export var jump_input_buffer := 0.1
 @export var coyote_time := 0.1
 
-# Derived stats
-var _move_speed: float
-var _jump_height: float
-var _gravity: float
-var _jump_velocity: float
-var _ground_accel: float
-var _air_accel: float
-var _ground_friction: float
-var _air_friction: float
+@onready var shape: CollisionShape2D = $CollisionShape2D
+@onready var ground_ray: RayCast2D = $GroundRay
+@onready var _animated_sprite = $AnimatedSprite2D
 
-var _is_running := false
+# Internal
 var _is_grounded := false
+var _was_grounded := false
+var _is_running := false
 var _input_dir := 0.0
-var _run_mul := 1.0
+
+var _env_gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+var _jump_buffer_timer := 0.0
+var _coyote_timer := 0.0
+
+var tunables := {}
 
 func _ready() -> void:
-	can_sleep = false
-	lock_rotation = true
+	_register_tunables()
 	
-	mass = player_mass
-	_calc_player_stats()
+	mass = mass_override
+	inertia = mass_override
 
-func _is_on_ground() -> bool:
-	return _ground_check.is_colliding()
+	physics_material_override = PhysicsMaterial.new()
+	physics_material_override.friction = friction_coeff
+	physics_material_override.bounce = restitution
 
-func _calc_player_stats() -> void:
-	_move_speed = move_speed_units * pixels_per_unit
-	_jump_height = jump_height_units * pixels_per_unit
+	var env = get_tree().get_first_node_in_group("Environment")
+	if env:
+		env.environment_updated.connect(_on_environment_updated)
 
-	_run_mul = running_multiplier
+	lock_rotation = true
 
-	_gravity = (2.0 * _jump_height) / pow(time_to_apex, 2)
-	_jump_velocity = -sqrt(2.0 * _gravity * _jump_height)
-	_ground_accel = _move_speed / time_to_max_speed_ground
-	_air_accel = _move_speed / time_to_max_speed_air
-	_ground_friction = _move_speed / time_to_stop_ground
-	_air_friction = _move_speed / time_to_stop_air
+func _physics_process(_delta: float) -> void:
+
+	if linear_velocity.x > 0.1:
+		_animated_sprite.flip_h = false
+	elif linear_velocity.x < 0.1:
+		_animated_sprite.flip_h = true
+
+	if _is_grounded:
+		if abs(linear_velocity.x) > 0.1:
+			if _is_running:
+				if _animated_sprite.animation != "run":
+					_animated_sprite.play("run")
+			else:
+				if _animated_sprite.animation != "walk":
+					_animated_sprite.play("walk")
+		else:
+			if _animated_sprite.animation != "idle":
+				_animated_sprite.play("idle")
+
+	if _was_grounded and not _is_grounded:
+		if linear_velocity.y < 0:
+			if _animated_sprite.animation != "jump-air":
+				_animated_sprite.play("jump-air")
+			elif _animated_sprite.animation != "fall":
+				_animated_sprite.play("fall")	
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
+	# print(linear_velocity)
+	
+	# -- grounding --
+	_was_grounded = _is_grounded
+	_is_grounded = _check_ground(state)
+
+	_update_timers(state, _was_grounded)
+	_handle_input()
+
+	# -- movement force --
+	var force := Vector2.ZERO
+	if _input_dir != 0.0:
+		var control := move_force if _is_grounded else move_force * air_control_factor
+		force.x = _input_dir * control
+
+		if _is_running:
+			force.x *= run_multiplier
+
+	# -- jump input buffer --
+	if Input.is_action_just_pressed("jump"):
+		_jump_buffer_timer = jump_input_buffer
+
+	# -- can jump? --
+	var can_jump := _was_grounded or _coyote_timer > 0.0
+
+	if can_jump and _jump_buffer_timer > 0.0:
+		state.apply_central_impulse(Vector2(0, -jump_impulse))
+		_jump_buffer_timer = 0.0
+		_coyote_timer = 0.0
+
+	# -- apply gravity properly --
+	var final_gravity := _env_gravity * gravity_scale_override if use_environment_gravity else _env_gravity
+	state.apply_central_force(Vector2(0, final_gravity * mass))
+
+	# -- drag --
+	_apply_drag(state)
+
+	# -- accel-decel --
+	# _apply_accel_decel(state)
+
+	# -- final motion --
+	state.apply_central_force(force)
+
+	# -- clamp speed --
+	_clamp_velocity(state)
+
+
+func _update_timers(state: PhysicsDirectBodyState2D, was_grounded : bool) -> void:
+	# print("Jump buffer:", _jump_buffer_timer)
+	# print("Coyote:", _coyote_timer)
+
+	# Jump buffer
+	if _jump_buffer_timer > 0.0:
+		_jump_buffer_timer -= state.step
+
+	# Coyote time
+	if _is_grounded and was_grounded:
+		_coyote_timer = coyote_time
+	elif _coyote_timer > 0.0:
+		_coyote_timer -= state.step
+
+func _handle_input() -> void:
 	_input_dir = Input.get_axis("move_left", "move_right")
-	_is_running = Input.is_action_pressed("jump")
-	_is_grounded = _is_on_ground()
-	
-	var velocity = state.linear_velocity
-	var accel = _ground_accel if _is_grounded else _air_accel
-	var friction = _ground_friction if _is_grounded else _air_friction
-	var target_speed = _input_dir * _run_mul * _move_speed if _is_running else _input_dir * _move_speed
-	
-	var speed_diff = target_speed - velocity.x
-	var force = clamp(speed_diff * accel, -player_strength, player_strength)
-	state.apply_central_force(Vector2(force, 0))
-	
-	if abs(_input_dir) < 0.1 and abs(velocity.x) > 0.1:
-		var friction_force = -sign(velocity.x) * friction
-		state.apply_central_force(Vector2(friction_force, 0))
-		
-	state.apply_central_force(Vector2(0, _gravity * mass))
-	
-	if _is_grounded and Input.is_action_just_pressed("jump"):
-		state.apply_central_impulse(Vector2(0, _jump_velocity * mass))
-		 
+	_is_running = Input.is_action_pressed("run")
+
+func _apply_drag(state: PhysicsDirectBodyState2D) -> void:
+	var drag := linear_drag if _is_grounded else air_drag
+	var vel := state.linear_velocity
+
+	# stable exponential drag
+	vel.x = lerp(vel.x, 0.0, drag * state.step * 60.0)
+
+	state.linear_velocity = vel
+
+func _check_ground(state: PhysicsDirectBodyState2D) -> bool:
+	var threshold := _slope_dot_threshold()
+
+	# Check contacts
+	for i in range(state.get_contact_count()):
+		var n := state.get_contact_local_normal(i)
+
+		# Rotation locked → Vector2.UP is the character's local up
+		if n.dot(Vector2.UP) >= threshold:
+			return true
+
+	# Fallback ray (world-space normal)
+	if ground_ray.is_colliding():
+		var rn := ground_ray.get_collision_normal()
+		if rn.dot(Vector2.UP) >= threshold:
+			return true
+
+	return false
+
+func _clamp_velocity(state: PhysicsDirectBodyState2D) -> void:
+	var vel := state.linear_velocity
+
+	# Horizontal limits
+	vel.x = clamp(vel.x, -max_horizontal_speed, max_horizontal_speed)
+
+	# Vertical limits (Godot +Y is down)
+	if vel.y > max_fall_speed:
+		vel.y = max_fall_speed
+	elif vel.y < -max_rise_speed:
+		vel.y = -max_rise_speed
+
+	state.linear_velocity = vel
+
+
+func _apply_accel_decel(state: PhysicsDirectBodyState2D) -> void:
+	var vel := state.linear_velocity
+
+	var accel := accel_ground if _is_grounded else accel_air
+	var decel := decel_ground if _is_grounded else decel_air
+
+	if _input_dir != 0:
+		# Target speed is clamped max horizontal speed
+		var target_speed := _input_dir * max_horizontal_speed
+
+		# Accelerate toward target speed
+		var direction = sign(target_speed - vel.x)
+		vel.x += direction * accel * state.step
+
+		# Prevent overshoot
+		if sign(target_speed - vel.x) != direction:
+			vel.x = target_speed
+
+	else:
+		# No input → decelerate toward 0
+		var direction = -sign(vel.x)
+		vel.x += direction * decel * state.step
+
+		# Stop dead-zone jitter
+		if abs(vel.x) < 5:
+			vel.x = 0
+
+	state.linear_velocity = vel
+
+func _slope_dot_threshold() -> float:
+	# Convert angle to cosine (dot product threshold)
+	return cos(deg_to_rad(max_slope_angle))
+
+func _is_slope_too_steep(normal: Vector2) -> bool:
+	return normal.dot(Vector2.UP) < _slope_dot_threshold()
+
+func _on_environment_updated(gravity_value: float) -> void:
+	_env_gravity = gravity_value
+
+func _register_stat(_name: String, _default_value: float, _min_value: float, _max_value: float, _change_callback: Callable):
+	var stat = TunableStat.new(_name, _default_value, _min_value, _max_value, _change_callback)
+	tunables[_name] = stat
+
+func _register_tunables() -> void:
+	# Physical properties
+	_register_stat("Mass", mass_override, 0.1, 100.0, func(val): mass = val)
+	_register_stat("Move Force", move_force, 0.0, 3000.0, func(val): move_force = val)
+	_register_stat("Jump Impulse", jump_impulse, 0.0, 2000.0, func(val): jump_impulse = val)
+	_register_stat("Drag", linear_drag, 0.0, 0.5, func(val): linear_drag = val)
+	_register_stat("Air Drag", air_drag, 0.0, 0.5, func(val): air_drag = val)
+	_register_stat("Gravity Scale", gravity_scale, 0.0, 3.0, func(val): gravity_scale = val)
