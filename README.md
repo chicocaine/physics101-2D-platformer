@@ -7,7 +7,7 @@ Realistic movement, grounded jumping, and pendulum-style swinging mechanics.
 
 ## 🧩 Overview
 
-Ember Platformer aims to blend **realistic physics** with responsive platforming.  
+physics101-2D Platformer aims to blend **realistic physics** with responsive platforming.  
 Players can run, jump, and swing across environments with believable weight and motion.
 
 Built collaboratively in **Godot Engine**, using **GDScript** for quick iteration and clear structure.
@@ -50,8 +50,8 @@ See [`PROJECT_STRUCTURE.md`](docs/PROJECT_STRUCTURE.md) for a detailed breakdown
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/<your-org>/ember-platformer.git
-cd ember-platformer
+git clone https://github.com/chicocaine/physics101-2D-platformer.git
+cd physics101-2D-platformer
 ```
 ### 2. Open in Godot
 1. Launch **Godot 4.5.1 (Stable)**.

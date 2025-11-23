@@ -15,7 +15,7 @@ The player's primary means of traversing and interacting with the world:
 - **Move** - Left/right movement
 - **Jump** - Vertical movement and platforming
 - **Swing** - Apply forces while hanging on a wall to start swinging
-- **Latch** - Attach to ropes, ledges, or walls
+- **Hang** - Attach to ropes, ledges, or walls
 - **Interact** - Engage with simulation elements and objects
 
 ---

@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://s0e53pnrsniy"]
+
+[ext_resource type="Script" uid="uid://ycmevsmd44m1" path="res://scripts/components/interacting_component.gd" id="1_k1f2w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4c14"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_a1gch"]
+font_size = 11
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="InteractingComponent" type="Node2D"]
+script = ExtResource("1_k1f2w")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_f4c14")
+debug_color = Color(0, 0.63788974, 0.39027244, 0.41960785)
+
+[node name="InteractLabel" type="Label" parent="."]
+z_index = 10
+offset_left = -36.0
+offset_top = -47.0
+offset_right = 38.0
+offset_bottom = -24.0
+text = "[E] To Interact"
+label_settings = SubResource("LabelSettings_a1gch")
+horizontal_alignment = 1
+vertical_alignment = 1

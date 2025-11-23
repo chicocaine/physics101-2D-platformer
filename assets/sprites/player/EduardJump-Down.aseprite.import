@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://d0r8hnrjwxbbl"
+path="res://.godot/imported/EduardJump-Down.aseprite-7b8bf87d1496d80d833162551b0087e4.res"
+
+[deps]
+
+source_file="res://assets/sprites/player/EduardJump-Down.aseprite"
+dest_files=["res://.godot/imported/EduardJump-Down.aseprite-7b8bf87d1496d80d833162551b0087e4.res"]
+
+[params]
+

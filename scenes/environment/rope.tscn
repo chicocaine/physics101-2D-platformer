@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cr56jtgfn148j"]
+[gd_scene load_steps=3 format=3 uid="uid://ddvqv0se7pa7f"]
 
 [ext_resource type="Script" uid="uid://crj71l3wo88jp" path="res://scripts/physics/rope.gd" id="1_0jxq0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ghbyf"]
 radius = 2.0
 
-[node name="Rope" type="Node2D"]
+[node name="Rope" type="Node2D" groups=["Hangable"]]
 script = ExtResource("1_0jxq0")
 
 [node name="Anchor" type="StaticBody2D" parent="."]
@@ -19,6 +19,6 @@ shape = SubResource("CircleShape2D_ghbyf")
 [node name="Joint" type="PinJoint2D" parent="Anchor"]
 node_a = NodePath("..")
 
-[node name="RopeLine" type="Line2D" parent="."]
+[node name="RopeLine" type="Line2D" parent="." groups=["Hangable"]]
 width = 2.0
 default_color = Color(0.1330441, 0.05720486, 0.009275974, 1)

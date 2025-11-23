@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var segment_scene: PackedScene
-@export var segment_count = 0  
+@export var segment_count = 10
 @export var segment_length = 8.0
 
 @onready var anchor: StaticBody2D = $Anchor
@@ -9,7 +9,6 @@ extends Node2D
 @onready var rope_line: Line2D = $RopeLine
 
 var segments: Array = []
-#var rope_points: PackedVector2Array = []
 
 func _ready() -> void:
 	create_rope()
@@ -29,10 +28,6 @@ func create_rope() -> void:
 		add_child(new_segment)
 		segments.append(new_segment)
 		joint.node_b = joint.get_path_to(current_segment)
-		
-		"""if i == segment_count - 1:
-			var final_joint = new_segment.get_node_or_null("Joint") as PinJoint2D
-			final_joint.queue_free()"""
 		
 		prev_segment = current_segment
 
