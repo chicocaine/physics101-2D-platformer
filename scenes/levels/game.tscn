@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://bg3u0etfxqk0w"]
+[gd_scene load_steps=16 format=4 uid="uid://bg3u0etfxqk0w"]
 
 [ext_resource type="Texture2D" uid="uid://btlia5tjey0gh" path="res://assets/sprites/tiles/TX Tileset Ground.png" id="1_a1osm"]
 [ext_resource type="Texture2D" uid="uid://b7sesoj2yx6j7" path="res://assets/sprites/tiles/TX Village Props.png" id="2_limtx"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://bmshl6tcaaass" path="res://scripts/test/test_interactable.gd" id="5_7rg7d"]
 [ext_resource type="PackedScene" uid="uid://bbsutqjq7imy5" path="res://scenes/environment/interactable.tscn" id="5_limtx"]
 [ext_resource type="PackedScene" uid="uid://bxbvmb15uiomg" path="res://scenes/player/player_v3.tscn" id="6_limtx"]
-[ext_resource type="PackedScene" uid="uid://cqyps52s1xmd5" path="res://scenes/environment/environment_controller.tscn" id="7_7rg7d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("1_a1osm")
@@ -835,7 +834,7 @@ scale = Vector2(0.88924164, 0.88924164)
 shape = SubResource("RectangleShape2D_iywne")
 
 [node name="RigidBody2D2" type="RigidBody2D" parent="." groups=["Pushable"]]
-position = Vector2(618, 42)
+position = Vector2(1023, -246)
 mass = 0.5
 angular_damp = 5.0
 
@@ -914,12 +913,27 @@ debug_color = Color(0.2180979, 0.52742815, 0.9491175, 0.41960785)
 
 [node name="Player_v3" parent="." instance=ExtResource("6_limtx")]
 position = Vector2(941, -219)
+use_environment_gravity = true
+gravity_scale_override = 1.0
+mass_override = 1.0
 friction_coeff = 0.2
+restitution = 0.0
+linear_drag = 0.05
+air_drag = 0.01
+run_multiplier = 1.5
+max_horizontal_speed = 300.0
+max_fall_speed = 1200.0
+max_rise_speed = 600.0
+max_slope_angle = 40.0
+accel_ground = 2400.0
+accel_air = 1200.0
+decel_ground = 3000.0
+decel_air = 1500.0
+jump_input_buffer = 0.1
+coyote_time = 0.1
 
 [node name="Camera2D" type="Camera2D" parent="Player_v3"]
 position = Vector2(1, -16)
 zoom = Vector2(2, 2)
 process_callback = 0
 position_smoothing_enabled = true
-
-[node name="EnvironmentController" parent="." instance=ExtResource("7_7rg7d")]

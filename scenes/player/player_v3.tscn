@@ -382,9 +382,27 @@ lock_rotation = true
 contact_monitor = true
 max_contacts_reported = 4
 script = ExtResource("1_s42yj")
+use_environment_gravity = null
+gravity_scale_override = null
+mass_override = null
+friction_coeff = null
+restitution = null
+linear_drag = null
+air_drag = null
 move_force = 750.0
 jump_impulse = 500.0
 air_control_factor = 0.1
+run_multiplier = null
+max_horizontal_speed = null
+max_fall_speed = null
+max_rise_speed = null
+max_slope_angle = null
+accel_ground = null
+accel_air = null
+decel_ground = null
+decel_air = null
+jump_input_buffer = null
+coyote_time = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -15)
