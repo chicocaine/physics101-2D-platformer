@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqyps52s1xmd5"]
-
-[ext_resource type="Script" uid="uid://bcvdfrou6jdgw" path="res://scripts/environment/environment_controller.gd" id="1_xcu6d"]
-
-[node name="EnvironmentController" type="Node" groups=["Environment"]]
-script = ExtResource("1_xcu6d")
