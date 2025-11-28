@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://bvorpi830p5t2"
+path="res://.godot/imported/Frontal Fog.aseprite-582905f4061abc6205f6bedf621b5c8f.res"
+
+[deps]
+
+source_file="res://assets/sprites/tiles/Sidescroller Shooter - Central City/Background/Frontal Fog.aseprite"
+dest_files=["res://.godot/imported/Frontal Fog.aseprite-582905f4061abc6205f6bedf621b5c8f.res"]
+
+[params]
+

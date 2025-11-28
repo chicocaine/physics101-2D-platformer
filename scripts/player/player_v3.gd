@@ -40,11 +40,13 @@ class_name PlayerPhysicsController
 @onready var shape: CollisionShape2D = $CollisionShape2D
 @onready var ground_ray: RayCast2D = $GroundRay
 @onready var _animated_sprite = $AnimatedSprite2D
+@onready var _hang_detector: Area2D = $HangDetector
 
 # Internal
 var _is_grounded := false
 var _was_grounded := false
 var _is_running := false
+var _is_hanging := false
 var _input_dir := 0.0
 
 var _env_gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -52,23 +54,19 @@ var _env_gravity: float = ProjectSettings.get_setting("physics/2d/default_gravit
 var _jump_buffer_timer := 0.0
 var _coyote_timer := 0.0
 
-var tunables := {}
-
 func _ready() -> void:
-	_register_tunables()
-	
 	mass = mass_override
 	inertia = mass_override
+	lock_rotation = true
 
 	physics_material_override = PhysicsMaterial.new()
 	physics_material_override.friction = friction_coeff
 	physics_material_override.bounce = restitution
-
-	var env = get_tree().get_first_node_in_group("Environment")
-	if env:
-		env.environment_updated.connect(_on_environment_updated)
-
-	lock_rotation = true
+	
+	if not _hang_detector.area_entered.is_connected(_on_hang_area_entered):
+		_hang_detector.area_entered.connect(_on_hang_area_entered)
+	if not _hang_detector.area_exited.is_connected(_on_hang_area_exited):
+		_hang_detector.area_exited.connect(_on_hang_area_exited)
 
 func _physics_process(_delta: float) -> void:
 
@@ -106,6 +104,9 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	_update_timers(state, _was_grounded)
 	_handle_input()
 
+	if _is_hanging:
+		_handle_hanging(state)
+
 	# -- movement force --
 	var force := Vector2.ZERO
 	if _input_dir != 0.0:
@@ -118,8 +119,7 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	# -- jump input buffer --
 	if Input.is_action_just_pressed("jump"):
 		_jump_buffer_timer = jump_input_buffer
-
-	# -- can jump? --
+	
 	var can_jump := _was_grounded or _coyote_timer > 0.0
 
 	if can_jump and _jump_buffer_timer > 0.0:
@@ -127,20 +127,11 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 		_jump_buffer_timer = 0.0
 		_coyote_timer = 0.0
 
-	# -- apply gravity properly --
 	var final_gravity := _env_gravity * gravity_scale_override if use_environment_gravity else _env_gravity
 	state.apply_central_force(Vector2(0, final_gravity * mass))
 
-	# -- drag --
 	_apply_drag(state)
-
-	# -- accel-decel --
-	# _apply_accel_decel(state)
-
-	# -- final motion --
 	state.apply_central_force(force)
-
-	# -- clamp speed --
 	_clamp_velocity(state)
 
 
@@ -192,11 +183,7 @@ func _check_ground(state: PhysicsDirectBodyState2D) -> bool:
 
 func _clamp_velocity(state: PhysicsDirectBodyState2D) -> void:
 	var vel := state.linear_velocity
-
-	# Horizontal limits
 	vel.x = clamp(vel.x, -max_horizontal_speed, max_horizontal_speed)
-
-	# Vertical limits (Godot +Y is down)
 	if vel.y > max_fall_speed:
 		vel.y = max_fall_speed
 	elif vel.y < -max_rise_speed:
@@ -204,55 +191,20 @@ func _clamp_velocity(state: PhysicsDirectBodyState2D) -> void:
 
 	state.linear_velocity = vel
 
-
-func _apply_accel_decel(state: PhysicsDirectBodyState2D) -> void:
-	var vel := state.linear_velocity
-
-	var accel := accel_ground if _is_grounded else accel_air
-	var decel := decel_ground if _is_grounded else decel_air
-
-	if _input_dir != 0:
-		# Target speed is clamped max horizontal speed
-		var target_speed := _input_dir * max_horizontal_speed
-
-		# Accelerate toward target speed
-		var direction = sign(target_speed - vel.x)
-		vel.x += direction * accel * state.step
-
-		# Prevent overshoot
-		if sign(target_speed - vel.x) != direction:
-			vel.x = target_speed
-
-	else:
-		# No input → decelerate toward 0
-		var direction = -sign(vel.x)
-		vel.x += direction * decel * state.step
-
-		# Stop dead-zone jitter
-		if abs(vel.x) < 5:
-			vel.x = 0
-
-	state.linear_velocity = vel
-
 func _slope_dot_threshold() -> float:
-	# Convert angle to cosine (dot product threshold)
 	return cos(deg_to_rad(max_slope_angle))
 
 func _is_slope_too_steep(normal: Vector2) -> bool:
 	return normal.dot(Vector2.UP) < _slope_dot_threshold()
 
-func _on_environment_updated(gravity_value: float) -> void:
-	_env_gravity = gravity_value
+func _on_hang_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Hangable"):
+		_is_hanging = true
 
-func _register_stat(_name: String, _default_value: float, _min_value: float, _max_value: float, _change_callback: Callable):
-	var stat = TunableStat.new(_name, _default_value, _min_value, _max_value, _change_callback)
-	tunables[_name] = stat
+func _on_hang_area_exited(area: Area2D) -> void:
+	if area:
+		_is_hanging = false
 
-func _register_tunables() -> void:
-	# Physical properties
-	_register_stat("Mass", mass_override, 0.1, 100.0, func(val): mass = val)
-	_register_stat("Move Force", move_force, 0.0, 3000.0, func(val): move_force = val)
-	_register_stat("Jump Impulse", jump_impulse, 0.0, 2000.0, func(val): jump_impulse = val)
-	_register_stat("Drag", linear_drag, 0.0, 0.5, func(val): linear_drag = val)
-	_register_stat("Air Drag", air_drag, 0.0, 0.5, func(val): air_drag = val)
-	_register_stat("Gravity Scale", gravity_scale, 0.0, 3.0, func(val): gravity_scale = val)
+func _handle_hanging(state: PhysicsDirectBodyState2D) -> void:
+	# handle hanging
+	return
