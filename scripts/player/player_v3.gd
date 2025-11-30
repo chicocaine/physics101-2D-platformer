@@ -1,5 +1,5 @@
 extends RigidBody2D
-class_name PlayerPhysicsController
+class_name Player
 
 @export_category("Environment Scaling")
 @export var use_environment_gravity := true
@@ -69,10 +69,9 @@ func _ready() -> void:
 		_hang_detector.area_exited.connect(_on_hang_area_exited)
 
 func _physics_process(_delta: float) -> void:
-
-	if linear_velocity.x > 0.1:
+	if _input_dir > 0:
 		_animated_sprite.flip_h = false
-	elif linear_velocity.x < 0.1:
+	elif _input_dir < 0:
 		_animated_sprite.flip_h = true
 
 	if _is_grounded:
@@ -95,9 +94,6 @@ func _physics_process(_delta: float) -> void:
 				_animated_sprite.play("fall")	
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
-	# print(linear_velocity)
-	
-	# -- grounding --
 	_was_grounded = _is_grounded
 	_is_grounded = _check_ground(state)
 
@@ -107,7 +103,6 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	if _is_hanging:
 		_handle_hanging(state)
 
-	# -- movement force --
 	var force := Vector2.ZERO
 	if _input_dir != 0.0:
 		var control := move_force if _is_grounded else move_force * air_control_factor
@@ -116,7 +111,6 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 		if _is_running:
 			force.x *= run_multiplier
 
-	# -- jump input buffer --
 	if Input.is_action_just_pressed("jump"):
 		_jump_buffer_timer = jump_input_buffer
 	
@@ -136,14 +130,9 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 
 
 func _update_timers(state: PhysicsDirectBodyState2D, was_grounded : bool) -> void:
-	# print("Jump buffer:", _jump_buffer_timer)
-	# print("Coyote:", _coyote_timer)
-
-	# Jump buffer
 	if _jump_buffer_timer > 0.0:
 		_jump_buffer_timer -= state.step
 
-	# Coyote time
 	if _is_grounded and was_grounded:
 		_coyote_timer = coyote_time
 	elif _coyote_timer > 0.0:
@@ -157,9 +146,7 @@ func _apply_drag(state: PhysicsDirectBodyState2D) -> void:
 	var drag := linear_drag if _is_grounded else air_drag
 	var vel := state.linear_velocity
 
-	# stable exponential drag
 	vel.x = lerp(vel.x, 0.0, drag * state.step * 60.0)
-
 	state.linear_velocity = vel
 
 func _check_ground(state: PhysicsDirectBodyState2D) -> bool:
@@ -198,13 +185,15 @@ func _is_slope_too_steep(normal: Vector2) -> bool:
 	return normal.dot(Vector2.UP) < _slope_dot_threshold()
 
 func _on_hang_area_entered(area: Area2D) -> void:
+	print("Detected hang area: ", area)
 	if area.is_in_group("Hangable"):
 		_is_hanging = true
 
 func _on_hang_area_exited(area: Area2D) -> void:
+	print("Left")
 	if area:
 		_is_hanging = false
 
-func _handle_hanging(state: PhysicsDirectBodyState2D) -> void:
+func _handle_hanging(_state: PhysicsDirectBodyState2D) -> void:
 	# handle hanging
 	return

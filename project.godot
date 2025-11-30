@@ -13,8 +13,13 @@ config_version=5
 config/name="physics101-2D-platformer"
 config/description="2D platformer to simulate/showcase physics concepts"
 config/version="0.1"
-run/main_scene="uid://bg3u0etfxqk0w"
+run/main_scene="uid://beqwae6cdp8se"
 config/features=PackedStringArray("4.5")
+
+[autoload]
+
+Util="*res://scripts/global/util.gd"
+Global="*res://scripts/global/global.gd"
 
 [editor_plugins]
 

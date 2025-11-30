@@ -848,7 +848,7 @@ scale = Vector2(0.88924164, 0.88924164)
 shape = SubResource("RectangleShape2D_iywne")
 
 [node name="test_latchable4" type="Area2D" parent="." groups=["Hangable"]]
-position = Vector2(582, -119)
+position = Vector2(812, -165)
 collision_layer = 4
 collision_mask = 8
 
@@ -896,7 +896,7 @@ mesh = SubResource("SphereMesh_limtx")
 shape = SubResource("CircleShape2D_a1osm")
 
 [node name="test_interactable" type="Node2D" parent="."]
-position = Vector2(258, 123)
+position = Vector2(700, -139)
 script = ExtResource("5_7rg7d")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="test_interactable"]
@@ -913,24 +913,7 @@ debug_color = Color(0.2180979, 0.52742815, 0.9491175, 0.41960785)
 
 [node name="Player_v3" parent="." instance=ExtResource("6_limtx")]
 position = Vector2(941, -219)
-use_environment_gravity = true
-gravity_scale_override = 1.0
-mass_override = 1.0
 friction_coeff = 0.2
-restitution = 0.0
-linear_drag = 0.05
-air_drag = 0.01
-run_multiplier = 1.5
-max_horizontal_speed = 300.0
-max_fall_speed = 1200.0
-max_rise_speed = 600.0
-max_slope_angle = 40.0
-accel_ground = 2400.0
-accel_air = 1200.0
-decel_ground = 3000.0
-decel_air = 1500.0
-jump_input_buffer = 0.1
-coyote_time = 0.1
 
 [node name="Camera2D" type="Camera2D" parent="Player_v3"]
 position = Vector2(1, -16)
