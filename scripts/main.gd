@@ -6,6 +6,7 @@ var _gui : Control
 
 var _level_manager : LevelManager
 var _gui_manager : GUIManager
+var _camera_controller : CameraController
 
 func _ready() -> void:	
 	Global.main_manager = self
@@ -14,9 +15,18 @@ func _ready() -> void:
 	_player = Global.player
 	_level_manager = Global.level_manager
 	_gui_manager = Global.gui_manager
+	_camera_controller = Global.camera_controller
 	
 	if (load_initial_level() == 0):
 		spawn_player()
+	
+	_camera_controller.set_target(_player)
+	_camera_controller.follow_target = true
+	_camera_controller.cam_process_callback = Util.CamProcessCallback.PHYSICS
+	_camera_controller._set_level_size()
+
+func _process(_delta: float) -> void:
+	pass
 
 func load_initial_level() -> int:
 	if (Global.dev_mode == Util.DevMode.TEST):
@@ -49,5 +59,5 @@ func remove_player() -> int:
 	var level = Global.current_level_2D
 	if (!level.has_node("Player")):
 		return 1
-	level.remove_child(level.get_node("Player"))
+	level.remove_child(_player)
 	return 0

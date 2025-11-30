@@ -3,7 +3,7 @@ class_name LevelManager extends Node
 func _ready() -> void:
 	Global.level_manager = self
 
-func unload_level(level_instance: Control) -> int:
+func unload_level(level_instance: Node2D) -> int:
 	if (!is_instance_valid(level_instance)):
 		return 1
 	level_instance.queue_free()
@@ -23,4 +23,8 @@ func load_level(level_name: String) -> int:
 	return 0
 
 func switch_level(level_name: String) -> int:
+	var main_manager = Global.main_manager
+	main_manager.remove_player()
+	unload_level(Global.current_level_2D)
+	load_level(level_name)
 	return 0

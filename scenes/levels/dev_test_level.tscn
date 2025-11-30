@@ -28,7 +28,7 @@ physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_u8smc")
 sources/1 = SubResource("TileSetAtlasSource_oikb5")
 
-[node name="DevTestLevel" type="Node2D"]
+[node name="Node2D" type="Node2D"]
 
 [node name="PlayerSpawnpoint" parent="." instance=ExtResource("1_sc64n")]
 position = Vector2(-466, -9)
