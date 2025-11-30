@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://b4kdxwlpfr0oj"
+path="res://.godot/imported/Buildings.aseprite-dff7a7730eb874c950383659e00e5314.res"
+
+[deps]
+
+source_file="res://assets/sprites/tiles/Sidescroller Shooter - Central City/Buildings.aseprite"
+dest_files=["res://.godot/imported/Buildings.aseprite-dff7a7730eb874c950383659e00e5314.res"]
+
+[params]
+

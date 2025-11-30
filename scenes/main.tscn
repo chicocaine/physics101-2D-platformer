@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://beqwae6cdp8se"]
+
+[ext_resource type="Script" uid="uid://cfusv6ftf1mdp" path="res://scripts/main.gd" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://b40oewkiym0sp" path="res://scripts/controllers/camera_controller.gd" id="2_0wfyh"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_o5qli")
+
+[node name="Main2D" type="Node2D" parent="."]
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Menu" type="Control" parent="GUI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HUD" type="Control" parent="GUI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("2_0wfyh")

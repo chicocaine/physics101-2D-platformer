@@ -1,10 +1,13 @@
-[gd_scene load_steps=56 format=4 uid="uid://bxbvmb15uiomg"]
+[gd_scene load_steps=55 format=4 uid="uid://bxbvmb15uiomg"]
 
 [ext_resource type="Script" uid="uid://gnv2lkyg2ipq" path="res://scripts/player/player_v3.gd" id="1_s42yj"]
 [ext_resource type="PackedScene" uid="uid://s0e53pnrsniy" path="res://scenes/components/interacting_component.tscn" id="2_0imrl"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_s42yj"]
-friction = 0.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qek5x"]
+radius = 6.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8uwif"]
+size = Vector2(15.5, 10)
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_c5snc"]
 _data = PackedByteArray("AAADAAUAAAABAAAAeAAAAHgAAAA8AQAAUklGRjQBAABXRUJQVlA4TCgBAAAvd8AdEGegJgCQhvnuNJx0p4ItDKQmAJCG+c5gNCQNGXi1ipoAIBjznXXk9wnilmD+AwAAwKpiZqqKqqoq/7ft16/NrLvx9gCKs22Om39N64y7aWjQyt0oxd1wtTewfm7kG0RLraCBUdi/JA2tK3du1TOfJtCK6P8E0Bmwx3f7njbpL7abjHWxJJ8dN5uTbU8ikiYaDAZbkISuOIreQCS9YL6bbDYZ2ygWkTkz82hzIuufROSWB4PB4C1jH8Uit4MFczRBeIr7RT3nwWBAiE+N1kMy2GxuIMgPi7KRJIWhgtajyCWB+o1Go3GBoj54KOT/zwIkFTTCIlDYAGo0tMa5N8Z4KLQ2xtSdpOA0Un3loayNWbqqvnKTgiK9RCKXVQlXOYu0h3T2KQ==")
@@ -14,12 +17,12 @@ size_override = Vector2(120, 120)
 atlas = SubResource("PortableCompressedTexture2D_c5snc")
 region = Rect2(0, 0, 120, 120)
 
-[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_ocbcf"]
-_data = PackedByteArray("AAADAAUAAAABAAAAeAAAAHgAAAAsAQAAUklGRiQBAABXRUJQVlA4TBcBAAAvd8AdEGegJgCQhvnuNJx0p4ItDKQmAJCG+c5gNCQNGXi1ipoAIBjznXXk9wnilmD+AwAAwKpiZqqKqqoq/7ft16/NrLvx9gCqbduumkOR7V56cQSXnpOuGh3JeH/wxvEo/oDxLCPqylh6Ux2f/FXidnqN6P8E0A+ljz6gzfwBaDGf+z5IrnK5KY7ddEowVyLiTFFsEZFshkAKuVwuh5LLiTSdLIbSI7uQy3kxSLer0/k2irqfddrbBMrcbs/cIAdWmHmLQGtPwiAHFiMxH+J0LsMM1A7zCcqw3U7X2EKyGGfGrDXOnTHGBdMyxiQhqNOeAw3npHCIntFIyYYLpWVM/bVKNl4nBUW6jkSvWZxw1atF2oX0r1MA")
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_s42yj"]
+_data = PackedByteArray("AAADAAUAAAABAAAAeAAAAHgAAAAsAQAAUklGRiQBAABXRUJQVlA4TBcBAAAvd8AdEGegJgCQhvnuNJx0p4ItDKQmAJCG+c5gNCQNGXi1ipoAIBjznXXk9wnilmD+AwAAwKpiZqqKqqoq/7ft16/NrLvx9gCqbFvLmxuQ9H1hcODKvWVF4cjM/wb/XB+VN8j8NlP1ydowKY5v36p1p0wT0f8JoH/8PvmAtotHoOVi4fskuc7nZzh2yynDXIuIM0OxRURyGQIp5vP5PEo+L9JychhKj+1iPu/FIN2pzRY7KOph3u3sEChzpzN3gxxaYeYsgdafhUEOLUZiPsLpXoUZqBPmU5RRp5Ous4VkMc6cWWuce2OMC6ZtjElCULezABotSOEQvaCRkk0XStuYxluVbL5NCop0A4nesjjhqjeLtAvpz3oA")
 size_override = Vector2(120, 120)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_msbu0"]
-atlas = SubResource("PortableCompressedTexture2D_ocbcf")
+[sub_resource type="AtlasTexture" id="AtlasTexture_0imrl"]
+atlas = SubResource("PortableCompressedTexture2D_s42yj")
 region = Rect2(0, 0, 120, 120)
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_ncaft"]
@@ -220,7 +223,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_msbu0")
+"texture": SubResource("AtlasTexture_0imrl")
 }],
 "loop": false,
 "name": &"hold",
@@ -372,49 +375,17 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qek5x"]
-radius = 6.5
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8uwif"]
-size = Vector2(15.5, 10)
-
 [node name="Player_v3" type="RigidBody2D"]
 collision_layer = 9
-physics_material_override = SubResource("PhysicsMaterial_s42yj")
 can_sleep = false
 lock_rotation = true
 contact_monitor = true
 max_contacts_reported = 4
 script = ExtResource("1_s42yj")
-jump_height_units = 10.0
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-texture_filter = 1
-position = Vector2(-5, -21)
-sprite_frames = SubResource("SpriteFrames_pi6yl")
-animation = &"idle"
-autoplay = "idle"
-metadata/_aseprite_wizard_interface_config_ = {
-"animation_section": false,
-"layer_section": true,
-"output_section": false,
-"pending_changes": {},
-"slice_section": true
-}
-metadata/_aseprite_wizard_config_ = {
-"embed_tex": true,
-"layers": [],
-"o_ex_p": "",
-"o_folder": "",
-"o_name": "",
-"only_visible": false,
-"scale": "1.0",
-"should_round_fps": true,
-"slice": "",
-"source": "res://assets/sprites/player/EduardIdle.aseprite",
-"source_uid": 1457866468082165945
-}
-metadata/_aseprite_wizard_source_file_hash_ = "6d104f56e04e36ae95b7d37c3aa43055"
+friction_coeff = 0.2
+move_force = 750.0
+jump_impulse = 500.0
+air_control_factor = 0.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -15)
@@ -432,6 +403,37 @@ debug_color = Color(0.98374575, 0, 0.3545233, 0.41960785)
 [node name="InteractingComponent" parent="." instance=ExtResource("2_0imrl")]
 position = Vector2(0, -20)
 
-[node name="GroundCheck" type="RayCast2D" parent="."]
+[node name="GroundRay" type="RayCast2D" parent="."]
 position = Vector2(0, -15)
 target_position = Vector2(0, 18)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -20)
+sprite_frames = SubResource("SpriteFrames_pi6yl")
+animation = &"run"
+autoplay = "idle"
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": true,
+"output_section": true,
+"pending_changes": {
+"source": "res://assets/sprites/player/EduardHang.aseprite",
+"source_uid": 1597689018727806668
+},
+"slice_section": true
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://assets/sprites/player/EduardIdle.aseprite",
+"source_uid": 1457866468082165945
+}
+metadata/_aseprite_wizard_source_file_hash_ = "6d104f56e04e36ae95b7d37c3aa43055"
