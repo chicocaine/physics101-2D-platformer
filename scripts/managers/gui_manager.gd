@@ -20,18 +20,18 @@ func load_gui(gui_name: String) -> int:
 	Global.main_manager._gui.add_child(gui_instance)
 	return 0
 
-func show_gui(current_gui: Control) -> int:
-	if (!is_instance_valid(current_gui)):
+func show_gui(gui_instance: Control) -> int:
+	if (!is_instance_valid(gui_instance)):
 		return 1
-	if (current_gui.is_visible_in_tree()):
+	if (gui_instance.is_visible_in_tree()):
 		return 0
-	current_gui.visible = true 
+	gui_instance.visible = true 
 	return 0
 
-func hide_gui(current_gui: Control) -> int:
-	if (!is_instance_valid(current_gui)):
+func hide_gui(gui_instance: Control) -> int:
+	if (!is_instance_valid(gui_instance)):
 		return 1
-	if (!current_gui.is_visible_in_tree()):
+	if (!gui_instance.is_visible_in_tree()):
 		return 0
-	current_gui.visible = false
+	gui_instance.visible = false
 	return 0

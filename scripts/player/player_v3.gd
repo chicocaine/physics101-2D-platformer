@@ -7,7 +7,7 @@ class_name Player
 
 @export_category("Player Physical Properties")
 @export var mass_override := 1.0
-@export var friction_coeff := 0.8
+@export var friction_coeff := 0.3
 @export var restitution := 0.0
 @export var linear_drag := 0.05
 @export var air_drag := 0.01
