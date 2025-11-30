@@ -1,7 +1,9 @@
-[gd_scene load_steps=56 format=4 uid="uid://bxbvmb15uiomg"]
+[gd_scene load_steps=58 format=4 uid="uid://bxbvmb15uiomg"]
 
 [ext_resource type="Script" uid="uid://gnv2lkyg2ipq" path="res://scripts/player/player_v3.gd" id="1_s42yj"]
 [ext_resource type="PackedScene" uid="uid://s0e53pnrsniy" path="res://scenes/components/interacting_component.tscn" id="2_0imrl"]
+[ext_resource type="Script" uid="uid://betdpy3ramv5t" path="res://scripts/player/controllers/swing_controller.gd" id="2_oo0dc"]
+[ext_resource type="Script" uid="uid://dg587t6u6dhrn" path="res://scripts/player/controllers/traverse_controller.gd" id="2_xgyyd"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_s42yj"]
 friction = 0.0
@@ -376,7 +378,7 @@ animations = [{
 radius = 6.5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8uwif"]
-size = Vector2(15.5, 10)
+size = Vector2(12.75, 10)
 
 [node name="Player_v3" type="RigidBody2D"]
 collision_layer = 9
@@ -386,13 +388,12 @@ lock_rotation = true
 contact_monitor = true
 max_contacts_reported = 4
 script = ExtResource("1_s42yj")
-jump_height_units = 10.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(-5, -21)
 sprite_frames = SubResource("SpriteFrames_pi6yl")
-animation = &"fall"
+animation = &"hold"
 autoplay = "idle"
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
@@ -420,11 +421,28 @@ metadata/_aseprite_wizard_source_file_hash_ = "6d104f56e04e36ae95b7d37c3aa43055"
 position = Vector2(0, -15)
 shape = SubResource("CapsuleShape2D_qek5x")
 
-[node name="HangDetector" type="Area2D" parent="."]
-collision_layer = 8
+[node name="TraverseController" type="Node2D" parent="."]
+script = ExtResource("2_xgyyd")
+traverse_speed = null
+jump_off_force = null
+
+[node name="TraverseDetector" type="Area2D" parent="TraverseController"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TraverseController/TraverseDetector"]
+position = Vector2(4.375, -58)
+shape = SubResource("RectangleShape2D_8uwif")
+debug_color = Color(0.98374575, 0, 0.3545233, 0.41960785)
+
+[node name="SwingController" type="Node2D" parent="."]
+script = ExtResource("2_oo0dc")
+
+[node name="SwingDetector" type="Area2D" parent="SwingController"]
+collision_layer = 0
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HangDetector"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SwingController/SwingDetector"]
 position = Vector2(0, -21)
 shape = SubResource("RectangleShape2D_8uwif")
 debug_color = Color(0.98374575, 0, 0.3545233, 0.41960785)

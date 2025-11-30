@@ -2,7 +2,7 @@ extends Node2D
 
 @export var segment_scene: PackedScene
 @export var segment_count = 10
-@export var segment_length = 8.0
+@export var segment_length = 18.0
 
 @onready var anchor: StaticBody2D = $Anchor
 @onready var anchor_joint: PinJoint2D = $Anchor/Joint

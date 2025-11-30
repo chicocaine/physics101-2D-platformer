@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddvqv0se7pa7f"]
+[gd_scene load_steps=4 format=3 uid="uid://ddvqv0se7pa7f"]
 
-[ext_resource type="Script" uid="uid://crj71l3wo88jp" path="res://scripts/physics/rope.gd" id="1_0jxq0"]
+[ext_resource type="Script" uid="uid://crj71l3wo88jp" path="res://scripts/environment/swing_rope.gd" id="1_0jxq0"]
+[ext_resource type="PackedScene" uid="uid://cb1wadijofkcc" path="res://scenes/environment/swing_rope_segment.tscn" id="2_b1jvx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ghbyf"]
 radius = 2.0
 
-[node name="Rope" type="Node2D" groups=["Hangable"]]
+[node name="SwingRope" type="Node2D" groups=["Hangable"]]
 script = ExtResource("1_0jxq0")
+segment_scene = ExtResource("2_b1jvx")
 
 [node name="Anchor" type="StaticBody2D" parent="."]
 collision_layer = 0

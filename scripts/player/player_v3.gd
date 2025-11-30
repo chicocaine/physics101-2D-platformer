@@ -1,8 +1,9 @@
 extends RigidBody2D
 
 @onready var _animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
-@onready var _hang_detector : Area2D = $HangDetector
 @onready var _ground_check : RayCast2D = $GroundCheck
+@onready var _swing_controller : SwingController = $SwingController
+@onready var _traverse_controller: TraverseController = $TraverseController
 
 @export_category("Visual Scale")
 @export var pixels_per_unit := 16.0
@@ -39,15 +40,10 @@ var _air_accel: float
 var _ground_friction: float
 var _air_friction: float
 
-var _hang_target: RigidBody2D = null
-var _hang_joint: PinJoint2D = null
-
 var _is_running := false
 var _is_grounded := false
-var _is_hanging := false
 var _input_dir := 0.0
 var _run_mul := 1.0
-var _hang_cooldown_timer := 0.0
 
 func _ready() -> void:
 	can_sleep = false
@@ -55,14 +51,9 @@ func _ready() -> void:
 	
 	mass = player_mass
 	_calc_player_stats()
-	
-	if _hang_detector:
-		if not _hang_detector.body_entered.is_connected(_on_hang_body_entered):
-			_hang_detector.body_entered.connect(_on_hang_body_entered)
 
 func _process(delta: float) -> void:
-	if _hang_cooldown_timer > 0:
-		_hang_cooldown_timer -= delta
+	pass
 
 func _is_on_ground() -> bool:
 	return _ground_check.is_colliding()
@@ -85,28 +76,21 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	_is_running = Input.is_action_pressed("run")
 	_is_grounded = _is_on_ground()
 	
-	if _is_hanging and is_instance_valid(_hang_target):
-		if _hang_target.has_method("apply_swing"):
-			_hang_target.apply_swing(_input_dir)
-
-		if Input.is_action_just_pressed("jump"):
-			var rope_ref = _hang_target
-			
-			_remove_joint()
-			_detach(true) 
-
-			state.apply_central_impulse(Vector2(0, _jump_velocity * mass))
-
-			if is_instance_valid(rope_ref):
-				rope_ref.apply_central_impulse(Vector2(-_input_dir * 100, 0))
-			
-			return
-			
-		elif Input.is_action_pressed("crouch"):
-			_remove_joint()
-			_detach(true)
-			return
+	if _swing_controller.is_swinging:
+		var jump_pressed = Input.is_action_just_pressed("jump")
+		var crouch_pressed = Input.is_action_pressed("crouch")
+		
+		_swing_controller.process_swing(state, _input_dir, jump_pressed, crouch_pressed, _jump_velocity)
 		return
+	
+	if _traverse_controller.is_traversing:
+		var jump_pressed = Input.is_action_just_pressed("jump")
+		var crouch_pressed = Input.is_action_pressed("crouch")
+		
+		_traverse_controller.process_traverse(state, _input_dir, jump_pressed, crouch_pressed, _jump_velocity)
+		return
+	
+	# TODO: have state for default, swinging, traversing, etc.
 	
 	var velocity = state.linear_velocity
 	var accel = _ground_accel if _is_grounded else _air_accel
@@ -125,39 +109,3 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	
 	if _is_grounded and Input.is_action_just_pressed("jump"):
 		state.apply_central_impulse(Vector2(0, _jump_velocity * mass))
-		 
-
-# Hang
-func _on_hang_body_entered(body: RigidBody2D) -> void:
-	if _is_hanging:
-		return
-		
-	if body.is_in_group("Hangable") and _hang_cooldown_timer <= 0:
-		_hang_target = body
-		_is_hanging = true
-		
-		_create_joint(body)
-		print("hanged onto", _hang_target)
-
-func _create_joint(rope_body: RigidBody2D) -> void:
-	_hang_joint = PinJoint2D.new()
-	
-	_hang_joint.global_position = global_position
-
-	_hang_joint.node_a = get_path() # Player
-	_hang_joint.node_b = rope_body.get_path() # Rope
-
-	_hang_joint.disable_collision = true 
-
-	get_parent().add_child(_hang_joint)
-
-func _remove_joint() -> void:
-	if is_instance_valid(_hang_joint):
-		_hang_joint.queue_free()
-	_hang_joint = null
-
-func _detach(apply_cooldown: bool) -> void:
-	_is_hanging = false
-	_hang_target = null
-	if apply_cooldown:
-		_hang_cooldown_timer = 0.2

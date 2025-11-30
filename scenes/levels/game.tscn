@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://p21gfo0xv5l4" path="res://icon.svg" id="4_xmnyv"]
 [ext_resource type="Script" uid="uid://bmshl6tcaaass" path="res://scripts/test/test_interactable.gd" id="5_7rg7d"]
 [ext_resource type="PackedScene" uid="uid://bbsutqjq7imy5" path="res://scenes/environment/interactable.tscn" id="5_limtx"]
-[ext_resource type="PackedScene" uid="uid://ddvqv0se7pa7f" path="res://scenes/environment/rope.tscn" id="6_7rg7d"]
+[ext_resource type="PackedScene" uid="uid://ddvqv0se7pa7f" path="res://scenes/environment/swing_rope.tscn" id="6_7rg7d"]
 [ext_resource type="PackedScene" uid="uid://bxbvmb15uiomg" path="res://scenes/player/player_v3.tscn" id="6_limtx"]
-[ext_resource type="PackedScene" uid="uid://cb1wadijofkcc" path="res://scenes/environment/rope_segment.tscn" id="7_xmnyv"]
+[ext_resource type="PackedScene" uid="uid://b4da87r0jukj1" path="res://scenes/environment/traverse_rope.tscn" id="7_xmnyv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("1_a1osm")
@@ -899,14 +899,33 @@ scale = Vector2(0.8, 0.8)
 shape = SubResource("RectangleShape2D_7rg7d")
 debug_color = Color(0.2180979, 0.52742815, 0.9491175, 0.41960785)
 
-[node name="Rope" parent="." instance=ExtResource("6_7rg7d")]
-position = Vector2(38.000008, 19.999998)
-rotation = -1.9338248
-segment_scene = ExtResource("7_xmnyv")
-segment_length = 18.0
+[node name="SwingRope" parent="." instance=ExtResource("6_7rg7d")]
+position = Vector2(-58, 56)
+rotation = -2.3177972
+
+[node name="TraverseRope" parent="." instance=ExtResource("7_xmnyv")]
+
+[node name="StartAnchor" parent="TraverseRope" index="0"]
+position = Vector2(13, 198)
+
+[node name="EndAnchor" parent="TraverseRope" index="1"]
+position = Vector2(247, 43)
 
 [node name="Player_v3" parent="." instance=ExtResource("6_limtx")]
 position = Vector2(303, 131)
+pixels_per_unit = null
+move_speed_units = null
+jump_height_units = null
+player_mass = null
+player_strength = null
+running_multiplier = null
+time_to_max_speed_ground = null
+time_to_max_speed_air = null
+time_to_apex = null
+time_to_stop_ground = null
+time_to_stop_air = null
+input_buffer = null
+coyote_time = null
 
 [node name="Camera2D" type="Camera2D" parent="Player_v3"]
 position = Vector2(3, -21)
@@ -914,3 +933,5 @@ offset = Vector2(0, -20)
 zoom = Vector2(2, 2)
 process_callback = 0
 position_smoothing_enabled = true
+
+[editable path="TraverseRope"]
