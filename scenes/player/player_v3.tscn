@@ -376,7 +376,7 @@ animations = [{
 }]
 
 [node name="Player_v3" type="RigidBody2D"]
-collision_layer = 9
+collision_layer = 8
 can_sleep = false
 lock_rotation = true
 contact_monitor = true
