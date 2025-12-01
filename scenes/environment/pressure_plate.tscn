@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://0tb0ceupk5n"]
+
+[ext_resource type="Script" uid="uid://cwecwfopibtcr" path="res://scripts/environment/pressure_plate.gd" id="1_3w2wm"]
+[ext_resource type="Texture2D" uid="uid://boquqfeh6pw2q" path="res://assets/sprites/materials/Pressure Plates.png" id="1_o2fdl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3w2wm"]
+size = Vector2(20, 10)
+
+[node name="PressurePlate" type="Area2D"]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("1_3w2wm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_3w2wm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("1_o2fdl")
+hframes = 4
+vframes = 2

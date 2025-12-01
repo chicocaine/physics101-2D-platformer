@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwet1bhuwwok"]
+
+[ext_resource type="Texture2D" uid="uid://p21gfo0xv5l4" path="res://icon.svg" id="1_ujagk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6o0ek"]
+size = Vector2(200.5, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ujagk"]
+radius = 1.0
+
+[node name="Lever" type="Node2D"]
+
+[node name="LeverBeam" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeverBeam"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_6o0ek")
+
+[node name="Sprite2D" type="Sprite2D" parent="LeverBeam"]
+position = Vector2(-6.258487e-06, -0.5)
+scale = Vector2(1.5781249, 0.0078125)
+texture = ExtResource("1_ujagk")
+
+[node name="LeverFulcrum" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeverFulcrum"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_ujagk")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="LeverFulcrum"]
+node_a = NodePath("..")
+node_b = NodePath("../../LeverBeam")
