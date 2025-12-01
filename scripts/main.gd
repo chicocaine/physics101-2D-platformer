@@ -26,13 +26,12 @@ func _ready() -> void:
 	
 	if (load_initial_level() == 0):
 		_level_manager.spawn_player()
+		_init_level_signals()
 	
 	_camera_controller.set_target(_player)
 	_camera_controller.follow_target = true
 	_camera_controller.cam_process_callback = Util.CamProcessCallback.PHYSICS
 	_camera_controller._set_level_size()
-	
-	_handle_signals()
 
 func _process(_delta: float) -> void:
 	pass
@@ -52,7 +51,7 @@ func load_initial_level() -> int:
 		return 0
 	return 0
 
-func _handle_signals() -> void:
+func _init_level_signals() -> void:
 	_level_manager._next_level.body_entered.connect(_next_level_body_entered)
 	_level_manager._next_level.body_exited.connect(_next_level_body_exited)
 	
@@ -61,10 +60,12 @@ func _handle_signals() -> void:
 
 func _next_level_body_entered(body: Node2D) -> void:
 	if (body.name == "Player"):
+		print("Player in exit.")
 		_player_in_next_level_exit = true
 
 func _next_level_body_exited(body: Node2D) -> void:
 	if (body.name == "Player"):
+		print("Player exit the exit.")
 		_player_in_next_level_exit = false
 
 func _handle_next_level() -> void:
@@ -74,12 +75,14 @@ func _handle_next_level() -> void:
 		print("Denied Entry: Not enough keys")
 		return
 	self.current_level_idx += 1
-	print(self.current_level_idx)
 	_level_manager.switch_level(levels[current_level_idx])
+	_init_level_signals()
 
 func _input(event: InputEvent) -> void:
 	if (event.is_action_pressed("up") and _player_in_next_level_exit):
+		print("Handling Exit.")
 		_handle_next_level()
 
 func _handle_key_collected() -> void:
 	_level_manager._add_collected_count()
+	print(_level_manager._key_collected_count)

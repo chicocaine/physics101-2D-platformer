@@ -12,11 +12,12 @@ func unload_level(level_instance: Node2D) -> int:
 	if (!is_instance_valid(level_instance)):
 		return 1
 	level_instance.queue_free()
+	
+	await level_instance.tree_exited
+	
 	Global.current_level_2D = null
 	self._player_spawnpoint = null
 	self._next_level = null
-	self._key_count = 0
-	self._key_collected_count = 0
 	return 0
 
 func load_level(level_name: String) -> int:
@@ -33,6 +34,9 @@ func load_level(level_name: String) -> int:
 	_init_player_spawnpoint()
 	_count_level_keys()
 	_reset_collected_count()
+	
+	print("Key count: ", _key_count)
+	print("Keys collected: ", _key_collected_count)
 	return 0
 
 func switch_level(level_name: String) -> int:
@@ -86,7 +90,10 @@ func _count_level_keys() -> int:
 	var level = Global.current_level_2D
 	if (!level):
 		return 1
-	var count : int = level.get_tree().get_nodes_in_group("Keys").size()
+	var count : int = 0
+	for node in level.get_node("Keys").get_children():
+		if node.is_in_group("Keys"):
+			count += 1
 	self._key_count = count
 	return 0
 
