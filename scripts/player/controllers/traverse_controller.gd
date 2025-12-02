@@ -73,7 +73,7 @@ func process_traverse(state: PhysicsDirectBodyState2D, input_dir: float, jump_pr
 	
 	var target_pos = start_pos.lerp(end_pos, segment_progress)
 	
-	state.transform.origin = target_pos - Vector2(0, -60)
+	state.transform.origin = target_pos - Vector2(0, -60) 
 	state.linear_velocity = Vector2.ZERO
 	
 	if jump_pressed:
