@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://g6l64tovkvsc"
+path="res://.godot/imported/Mid Fog.aseprite-468c1355c70952be851b42df9d8308e9.res"
+
+[deps]
+
+source_file="res://assets/sprites/tiles/Sidescroller Shooter - Central City/Background/Mid Fog.aseprite"
+dest_files=["res://.godot/imported/Mid Fog.aseprite-468c1355c70952be851b42df9d8308e9.res"]
+
+[params]
+

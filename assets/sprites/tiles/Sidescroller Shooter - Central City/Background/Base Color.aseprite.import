@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://twb5byymot6e"
+path="res://.godot/imported/Base Color.aseprite-bb14422c4adbcc899f5e05461544ff74.res"
+
+[deps]
+
+source_file="res://assets/sprites/tiles/Sidescroller Shooter - Central City/Background/Base Color.aseprite"
+dest_files=["res://.godot/imported/Base Color.aseprite-bb14422c4adbcc899f5e05461544ff74.res"]
+
+[params]
+

@@ -56,10 +56,10 @@
 
 To support this:
 - Each “tunable” property can have:
-    - a name,
-    - min/max values,
-    - default value, and
-    - update callback.
+	- a name,
+	- min/max values,
+	- default value, and
+	- update callback.
 
 We will use a StatController class to manage that.
 *example:*

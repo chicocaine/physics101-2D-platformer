@@ -11,12 +11,12 @@ size_override = Vector2(120, 120)
 atlas = SubResource("PortableCompressedTexture2D_c5snc")
 region = Rect2(0, 0, 120, 120)
 
-[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_ocbcf"]
-_data = PackedByteArray("AAADAAUAAAABAAAAeAAAAHgAAAAsAQAAUklGRiQBAABXRUJQVlA4TBcBAAAvd8AdEGegJgCQhvnuNJx0p4ItDKQmAJCG+c5gNCQNGXi1ipoAIBjznXXk9wnilmD+AwAAwKpiZqqKqqoq/7ft16/NrLvx9gCqbduumkOR7V56cQSXnpOuGh3JeH/wxvEo/oDxLCPqylh6Ux2f/FXidnqN6P8E0A+ljz6gzfwBaDGf+z5IrnK5KY7ddEowVyLiTFFsEZFshkAKuVwuh5LLiTSdLIbSI7uQy3kxSLer0/k2irqfddrbBMrcbs/cIAdWmHmLQGtPwiAHFiMxH+J0LsMM1A7zCcqw3U7X2EKyGGfGrDXOnTHGBdMyxiQhqNOeAw3npHCIntFIyYYLpWVM/bVKNl4nBUW6jkSvWZxw1atF2oX0r1MA")
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_s42yj"]
+_data = PackedByteArray("AAADAAUAAAABAAAAeAAAAHgAAAAsAQAAUklGRiQBAABXRUJQVlA4TBcBAAAvd8AdEGegJgCQhvnuNJx0p4ItDKQmAJCG+c5gNCQNGXi1ipoAIBjznXXk9wnilmD+AwAAwKpiZqqKqqoq/7ft16/NrLvx9gCqbFvLmxuQ9H1hcODKvWVF4cjM/wb/XB+VN8j8NlP1ydowKY5v36p1p0wT0f8JoH/8PvmAtotHoOVi4fskuc7nZzh2yynDXIuIM0OxRURyGQIp5vP5PEo+L9JychhKj+1iPu/FIN2pzRY7KOph3u3sEChzpzN3gxxaYeYsgdafhUEOLUZiPsLpXoUZqBPmU5RRp5Ous4VkMc6cWWuce2OMC6ZtjElCULezABotSOEQvaCRkk0XStuYxluVbL5NCop0A4nesjjhqjeLtAvpz3oA")
 size_override = Vector2(120, 120)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_msbu0"]
-atlas = SubResource("PortableCompressedTexture2D_ocbcf")
+[sub_resource type="AtlasTexture" id="AtlasTexture_0imrl"]
+atlas = SubResource("PortableCompressedTexture2D_s42yj")
 region = Rect2(0, 0, 120, 120)
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_ncaft"]
@@ -217,7 +217,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_msbu0")
+"texture": SubResource("AtlasTexture_0imrl")
 }],
 "loop": false,
 "name": &"hold",
@@ -384,7 +384,7 @@ move_speed_units = 10.0
 texture_filter = 1
 position = Vector2(-5, -21)
 sprite_frames = SubResource("SpriteFrames_pi6yl")
-animation = &"run"
+animation = &"hold"
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": true,
