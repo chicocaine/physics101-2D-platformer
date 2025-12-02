@@ -8,3 +8,6 @@ signal key_collected
 signal player_exited_exit_area
 signal player_entered_exit_area
 signal player_exit_attempt
+
+# killzone
+signal player_entered_kill_zone

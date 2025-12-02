@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=4 uid="uid://dk55yn4ohjqpo"]
+[gd_scene load_steps=11 format=4 uid="uid://dk55yn4ohjqpo"]
 
 [ext_resource type="PackedScene" uid="uid://cg2idg1n16c6v" path="res://scenes/environment/player_spawnpoint.tscn" id="1_sc64n"]
 [ext_resource type="Texture2D" uid="uid://srysgn7uchl6" path="res://assets/sprites/tiles/Industrial Zone/1 Tiles/IndustrialTile_21.png" id="1_xmhrb"]
+[ext_resource type="Script" uid="uid://bbwwo5b11ahkp" path="res://scripts/environment/killzone.gd" id="2_nimki"]
 [ext_resource type="Texture2D" uid="uid://b8xc7ueup5t6v" path="res://assets/sprites/tiles/Industrial Zone/1 Tiles/IndustrialTile_09.png" id="2_sc64n"]
 [ext_resource type="PackedScene" uid="uid://bwy3q75iwd0fg" path="res://scenes/environment/door.tscn" id="2_wqbp8"]
 [ext_resource type="PackedScene" uid="uid://bdx0rf45snqmw" path="res://scenes/environment/keys.tscn" id="5_wqbp8"]
@@ -29,6 +30,9 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_u8smc")
 sources/1 = SubResource("TileSetAtlasSource_oikb5")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nimki"]
+size = Vector2(276.85208, 18.35967)
 
 [node name="Node2D" type="Node2D"]
 
@@ -60,3 +64,14 @@ position = Vector2(81, 32)
 
 [node name="Keys3" parent="Keys" instance=ExtResource("5_wqbp8")]
 position = Vector2(270, 31)
+
+[node name="Killzone" type="Area2D" parent="."]
+position = Vector2(491, 61)
+script = ExtResource("2_nimki")
+metadata/_custom_type_script = "uid://bbwwo5b11ahkp"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(-794.8522, -88.765976)
+scale = Vector2(0.4901693, -2.1531947)
+shape = SubResource("RectangleShape2D_nimki")
+debug_color = Color(0.88492155, 0.017601607, 0.8054426, 0.41960785)

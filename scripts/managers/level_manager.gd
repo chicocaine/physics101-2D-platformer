@@ -6,16 +6,15 @@ func _ready() -> void:
 	Global.level_manager = self
 
 func unload_level(level_instance: Node2D) -> int:
-	if (!is_instance_valid(level_instance)):
+	if !is_instance_valid(level_instance):
 		return 1
-	Global.main_manager._main2D.remove_child(level_instance)
-	level_instance.queue_free()
-	await level_instance.tree_exited
+	Global.main_manager._main2D.call_deferred("remove_child", level_instance)
+	level_instance.call_deferred("queue_free")
 	Global.current_level_2D = null
 	Global.current_level_2D_file_name = ""
 	self._player_spawnpoint = null
 	return 0
-
+	
 func load_level(level_name: String) -> int:
 	var level_path := "res://scenes/levels/%s.tscn" % level_name
 	var level_resource := load(level_path)
@@ -24,7 +23,7 @@ func load_level(level_name: String) -> int:
 	var level_instance : Node2D = level_resource.instantiate()
 	if (!level_instance):
 		return 1
-	Global.main_manager._main2D.add_child(level_instance)
+	Global.main_manager._main2D.call_deferred("add_child", level_instance)
 	Global.current_level_2D = level_instance
 	Global.current_level_2D_file_name = level_name
 	_init_player_spawnpoint() 
@@ -43,8 +42,10 @@ func reset_level() -> int:
 	var current_level_file_name : String = Global.current_level_2D_file_name
 	if (!Global.current_level_2D):
 		return 1
+	remove_player()
 	unload_level(Global.current_level_2D)
 	load_level(current_level_file_name)
+	spawn_player()
 	return 0
 
 func spawn_player() -> int:

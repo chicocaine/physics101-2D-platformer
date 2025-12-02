@@ -1,6 +1,5 @@
 class_name MainManager extends Node
 
-var _player : Player
 var _main2D : Node2D
 var _gui : Control
 
@@ -12,7 +11,6 @@ func _ready() -> void:
 	Global.main_manager = self
 	_main2D = $Main2D
 	_gui = $GUI
-	_player = Global.player
 	_level_manager = Global.level_manager
 	_gui_manager = Global.gui_manager
 	_camera_controller = Global.camera_controller
@@ -22,7 +20,7 @@ func _ready() -> void:
 	
 	_init_signals()
 	
-	_camera_controller.set_target(_player)
+	_camera_controller.set_target(Global.player)
 	_camera_controller.follow_target = true
 	_camera_controller.cam_process_callback = Util.CamProcessCallback.PHYSICS
 	_camera_controller._set_level_size()
@@ -35,6 +33,7 @@ func _input(_event: InputEvent) -> void:
 
 func _init_signals() -> void:
 	MessageBus.player_exit_attempt.connect(_handle_level_exit)
+	MessageBus.player_entered_kill_zone.connect(_handle_player_entered_killzone)
 
 func load_initial_level() -> int:
 	if (Global.dev_mode == Util.DevMode.TEST):
@@ -54,3 +53,8 @@ func load_initial_level() -> int:
 func _handle_level_exit(node : Node2D) -> void:
 	if (node.is_in_group("LevelExits")):
 		_level_manager.switch_level(node.next_level_name)
+
+func _handle_player_entered_killzone() -> void:
+	_camera_controller.release_focus()
+	_level_manager.reset_level()
+	_camera_controller.set_target(Global.player)
