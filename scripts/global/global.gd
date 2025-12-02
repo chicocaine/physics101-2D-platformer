@@ -11,7 +11,9 @@ var camera_controller : CameraController
 var dev_mode : int 
 
 var current_gui : Control
+var current_gui_file_name : String
 var current_level_2D : Node2D
+var current_level_2D_file_name : String
 
 
 func _ready() -> void:

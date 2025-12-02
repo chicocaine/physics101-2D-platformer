@@ -8,13 +8,6 @@ var _level_manager : LevelManager
 var _gui_manager : GUIManager
 var _camera_controller : CameraController
 
-var _player_in_next_level_exit : bool
-var levels : Array[String] = [
-		"dev_test_level",
-		"dev_test_level_1"
-	]
-var current_level_idx : int
-
 func _ready() -> void:	
 	Global.main_manager = self
 	_main2D = $Main2D
@@ -26,7 +19,8 @@ func _ready() -> void:
 	
 	if (load_initial_level() == 0):
 		_level_manager.spawn_player()
-		_init_level_signals()
+	
+	_init_signals()
 	
 	_camera_controller.set_target(_player)
 	_camera_controller.follow_target = true
@@ -36,9 +30,15 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 
+func _input(_event: InputEvent) -> void:
+	pass
+
+func _init_signals() -> void:
+	MessageBus.player_exit_attempt.connect(_handle_level_exit)
+
 func load_initial_level() -> int:
 	if (Global.dev_mode == Util.DevMode.TEST):
-		var s = _level_manager.load_level(levels[current_level_idx])
+		var s = _level_manager.load_level("dev_test_level")
 		if(s == 1):
 			return 1
 		print("Test Level Loaded")
@@ -51,38 +51,6 @@ func load_initial_level() -> int:
 		return 0
 	return 0
 
-func _init_level_signals() -> void:
-	_level_manager._next_level.body_entered.connect(_next_level_body_entered)
-	_level_manager._next_level.body_exited.connect(_next_level_body_exited)
-	
-	for key in (Global.current_level_2D.get_tree().get_nodes_in_group("Keys")):
-		key.key_collected.connect(_handle_key_collected)
-
-func _next_level_body_entered(body: Node2D) -> void:
-	if (body.name == "Player"):
-		print("Player in exit.")
-		_player_in_next_level_exit = true
-
-func _next_level_body_exited(body: Node2D) -> void:
-	if (body.name == "Player"):
-		print("Player exit the exit.")
-		_player_in_next_level_exit = false
-
-func _handle_next_level() -> void:
-	var key_count : int = _level_manager._key_count
-	var key_collected_count : int = _level_manager._key_collected_count
-	if (key_count != key_collected_count):
-		print("Denied Entry: Not enough keys")
-		return
-	self.current_level_idx += 1
-	_level_manager.switch_level(levels[current_level_idx])
-	_init_level_signals()
-
-func _input(event: InputEvent) -> void:
-	if (event.is_action_pressed("up") and _player_in_next_level_exit):
-		print("Handling Exit.")
-		_handle_next_level()
-
-func _handle_key_collected() -> void:
-	_level_manager._add_collected_count()
-	print(_level_manager._key_collected_count)
+func _handle_level_exit(node : Node2D) -> void:
+	if (node.is_in_group("LevelExits")):
+		_level_manager.switch_level(node.next_level_name)

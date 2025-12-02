@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://cb0356qwm0jd0"]
-
-[node name="NextLevel" type="Area2D"]
-collision_layer = 0
-collision_mask = 8

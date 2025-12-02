@@ -1,7 +1,6 @@
 extends Node2D
 
-signal key_collected
-
+@export var key_type : Util.KeyType
 var _animated_sprite_2d : AnimatedSprite2D
 var _collider_area : Area2D
 var is_collected : bool
@@ -23,7 +22,8 @@ func _handle_body_entered(body: Node2D) -> void:
 		_handle_collected()
 
 func _handle_collected() -> void:
-	self.is_collected = true
-	_animated_sprite_2d.stop()
-	self.visible = false
-	key_collected.emit()
+	if (!is_collected):
+		self.is_collected = true
+		_animated_sprite_2d.stop()
+		self.visible = false
+		MessageBus.key_collected.emit(self)

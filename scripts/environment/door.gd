@@ -1,0 +1,70 @@
+extends Node2D
+
+var _animated_sprite : AnimatedSprite2D
+var _level_exit_area : Area2D
+
+@export var key_type_requirement : Util.KeyType
+@export var key_count_requirement : int
+
+var is_unlocked : bool
+var is_open : bool
+var is_player_in_exit_area : bool
+
+@export var next_level_name : String = "level_1"
+
+func _ready() -> void:
+	self.add_to_group("LevelExits")
+	_animated_sprite = $AnimatedSprite2D
+	_level_exit_area = $LevelExitArea
+	
+	if (_animated_sprite): 
+		_animated_sprite.play("close")
+	
+	if (_level_exit_area):
+		_level_exit_area.set_collision_layer_value(1, false)
+		_level_exit_area.set_collision_mask_value(1, false)
+		_level_exit_area.set_collision_mask_value(4, true)
+	
+	self.is_open = false
+	_check_unlock_requirement()
+	
+	_level_exit_area.body_entered.connect(_exit_area_body_entered)
+	_level_exit_area.body_exited.connect(_exit_area_body_exited)
+	MessageBus.key_collected.connect(_handle_key_collected)
+
+func _input(event: InputEvent) -> void:
+	if (event.is_action_pressed("up") and is_player_in_exit_area):
+		if (self.is_unlocked):
+			MessageBus.player_exit_attempt.emit(self)
+
+func _close_door() -> void:
+	if (self.is_open):
+		_animated_sprite.play("close")
+		self.is_open = false
+
+func _open_door() -> void:
+	if (!self.is_open):
+		_animated_sprite.play("open")
+		self.is_open = true
+
+func _exit_area_body_entered(body: Node2D):
+	if (body.name == "Player"):
+		if (self.is_unlocked and !self.is_open):
+			_open_door()
+		self.is_player_in_exit_area = true
+		MessageBus.player_entered_exit_area.emit()
+
+func _exit_area_body_exited(body: Node2D):
+	if (body.name == "Player"):
+		if (self.is_unlocked and self.is_open):
+			_close_door()
+		self.is_player_in_exit_area = false
+		MessageBus.player_exited_exit_area.emit()
+
+func _handle_key_collected(key: Node2D):
+	if (key.is_in_group("Keys") and key.key_type == self.key_type_requirement):
+		self.key_count_requirement -= 1
+		_check_unlock_requirement()
+
+func _check_unlock_requirement():
+	self.is_unlocked = true if (self.key_count_requirement == 0) else false

@@ -1,9 +1,6 @@
 class_name LevelManager extends Node
 
 var _player_spawnpoint : Node2D
-var _next_level : Area2D
-var _key_count : int
-var _key_collected_count : int
 
 func _ready() -> void:
 	Global.level_manager = self
@@ -11,13 +8,12 @@ func _ready() -> void:
 func unload_level(level_instance: Node2D) -> int:
 	if (!is_instance_valid(level_instance)):
 		return 1
+	Global.main_manager._main2D.remove_child(level_instance)
 	level_instance.queue_free()
-	
 	await level_instance.tree_exited
-	
 	Global.current_level_2D = null
+	Global.current_level_2D_file_name = ""
 	self._player_spawnpoint = null
-	self._next_level = null
 	return 0
 
 func load_level(level_name: String) -> int:
@@ -25,18 +21,14 @@ func load_level(level_name: String) -> int:
 	var level_resource := load(level_path)
 	if (!level_resource):
 		return 1
-	var level_instance = level_resource.instantiate()
+	var level_instance : Node2D = level_resource.instantiate()
 	if (!level_instance):
 		return 1
 	Global.main_manager._main2D.add_child(level_instance)
 	Global.current_level_2D = level_instance
-	_init_next_level()
-	_init_player_spawnpoint()
-	_count_level_keys()
-	_reset_collected_count()
+	Global.current_level_2D_file_name = level_name
+	_init_player_spawnpoint() 
 	
-	print("Key count: ", _key_count)
-	print("Keys collected: ", _key_collected_count)
 	return 0
 
 func switch_level(level_name: String) -> int:
@@ -45,6 +37,14 @@ func switch_level(level_name: String) -> int:
 		unload_level(Global.current_level_2D)
 	load_level(level_name)
 	spawn_player()
+	return 0
+
+func reset_level() -> int:
+	var current_level_file_name : String = Global.current_level_2D_file_name
+	if (!Global.current_level_2D):
+		return 1
+	unload_level(Global.current_level_2D)
+	load_level(current_level_file_name)
 	return 0
 
 func spawn_player() -> int:
@@ -75,33 +75,3 @@ func _init_player_spawnpoint() -> int:
 		return 1
 	self._player_spawnpoint = player_spawnpoint
 	return 0
-
-func _init_next_level() -> int:
-	var level = Global.current_level_2D
-	if (!level):
-		return 1
-	var next_level : Area2D = level.get_node("NextLevel")
-	if (!next_level):
-		return 1
-	self._next_level = next_level
-	return 0
-
-func _count_level_keys() -> int:
-	var level = Global.current_level_2D
-	if (!level):
-		return 1
-	var count : int = 0
-	for node in level.get_node("Keys").get_children():
-		if node.is_in_group("Keys"):
-			count += 1
-	self._key_count = count
-	return 0
-
-func _add_collected_count() -> void:
-	self._key_collected_count += 1
-	
-func _sub_collected_count() -> void:
-	self._key_collected_count -= 1
-
-func _reset_collected_count() -> void:
-	self._key_collected_count = 0

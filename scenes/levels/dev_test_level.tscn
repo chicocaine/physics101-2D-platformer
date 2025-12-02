@@ -1,13 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://dk55yn4ohjqpo"]
+[gd_scene load_steps=9 format=4 uid="uid://dk55yn4ohjqpo"]
 
 [ext_resource type="PackedScene" uid="uid://cg2idg1n16c6v" path="res://scenes/environment/player_spawnpoint.tscn" id="1_sc64n"]
 [ext_resource type="Texture2D" uid="uid://srysgn7uchl6" path="res://assets/sprites/tiles/Industrial Zone/1 Tiles/IndustrialTile_21.png" id="1_xmhrb"]
-[ext_resource type="PackedScene" uid="uid://cb0356qwm0jd0" path="res://scenes/environment/next_level.tscn" id="2_oikb5"]
 [ext_resource type="Texture2D" uid="uid://b8xc7ueup5t6v" path="res://assets/sprites/tiles/Industrial Zone/1 Tiles/IndustrialTile_09.png" id="2_sc64n"]
+[ext_resource type="PackedScene" uid="uid://bwy3q75iwd0fg" path="res://scenes/environment/door.tscn" id="2_wqbp8"]
 [ext_resource type="PackedScene" uid="uid://bdx0rf45snqmw" path="res://scenes/environment/keys.tscn" id="5_wqbp8"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oikb5"]
-size = Vector2(20, 45)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u8smc"]
 texture = ExtResource("1_xmhrb")
@@ -38,12 +35,12 @@ sources/1 = SubResource("TileSetAtlasSource_oikb5")
 [node name="PlayerSpawnpoint" parent="." instance=ExtResource("1_sc64n")]
 position = Vector2(-466, -9)
 
-[node name="NextLevel" parent="." instance=ExtResource("2_oikb5")]
-position = Vector2(670, 12)
+[node name="LevelExits" type="Node2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
-position = Vector2(0, 12.5)
-shape = SubResource("RectangleShape2D_oikb5")
+[node name="Door" parent="LevelExits" instance=ExtResource("2_wqbp8")]
+position = Vector2(651, 16)
+key_count_requirement = 3
+next_level_name = "dev_test_level_1"
 
 [node name="Background" type="Node2D" parent="."]
 

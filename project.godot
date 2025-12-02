@@ -19,6 +19,7 @@ config/features=PackedStringArray("4.5")
 [autoload]
 
 Util="*res://scripts/global/util.gd"
+MessageBus="*res://scripts/global/message_bus.gd"
 Global="*res://scripts/global/global.gd"
 
 [editor_plugins]

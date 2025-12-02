@@ -7,6 +7,8 @@ func unload_gui(gui_instance: Control) -> int:
 	if (!is_instance_valid(gui_instance)):
 		return 1
 	gui_instance.queue_free()
+	Global.current_gui = null
+	Global.current_gui_file_name = ""
 	return 0
 
 func load_gui(gui_name: String) -> int:
@@ -14,10 +16,12 @@ func load_gui(gui_name: String) -> int:
 	var gui_resource := load(gui_path)
 	if (!gui_resource):
 		return 1
-	var gui_instance = gui_resource.instantiate()
+	var gui_instance : Control = gui_resource.instantiate()
 	if (!gui_instance):
 		return 1
 	Global.main_manager._gui.add_child(gui_instance)
+	Global.current_gui = gui_instance
+	Global.current_gui_file_name = gui_name
 	return 0
 
 func show_gui(gui_instance: Control) -> int:
