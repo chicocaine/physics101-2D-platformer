@@ -84,6 +84,10 @@ up={
 2d_physics/layer_3="latch"
 2d_physics/layer_4="player"
 
+[physics]
+
+2d/solver/solver_iterations=64
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

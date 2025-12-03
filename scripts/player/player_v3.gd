@@ -39,7 +39,9 @@ class_name Player extends RigidBody2D
 @onready var shape: CollisionShape2D = $CollisionShape2D
 @onready var ground_ray: RayCast2D = $GroundRay
 @onready var _animated_sprite = $AnimatedSprite2D
-@onready var _hang_detector: Area2D = $HangDetector
+#@onready var _hang_detector: Area2D = $HangDetector
+@onready var _swing_controller : SwingController = $SwingController
+@onready var _traverse_controller: TraverseController = $TraverseController
 
 # Internal
 var _is_grounded := false
@@ -62,10 +64,10 @@ func _ready() -> void:
 	physics_material_override.friction = friction_coeff
 	physics_material_override.bounce = restitution
 	
-	if not _hang_detector.area_entered.is_connected(_on_hang_area_entered):
-		_hang_detector.area_entered.connect(_on_hang_area_entered)
-	if not _hang_detector.area_exited.is_connected(_on_hang_area_exited):
-		_hang_detector.area_exited.connect(_on_hang_area_exited)
+	#if not _hang_detector.area_entered.is_connected(_on_hang_area_entered):
+		#_hang_detector.area_entered.connect(_on_hang_area_entered)
+	#if not _hang_detector.area_exited.is_connected(_on_hang_area_exited):
+		#_hang_detector.area_exited.connect(_on_hang_area_exited)
 
 func _physics_process(_delta: float) -> void:
 	if _input_dir > 0:
@@ -122,6 +124,18 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 
 	var final_gravity := _env_gravity * gravity_scale_override if use_environment_gravity else _env_gravity
 	state.apply_central_force(Vector2(0, final_gravity * mass))
+	
+	if _swing_controller.is_swinging:
+		var jump_pressed = Input.is_action_just_pressed("jump")
+		
+		_swing_controller.process_swing(state, _input_dir, jump_pressed, jump_impulse)
+		return
+
+	if _traverse_controller.is_traversing:
+		var jump_pressed = Input.is_action_just_pressed("jump")
+		
+		_traverse_controller.process_traverse(state, _input_dir, jump_pressed, jump_impulse)
+		return
 
 	_apply_drag(state)
 	state.apply_central_force(force)

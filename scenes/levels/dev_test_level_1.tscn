@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://bwy3q75iwd0fg" path="res://scenes/environment/door.tscn" id="2_tptd3"]
 [ext_resource type="Texture2D" uid="uid://srysgn7uchl6" path="res://assets/sprites/tiles/Industrial Zone/1 Tiles/IndustrialTile_21.png" id="3_ymrbn"]
 [ext_resource type="Texture2D" uid="uid://b8xc7ueup5t6v" path="res://assets/sprites/tiles/Industrial Zone/1 Tiles/IndustrialTile_09.png" id="4_ud6ka"]
+[ext_resource type="PackedScene" uid="uid://ddvqv0se7pa7f" path="res://scenes/environment/swing_rope.tscn" id="7_lhejr"]
+[ext_resource type="PackedScene" uid="uid://b4da87r0jukj1" path="res://scenes/environment/traverse_rope.tscn" id="7_ud6ka"]
 [ext_resource type="PackedScene" uid="uid://dj56p4ktxhi4d" path="res://scenes/environment/console_1.tscn" id="5_icjyj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u8smc"]
@@ -51,6 +53,19 @@ tile_set = SubResource("TileSet_sc64n")
 
 [node name="Keys" type="Node2D" parent="."]
 
+[node name="TraverseRope" parent="." instance=ExtResource("7_ud6ka")]
+position = Vector2(243, -124)
+
+[node name="StartAnchor" parent="TraverseRope" index="0"]
+position = Vector2(-20, -32)
+
+[node name="EndAnchor" parent="TraverseRope" index="1"]
+position = Vector2(242, 90)
+
+[node name="SwingRope" parent="." instance=ExtResource("7_lhejr")]
+position = Vector2(621, -183)
+
+[editable path="TraverseRope"]
 [node name="Console2" parent="." instance=ExtResource("5_icjyj")]
 position = Vector2(-106, 27)
 action_name = "console 2 test"
