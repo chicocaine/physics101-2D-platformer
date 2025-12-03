@@ -6,6 +6,7 @@ var player : Player
 var main_manager : MainManager
 var level_manager : LevelManager
 var gui_manager : GUIManager
+var interaction_manager : InteractionManager
 var camera_controller : CameraController
 
 var dev_mode : int 
@@ -17,9 +18,17 @@ var current_level_2D_file_name : String
 
 
 func _ready() -> void:
+	player = PLAYER.instantiate()
+	player.name = "Player"
+	
 	dev_mode = Util.DevMode.TEST
 	gui_manager = GUIManager.new()
 	level_manager = LevelManager.new()
+	interaction_manager = InteractionManager.new()
 	
-	player = PLAYER.instantiate()
-	player.name = "Player"
+
+func _process(_delta: float) -> void:
+	_services()
+
+func _services() -> void:
+	interaction_manager.interaction_service_loop()

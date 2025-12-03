@@ -9,6 +9,7 @@ var _level_exit_area : Area2D
 var is_unlocked : bool
 var is_open : bool
 var is_player_in_exit_area : bool
+var can_play_animation : bool
 
 @export var next_level_name : String = "level_1"
 
@@ -19,6 +20,9 @@ func _ready() -> void:
 	
 	if (_animated_sprite): 
 		_animated_sprite.play("close")
+		self.can_play_animation = false
+		await _animated_sprite.animation_finished
+		self.can_play_animation = true
 	
 	if (_level_exit_area):
 		_level_exit_area.set_collision_layer_value(1, false)
@@ -31,20 +35,26 @@ func _ready() -> void:
 	_level_exit_area.body_entered.connect(_exit_area_body_entered)
 	_level_exit_area.body_exited.connect(_exit_area_body_exited)
 	MessageBus.key_collected.connect(_handle_key_collected)
+	MessageBus.up_is_pressed.connect(_handle_up_action_pressed)
 
-func _input(event: InputEvent) -> void:
-	if (event.is_action_pressed("up") and is_player_in_exit_area):
-		if (self.is_unlocked):
-			MessageBus.player_exit_attempt.emit(self)
+func _handle_up_action_pressed() -> void:
+	if (is_player_in_exit_area and self.is_unlocked):
+		MessageBus.player_exit_attempt.emit(self)
 
 func _close_door() -> void:
-	if (self.is_open):
+	if (self.is_open and self.can_play_animation):
 		_animated_sprite.play("close")
+		self.can_play_animation = false
+		await _animated_sprite.animation_finished
+		self.can_play_animation = true
 		self.is_open = false
 
 func _open_door() -> void:
-	if (!self.is_open):
+	if (!self.is_open and self.can_play_animation):
 		_animated_sprite.play("open")
+		self.can_play_animation = false
+		await _animated_sprite.animation_finished
+		self.can_play_animation = true
 		self.is_open = true
 
 func _exit_area_body_entered(body: Node2D):

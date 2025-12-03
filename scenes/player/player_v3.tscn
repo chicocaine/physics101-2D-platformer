@@ -402,9 +402,6 @@ position = Vector2(0, -17)
 shape = SubResource("RectangleShape2D_8uwif")
 debug_color = Color(0.98374575, 0, 0.3545233, 0.41960785)
 
-[node name="InteractingComponent" parent="." instance=ExtResource("2_0imrl")]
-position = Vector2(0, -20)
-
 [node name="GroundRay" type="RayCast2D" parent="."]
 position = Vector2(0, -15)
 target_position = Vector2(0, 18)
