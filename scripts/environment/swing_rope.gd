@@ -13,7 +13,7 @@ var segments: Array = []
 func _ready() -> void:
 	create_rope()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	get_rope_points()
 
 func create_rope() -> void:

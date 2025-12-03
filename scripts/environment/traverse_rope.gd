@@ -46,7 +46,7 @@ func add_segment(parent: Node2D, id: int, spawn_angle: float, length: float) -> 
 	new_segment.global_position = parent_joint.global_position
 	new_segment.rotation = spawn_angle
 	new_segment.id = id
-	new_segment.rope_controller = self
+	new_segment.rope_instance = self
 	
 	var my_joint = new_segment.get_node("Joint")
 	my_joint.position = Vector2(0, length)

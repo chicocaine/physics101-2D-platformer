@@ -9,7 +9,7 @@
 radius = 6.5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8uwif"]
-size = Vector2(15.5, 10)
+size = Vector2(9, 10)
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_c5snc"]
 _data = PackedByteArray("AAADAAUAAAABAAAAeAAAAHgAAAA8AQAAUklGRjQBAABXRUJQVlA4TCgBAAAvd8AdEGegJgCQhvnuNJx0p4ItDKQmAJCG+c5gNCQNGXi1ipoAIBjznXXk9wnilmD+AwAAwKpiZqqKqqoq/7ft16/NrLvx9gCKs22Om39N64y7aWjQyt0oxd1wtTewfm7kG0RLraCBUdi/JA2tK3du1TOfJtCK6P8E0Bmwx3f7njbpL7abjHWxJJ8dN5uTbU8ikiYaDAZbkISuOIreQCS9YL6bbDYZ2ygWkTkz82hzIuufROSWB4PB4C1jH8Uit4MFczRBeIr7RT3nwWBAiE+N1kMy2GxuIMgPi7KRJIWhgtajyCWB+o1Go3GBoj54KOT/zwIkFTTCIlDYAGo0tMa5N8Z4KLQ2xtSdpOA0Un3loayNWbqqvnKTgiK9RCKXVQlXOYu0h3T2KQ==")
@@ -449,7 +449,7 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TraverseController/TraverseDetector"]
-position = Vector2(0, -35)
+position = Vector2(0, -33)
 shape = SubResource("RectangleShape2D_8uwif")
 debug_color = Color(0.98374575, 0, 0.3545233, 0.41960785)
 
@@ -462,6 +462,6 @@ collision_layer = 8
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SwingController/SwingDetector"]
-position = Vector2(0, -35)
+position = Vector2(0, -33)
 shape = SubResource("RectangleShape2D_8uwif")
 debug_color = Color(0.98374575, 0, 0.3545233, 0.41960785)

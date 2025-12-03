@@ -6,9 +6,10 @@ extends Node2D
 @export var traverse_speed := 10.0
 @export var traverse_cooldown := 1.0
 @export var jump_off_force := 400.0
+@export var attached_mass := 3
 
 var is_traversing := false
-var current_rope_controller: Node2D = null 
+var current_rope: Node2D = null 
 var current_segment_index: int = 0
 var segment_progress: float = 0.5 
 
@@ -37,12 +38,15 @@ func process_traverse(state: PhysicsDirectBodyState2D, input_dir: float, jump_pr
 		
 		if input_dir < 0:
 			_sprite.flip_h = true
-			_sprite.offset = Vector2(10, 0)
 		else:
 			_sprite.flip_h = false
-			_sprite.offset = Vector2(-10, 0)
-
-	var segments = current_rope_controller.segments
+	
+	if _sprite.flip_h:
+		_sprite.offset = Vector2(10, 0) # HACK
+	else:
+		_sprite.offset = Vector2(-20, 0) # HACK
+		
+	var segments = current_rope.segments
 	var previous_index = current_segment_index
 	
 	if segment_progress > 1.0:
@@ -68,8 +72,8 @@ func process_traverse(state: PhysicsDirectBodyState2D, input_dir: float, jump_pr
 	
 	var current_segment = segments[current_segment_index]
 	
-	var start_pos = current_segment.global_position
-	var end_pos = current_segment.get_node("Joint").global_position
+	var start_pos = current_segment.global_position + traverse_detector.position
+	var end_pos = current_segment.get_node("Joint").global_position + traverse_detector.position
 	
 	var target_pos = start_pos.lerp(end_pos, segment_progress)
 	
@@ -90,13 +94,13 @@ func _on_body_entered(body: Node) -> void:
 
 func _attach(segment: Object, hit_pos: Vector2):
 	is_traversing = true
-	current_rope_controller = segment.rope_controller
+	current_rope = segment.rope_instance
 	current_segment_index = segment.id
 	
 	# fake mass TODO: ease in mass addition
-	_added_mass = _parent_body.mass + 3
-	segment.mass += _added_mass
+	_added_mass = _parent_body.mass + attached_mass
 	segment.sleeping = false
+	segment.mass += _added_mass
 
 	var segment_start_pos = segment.global_position
 	var segment_end_pos = segment.get_node("Joint").global_position
@@ -109,11 +113,14 @@ func _attach(segment: Object, hit_pos: Vector2):
 		segment_progress = 0.5
 
 func _detach():
-	if current_rope_controller != null:
-		var segments = current_rope_controller.segments
+	if current_rope != null:
+		var segments = current_rope.segments
 		segments[current_segment_index].mass -= _added_mass
 	is_traversing = false
-	current_rope_controller = null
+	current_rope = null
 	_traverse_cooldown_timer = traverse_cooldown
 	_sprite.offset = Vector2.ZERO
-	_sprite.play("fall") # TODO: only fall when not touching ground (player controller)
+	_sprite.play("fall")
+
+func _get_player_pos_on_rope():
+	return current_rope.segments[current_segment_index].global_position - traverse_detector.position
