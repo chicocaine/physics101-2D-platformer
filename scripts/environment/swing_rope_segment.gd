@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@export var swing_force = 350.0
+@export var swing_force = 500.0
 
 func _ready() -> void:
 	pass

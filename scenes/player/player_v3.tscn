@@ -1,7 +1,9 @@
-[gd_scene load_steps=55 format=4 uid="uid://bxbvmb15uiomg"]
+[gd_scene load_steps=57 format=4 uid="uid://bxbvmb15uiomg"]
 
 [ext_resource type="Script" uid="uid://gnv2lkyg2ipq" path="res://scripts/player/player_v3.gd" id="1_s42yj"]
 [ext_resource type="PackedScene" uid="uid://s0e53pnrsniy" path="res://scenes/components/interacting_component.tscn" id="2_0imrl"]
+[ext_resource type="Script" uid="uid://dg587t6u6dhrn" path="res://scripts/controllers/traverse_controller.gd" id="3_0imrl"]
+[ext_resource type="Script" uid="uid://betdpy3ramv5t" path="res://scripts/controllers/swing_controller.gd" id="3_oo0dc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qek5x"]
 radius = 6.5
@@ -376,7 +378,7 @@ animations = [{
 }]
 
 [node name="Player_v3" type="RigidBody2D"]
-collision_layer = 8
+collision_layer = 9
 can_sleep = false
 lock_rotation = true
 contact_monitor = true
@@ -411,7 +413,7 @@ target_position = Vector2(0, 18)
 texture_filter = 1
 position = Vector2(0, -20)
 sprite_frames = SubResource("SpriteFrames_pi6yl")
-animation = &"run"
+animation = &"hold"
 autoplay = "idle"
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
@@ -437,3 +439,29 @@ metadata/_aseprite_wizard_config_ = {
 "source_uid": 1457866468082165945
 }
 metadata/_aseprite_wizard_source_file_hash_ = "6d104f56e04e36ae95b7d37c3aa43055"
+
+[node name="TraverseController" type="Node2D" parent="."]
+script = ExtResource("3_0imrl")
+metadata/_custom_type_script = "uid://dg587t6u6dhrn"
+
+[node name="TraverseDetector" type="Area2D" parent="TraverseController"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TraverseController/TraverseDetector"]
+position = Vector2(0, -35)
+shape = SubResource("RectangleShape2D_8uwif")
+debug_color = Color(0.98374575, 0, 0.3545233, 0.41960785)
+
+[node name="SwingController" type="Node2D" parent="."]
+script = ExtResource("3_oo0dc")
+metadata/_custom_type_script = "uid://betdpy3ramv5t"
+
+[node name="SwingDetector" type="Area2D" parent="SwingController"]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwingController/SwingDetector"]
+position = Vector2(0, -35)
+shape = SubResource("RectangleShape2D_8uwif")
+debug_color = Color(0.98374575, 0, 0.3545233, 0.41960785)

@@ -24,16 +24,32 @@ func _process(delta: float) -> void:
 	if _swing_cooldown_timer > 0:
 		_swing_cooldown_timer -= delta
 	
-	if is_swinging:
-		_sprite.play("hold") # TODO: hold sprite offset
+	if is_swinging and is_instance_valid(current_rope):
+		_sprite.play("hold")
+
+		var target_rotation = current_rope.global_rotation
+		_sprite.global_rotation = lerp_angle(_sprite.global_rotation, target_rotation, 30.0 * delta)
+
+		var dir_multiplier = -1.0 if _sprite.flip_h else 1.0
+		var target_x = -12.0 * dir_multiplier
+		var target_y = 4.0
+
+		_sprite.offset.x = target_x 
+		_sprite.offset.y = lerp(_sprite.offset.y, target_y, 10.0 * delta)
+		
+	else:
+		if _sprite.global_rotation != 0.0:
+			_sprite.global_rotation = lerp_angle(_sprite.global_rotation, 0.0, 15.0 * delta)
+		
+		if _sprite.offset != Vector2.ZERO:
+			_sprite.offset = _sprite.offset.lerp(Vector2.ZERO, 15.0 * delta)
 
 func process_swing(state: PhysicsDirectBodyState2D, 
 					input_dir: float, 
-					jump_pressed: bool, 
-					crouch_pressed: bool, 
+					jump_pressed: bool,
 					jump_velocity: float) -> void:
 	if not is_instance_valid(current_rope):
-		detach(false)
+		detach()
 		return
 	
 	if is_swinging:
@@ -42,14 +58,11 @@ func process_swing(state: PhysicsDirectBodyState2D,
 
 		if jump_pressed:
 			var rope_ref = current_rope
-			detach(true) 
-			state.apply_central_impulse(Vector2(0, jump_velocity * _parent_body.mass))
+			detach() 
+			state.apply_central_impulse(Vector2(0, -jump_velocity * _parent_body.mass))
 			rope_ref.apply_central_impulse(Vector2(-input_dir * 100, 0))
 			return
-			
-		elif crouch_pressed:
-			detach(true)
-			return
+
 		return
 
 func _on_body_entered(body: RigidBody2D) -> void:
@@ -73,14 +86,12 @@ func _attach(rope: RigidBody2D) -> void:
 	get_tree().current_scene.add_child(_joint)
 	print("hanged onto", current_rope)
 
-func detach(apply_cooldown: bool) -> void:
+func detach() -> void:
 	is_swinging = false
 	current_rope = null
 	
-	if is_instance_valid(_joint):
-		_joint.queue_free()
-	
+	_joint.queue_free()
 	_joint = null
-	
-	if apply_cooldown:
-		_swing_cooldown_timer = swing_cooldown
+	_swing_cooldown_timer = swing_cooldown
+	_sprite.offset = Vector2.ZERO
+	_sprite.play("fall")

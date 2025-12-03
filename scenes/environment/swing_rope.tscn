@@ -20,6 +20,8 @@ shape = SubResource("CircleShape2D_ghbyf")
 
 [node name="Joint" type="PinJoint2D" parent="Anchor"]
 node_a = NodePath("..")
+bias = 0.9
+softness = 1.0
 
 [node name="RopeLine" type="Line2D" parent="." groups=["Hangable"]]
 width = 2.0

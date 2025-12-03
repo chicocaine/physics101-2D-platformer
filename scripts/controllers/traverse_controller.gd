@@ -31,16 +31,16 @@ func _process(delta: float) -> void:
 	if is_traversing:
 		_sprite.play("hold")
 
-func process_traverse(state: PhysicsDirectBodyState2D, input_dir: float, jump_pressed: bool, crouch_pressed: bool, jump_velocity: float):
+func process_traverse(state: PhysicsDirectBodyState2D, input_dir: float, jump_pressed: bool, jump_velocity: float):
 	if input_dir != 0:
 		segment_progress += input_dir * traverse_speed * state.step
 		
 		if input_dir < 0:
 			_sprite.flip_h = true
-			_sprite.offset = Vector2(20, 0) # HACK: force offset
+			_sprite.offset = Vector2(10, 0)
 		else:
 			_sprite.flip_h = false
-			_sprite.offset = Vector2.ZERO
+			_sprite.offset = Vector2(-10, 0)
 
 	var segments = current_rope_controller.segments
 	var previous_index = current_segment_index
@@ -73,16 +73,13 @@ func process_traverse(state: PhysicsDirectBodyState2D, input_dir: float, jump_pr
 	
 	var target_pos = start_pos.lerp(end_pos, segment_progress)
 	
-	state.transform.origin = target_pos - Vector2(0, -60) 
+	state.transform.origin = target_pos - Vector2(-10, -40) # HACK: offset hand to rope
 	state.linear_velocity = Vector2.ZERO
 	
 	if jump_pressed:
 		_detach()
-		state.apply_central_impulse(Vector2(0, jump_velocity * _parent_body.mass))
+		state.apply_central_impulse(Vector2(0, -jump_velocity * _parent_body.mass))
 		current_segment.apply_central_impulse(Vector2(-input_dir * 100, 0))
-	
-	if crouch_pressed:
-		_detach()
 
 func _on_body_entered(body: Node) -> void:
 	if is_traversing or _traverse_cooldown_timer > 0:
@@ -118,4 +115,5 @@ func _detach():
 	is_traversing = false
 	current_rope_controller = null
 	_traverse_cooldown_timer = traverse_cooldown
+	_sprite.offset = Vector2.ZERO
 	_sprite.play("fall") # TODO: only fall when not touching ground (player controller)
