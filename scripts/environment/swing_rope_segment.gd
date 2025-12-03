@@ -2,12 +2,6 @@ extends RigidBody2D
 
 @export var swing_force = 500.0
 
-func _ready() -> void:
-	pass
-
-func _process(_delta: float) -> void:
-	pass
-
 func apply_swing(direction: float):
 	if direction == 0:
 		return
