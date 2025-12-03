@@ -4,8 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://b7sesoj2yx6j7" path="res://assets/sprites/tiles/TX Village Props.png" id="2_limtx"]
 [ext_resource type="Texture2D" uid="uid://p21gfo0xv5l4" path="res://icon.svg" id="4_xmnyv"]
 [ext_resource type="Script" uid="uid://bmshl6tcaaass" path="res://scripts/test/test_interactable.gd" id="5_7rg7d"]
-[ext_resource type="PackedScene" uid="uid://bbsutqjq7imy5" path="res://scenes/environment/interactable.tscn" id="5_limtx"]
+[ext_resource type="PackedScene" uid="uid://bbsutqjq7imy5" path="res://scenes/environment/interaction_area.tscn" id="5_limtx"]
 [ext_resource type="PackedScene" uid="uid://bxbvmb15uiomg" path="res://scenes/player/player_v3.tscn" id="6_limtx"]
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("1_a1osm")

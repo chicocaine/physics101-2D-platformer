@@ -56,5 +56,7 @@ func _handle_level_exit(node : Node2D) -> void:
 
 func _handle_player_entered_killzone() -> void:
 	_camera_controller.release_focus()
+	_camera_controller.follow_target = false
 	_level_manager.reset_level()
 	_camera_controller.set_target(Global.player)
+	_camera_controller.follow_target = true
