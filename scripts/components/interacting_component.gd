@@ -1,5 +1,5 @@
 extends Node2D
-
+## moved to interaction manager
 @onready var interaction_area : Area2D = $InteractionArea
 @onready var interact_label : Label = $InteractLabel
 var current_interactions := []

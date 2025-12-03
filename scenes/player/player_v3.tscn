@@ -1,7 +1,6 @@
-[gd_scene load_steps=55 format=4 uid="uid://bxbvmb15uiomg"]
+[gd_scene load_steps=54 format=4 uid="uid://bxbvmb15uiomg"]
 
 [ext_resource type="Script" uid="uid://gnv2lkyg2ipq" path="res://scripts/player/player_v3.gd" id="1_s42yj"]
-[ext_resource type="PackedScene" uid="uid://s0e53pnrsniy" path="res://scenes/components/interacting_component.tscn" id="2_0imrl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qek5x"]
 radius = 6.5
@@ -399,9 +398,6 @@ collision_mask = 4
 position = Vector2(0, -17)
 shape = SubResource("RectangleShape2D_8uwif")
 debug_color = Color(0.98374575, 0, 0.3545233, 0.41960785)
-
-[node name="InteractingComponent" parent="." instance=ExtResource("2_0imrl")]
-position = Vector2(0, -20)
 
 [node name="GroundRay" type="RayCast2D" parent="."]
 position = Vector2(0, -15)

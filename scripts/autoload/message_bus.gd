@@ -11,3 +11,9 @@ signal player_exit_attempt
 
 # killzone
 signal player_entered_kill_zone
+
+# interactions
+signal closest_player_updated
+
+# input_signals
+signal up_is_pressed

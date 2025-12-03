@@ -1,5 +1,4 @@
-extends RigidBody2D
-class_name Player
+class_name Player extends RigidBody2D
 
 @export_category("Environment Scaling")
 @export var use_environment_gravity := true

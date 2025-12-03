@@ -2,8 +2,9 @@ class_name LevelManager extends Node
 
 var _player_spawnpoint : Node2D
 
-func _ready() -> void:
-	Global.level_manager = self
+func _init() -> void:
+	if (!Global.level_manager):
+		Global.level_manager = self
 
 func unload_level(level_instance: Node2D) -> int:
 	if !is_instance_valid(level_instance):

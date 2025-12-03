@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=3 uid="uid://dj56p4ktxhi4d"]
+
+[ext_resource type="Script" uid="uid://b5m137t8mqqf0" path="res://scripts/environment/console_1.gd" id="1_772v0"]
+[ext_resource type="PackedScene" uid="uid://bbsutqjq7imy5" path="res://scenes/environment/interaction_area.tscn" id="1_n1aa8"]
+[ext_resource type="Texture2D" uid="uid://bt5vo1bi02tw3" path="res://assets/sprites/tiles/Industrial Zone/4 Animated objects/Screen2.png" id="2_772v0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_st3yj"]
+size = Vector2(85.5, 59.25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mg570"]
+atlas = ExtResource("2_772v0")
+region = Rect2(0, 0, 32, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jq5cu"]
+atlas = ExtResource("2_772v0")
+region = Rect2(32, 0, 32, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ihyf"]
+atlas = ExtResource("2_772v0")
+region = Rect2(64, 0, 32, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1xqw"]
+atlas = ExtResource("2_772v0")
+region = Rect2(96, 0, 32, 42)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2pgce"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mg570")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jq5cu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ihyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1xqw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Console1" type="Node2D"]
+script = ExtResource("1_772v0")
+
+[node name="InteractionArea" parent="." instance=ExtResource("1_n1aa8")]
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("RectangleShape2D_st3yj")
+debug_color = Color(0.655322, 0.69428945, 7.70092e-07, 0.41960785)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2pgce")
+frame_progress = 0.21050824

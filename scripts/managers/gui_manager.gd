@@ -1,7 +1,8 @@
 class_name GUIManager extends Node
 
-func _ready() -> void:
-	Global.gui_manager = self
+func _init() -> void:
+	if (!Global.gui_manager):
+		Global.gui_manager = self
 
 func unload_gui(gui_instance: Control) -> int:
 	if (!is_instance_valid(gui_instance)):
