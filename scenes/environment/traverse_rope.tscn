@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4da87r0jukj1"]
+
+[ext_resource type="Script" uid="uid://dnineeblvkhpm" path="res://scripts/environment/traverse_rope.gd" id="1_hcajc"]
+[ext_resource type="PackedScene" uid="uid://6n4vhqhibmfq" path="res://scenes/environment/traverse_rope_segment.tscn" id="2_pducx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hcajc"]
+radius = 2.0
+
+[node name="TraverseRope" type="Node2D"]
+script = ExtResource("1_hcajc")
+segment_scene = ExtResource("2_pducx")
+
+[node name="StartAnchor" type="StaticBody2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartAnchor"]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_hcajc")
+
+[node name="Joint" type="PinJoint2D" parent="StartAnchor"]
+node_a = NodePath("..")
+
+[node name="EndAnchor" type="StaticBody2D" parent="."]
+position = Vector2(58, 0)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndAnchor"]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_hcajc")
+
+[node name="Joint" type="PinJoint2D" parent="EndAnchor"]
+node_a = NodePath("..")
+
+[node name="RopeLine" type="Line2D" parent="."]
