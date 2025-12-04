@@ -25,7 +25,6 @@ class_name Player extends RigidBody2D
 @export_category("Slopes")
 @export var max_slope_angle := 40.0
 
-## Still Temporary
 @export_category("Acceleration")
 @export var accel_ground := 2400.0
 @export var accel_air := 1200.0
@@ -39,7 +38,6 @@ class_name Player extends RigidBody2D
 @onready var shape: CollisionShape2D = $CollisionShape2D
 @onready var ground_ray: RayCast2D = $GroundRay
 @onready var _animated_sprite = $AnimatedSprite2D
-#@onready var _hang_detector: Area2D = $HangDetector
 @onready var _swing_controller : SwingController = $SwingController
 @onready var _traverse_controller: TraverseController = $TraverseController
 
@@ -47,7 +45,6 @@ class_name Player extends RigidBody2D
 var _is_grounded := false
 var _was_grounded := false
 var _is_running := false
-var _is_hanging := false
 var _input_dir := 0.0
 
 var _env_gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -63,11 +60,6 @@ func _ready() -> void:
 	physics_material_override = PhysicsMaterial.new()
 	physics_material_override.friction = friction_coeff
 	physics_material_override.bounce = restitution
-	
-	#if not _hang_detector.area_entered.is_connected(_on_hang_area_entered):
-		#_hang_detector.area_entered.connect(_on_hang_area_entered)
-	#if not _hang_detector.area_exited.is_connected(_on_hang_area_exited):
-		#_hang_detector.area_exited.connect(_on_hang_area_exited)
 
 func _physics_process(_delta: float) -> void:
 	if _input_dir > 0:
@@ -100,9 +92,6 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 
 	_update_timers(state, _was_grounded)
 	_handle_input()
-
-	if _is_hanging:
-		_handle_hanging(state)
 
 	var force := Vector2.ZERO
 	if _input_dir != 0.0:
@@ -164,21 +153,17 @@ func _apply_drag(state: PhysicsDirectBodyState2D) -> void:
 
 func _check_ground(state: PhysicsDirectBodyState2D) -> bool:
 	var threshold := _slope_dot_threshold()
-
 	# Check contacts
 	for i in range(state.get_contact_count()):
 		var n := state.get_contact_local_normal(i)
-
 		# Rotation locked → Vector2.UP is the character's local up
 		if n.dot(Vector2.UP) >= threshold:
 			return true
-
 	# Fallback ray (world-space normal)
 	if ground_ray.is_colliding():
 		var rn := ground_ray.get_collision_normal()
 		if rn.dot(Vector2.UP) >= threshold:
 			return true
-
 	return false
 
 func _clamp_velocity(state: PhysicsDirectBodyState2D) -> void:
@@ -196,17 +181,3 @@ func _slope_dot_threshold() -> float:
 
 func _is_slope_too_steep(normal: Vector2) -> bool:
 	return normal.dot(Vector2.UP) < _slope_dot_threshold()
-
-func _on_hang_area_entered(area: Area2D) -> void:
-	print("Detected hang area: ", area)
-	if area.is_in_group("Hangable"):
-		_is_hanging = true
-
-func _on_hang_area_exited(area: Area2D) -> void:
-	print("Left")
-	if area:
-		_is_hanging = false
-
-func _handle_hanging(_state: PhysicsDirectBodyState2D) -> void:
-	# handle hanging
-	return

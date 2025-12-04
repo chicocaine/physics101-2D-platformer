@@ -1,12 +1,12 @@
-[gd_scene load_steps=9 format=4 uid="uid://bnwrdvdos25vh"]
+[gd_scene load_steps=11 format=4 uid="uid://bnwrdvdos25vh"]
 
 [ext_resource type="PackedScene" uid="uid://cg2idg1n16c6v" path="res://scenes/environment/player_spawnpoint.tscn" id="1_tptd3"]
 [ext_resource type="PackedScene" uid="uid://bwy3q75iwd0fg" path="res://scenes/environment/door.tscn" id="2_tptd3"]
 [ext_resource type="Texture2D" uid="uid://srysgn7uchl6" path="res://assets/sprites/tiles/Industrial Zone/1 Tiles/IndustrialTile_21.png" id="3_ymrbn"]
 [ext_resource type="Texture2D" uid="uid://b8xc7ueup5t6v" path="res://assets/sprites/tiles/Industrial Zone/1 Tiles/IndustrialTile_09.png" id="4_ud6ka"]
+[ext_resource type="PackedScene" uid="uid://dj56p4ktxhi4d" path="res://scenes/environment/console_1.tscn" id="5_icjyj"]
 [ext_resource type="PackedScene" uid="uid://ddvqv0se7pa7f" path="res://scenes/environment/swing_rope.tscn" id="7_lhejr"]
 [ext_resource type="PackedScene" uid="uid://b4da87r0jukj1" path="res://scenes/environment/traverse_rope.tscn" id="7_ud6ka"]
-[ext_resource type="PackedScene" uid="uid://dj56p4ktxhi4d" path="res://scenes/environment/console_1.tscn" id="5_icjyj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u8smc"]
 texture = ExtResource("3_ymrbn")
@@ -65,7 +65,6 @@ position = Vector2(242, 90)
 [node name="SwingRope" parent="." instance=ExtResource("7_lhejr")]
 position = Vector2(621, -183)
 
-[editable path="TraverseRope"]
 [node name="Console2" parent="." instance=ExtResource("5_icjyj")]
 position = Vector2(-106, 27)
 action_name = "console 2 test"
@@ -73,3 +72,5 @@ action_name = "console 2 test"
 [node name="Console1" parent="." instance=ExtResource("5_icjyj")]
 position = Vector2(-158, 27)
 action_name = "console 1 test"
+
+[editable path="TraverseRope"]

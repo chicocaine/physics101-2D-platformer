@@ -6,14 +6,14 @@
 radius = 2.0
 height = 8.0
 
-[node name="TraverseRopeSegment" type="RigidBody2D" groups=["Traversable"]]
+[node name="TraverseRopeSegment" type="RigidBody2D"]
 collision_layer = 8
 collision_mask = 0
 linear_damp = 1.0
 angular_damp = 1.0
 script = ExtResource("1_bm7jj")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Hangable"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_vdp7w")
 

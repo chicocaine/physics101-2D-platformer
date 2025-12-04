@@ -32,7 +32,3 @@ shape = SubResource("CircleShape2D_hcajc")
 
 [node name="Joint" type="PinJoint2D" parent="EndAnchor"]
 node_a = NodePath("..")
-
-[node name="RopeLine" type="Line2D" parent="." groups=["Hangable"]]
-width = 2.0
-default_color = Color(0.1330441, 0.05720486, 0.009275974, 1)

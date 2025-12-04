@@ -84,7 +84,6 @@ func _attach(rope: RigidBody2D) -> void:
 	_joint.disable_collision = true 
 	
 	get_tree().current_scene.add_child(_joint)
-	print("hanged onto", current_rope)
 
 func detach() -> void:
 	is_swinging = false

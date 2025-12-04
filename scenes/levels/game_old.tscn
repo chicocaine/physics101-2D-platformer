@@ -1,14 +1,10 @@
-[gd_scene load_steps=18 format=4 uid="uid://bg3u0etfxqk0w"]
+[gd_scene load_steps=11 format=4 uid="uid://c8ygnbrccfd1h"]
 
 [ext_resource type="Texture2D" uid="uid://btlia5tjey0gh" path="res://assets/sprites/tiles/TX Tileset Ground.png" id="1_a1osm"]
 [ext_resource type="Texture2D" uid="uid://b7sesoj2yx6j7" path="res://assets/sprites/tiles/TX Village Props.png" id="2_limtx"]
 [ext_resource type="Texture2D" uid="uid://p21gfo0xv5l4" path="res://icon.svg" id="4_xmnyv"]
-[ext_resource type="Script" uid="uid://bmshl6tcaaass" path="res://scripts/test/test_interactable.gd" id="5_7rg7d"]
-[ext_resource type="PackedScene" uid="uid://ddvqv0se7pa7f" path="res://scenes/environment/swing_rope.tscn" id="6_7rg7d"]
-[ext_resource type="PackedScene" uid="uid://bbsutqjq7imy5" path="res://scenes/environment/interaction_area.tscn" id="5_limtx"]
 [ext_resource type="PackedScene" uid="uid://bxbvmb15uiomg" path="res://scenes/player/player_v3.tscn" id="6_limtx"]
 [ext_resource type="PackedScene" uid="uid://b4da87r0jukj1" path="res://scenes/environment/traverse_rope.tscn" id="7_xmnyv"]
-
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("1_a1osm")
@@ -786,15 +782,6 @@ sources/0 = SubResource("TileSetAtlasSource_lbhrr")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iywne"]
 size = Vector2(45.5, 45.5)
 
-[sub_resource type="SphereMesh" id="SphereMesh_limtx"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_a1osm"]
-radius = 7.0
-
-[sub_resource type="BoxMesh" id="BoxMesh_a1osm"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7rg7d"]
-
 [node name="Game" type="Node2D"]
 
 [node name="Tiles" type="Node2D" parent="."]
@@ -850,74 +837,6 @@ texture = ExtResource("4_xmnyv")
 scale = Vector2(0.88924164, 0.88924164)
 shape = SubResource("RectangleShape2D_iywne")
 
-[node name="test_latchable4" type="Area2D" parent="." groups=["Hangable"]]
-position = Vector2(812, -165)
-collision_layer = 4
-collision_mask = 8
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="test_latchable4"]
-scale = Vector2(14.015877, 14.000002)
-mesh = SubResource("SphereMesh_limtx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="test_latchable4" groups=["Hangable"]]
-shape = SubResource("CircleShape2D_a1osm")
-
-[node name="test_latchable3" type="Area2D" parent="." groups=["Hangable"]]
-position = Vector2(582, -61)
-collision_layer = 4
-collision_mask = 8
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="test_latchable3"]
-scale = Vector2(14.015877, 14.000002)
-mesh = SubResource("SphereMesh_limtx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="test_latchable3" groups=["Hangable"]]
-shape = SubResource("CircleShape2D_a1osm")
-
-[node name="test_latchable2" type="Area2D" parent="." groups=["Hangable"]]
-position = Vector2(378, 45)
-collision_layer = 4
-collision_mask = 8
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="test_latchable2"]
-scale = Vector2(14.015877, 14.000002)
-mesh = SubResource("SphereMesh_limtx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="test_latchable2" groups=["Hangable"]]
-shape = SubResource("CircleShape2D_a1osm")
-
-[node name="test_latchable" type="Area2D" parent="." groups=["Hangable"]]
-position = Vector2(378, -18)
-collision_layer = 4
-collision_mask = 8
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="test_latchable"]
-scale = Vector2(14.015877, 14.000002)
-mesh = SubResource("SphereMesh_limtx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="test_latchable" groups=["Hangable"]]
-shape = SubResource("CircleShape2D_a1osm")
-
-[node name="test_interactable" type="Node2D" parent="."]
-position = Vector2(700, -139)
-script = ExtResource("5_7rg7d")
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="test_interactable"]
-scale = Vector2(16, 16)
-mesh = SubResource("BoxMesh_a1osm")
-
-[node name="Interactable" parent="test_interactable" instance=ExtResource("5_limtx")]
-interact_name = "test_interaction"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="test_interactable/Interactable"]
-scale = Vector2(0.8, 0.8)
-shape = SubResource("RectangleShape2D_7rg7d")
-debug_color = Color(0.2180979, 0.52742815, 0.9491175, 0.41960785)
-
-[node name="SwingRope" parent="." instance=ExtResource("6_7rg7d")]
-position = Vector2(-58, 56)
-rotation = -2.3177972
-
 [node name="TraverseRope" parent="." instance=ExtResource("7_xmnyv")]
 
 [node name="StartAnchor" parent="TraverseRope" index="0"]
@@ -928,7 +847,6 @@ position = Vector2(247, 43)
 
 [node name="Player_v3" parent="." instance=ExtResource("6_limtx")]
 position = Vector2(941, -219)
-friction_coeff = 0.2
 
 [node name="Camera2D" type="Camera2D" parent="Player_v3"]
 position = Vector2(1, -16)

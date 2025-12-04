@@ -1,15 +1,11 @@
-[gd_scene load_steps=57 format=4 uid="uid://bxbvmb15uiomg"]
+[gd_scene load_steps=56 format=4 uid="uid://bxbvmb15uiomg"]
 
 [ext_resource type="Script" uid="uid://gnv2lkyg2ipq" path="res://scripts/player/player_v3.gd" id="1_s42yj"]
-[ext_resource type="PackedScene" uid="uid://s0e53pnrsniy" path="res://scenes/components/interacting_component.tscn" id="2_0imrl"]
 [ext_resource type="Script" uid="uid://dg587t6u6dhrn" path="res://scripts/controllers/traverse_controller.gd" id="3_0imrl"]
 [ext_resource type="Script" uid="uid://betdpy3ramv5t" path="res://scripts/controllers/swing_controller.gd" id="3_oo0dc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qek5x"]
 radius = 6.5
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8uwif"]
-size = Vector2(9, 10)
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_c5snc"]
 _data = PackedByteArray("AAADAAUAAAABAAAAeAAAAHgAAAA8AQAAUklGRjQBAABXRUJQVlA4TCgBAAAvd8AdEGegJgCQhvnuNJx0p4ItDKQmAJCG+c5gNCQNGXi1ipoAIBjznXXk9wnilmD+AwAAwKpiZqqKqqoq/7ft16/NrLvx9gCKs22Om39N64y7aWjQyt0oxd1wtTewfm7kG0RLraCBUdi/JA2tK3du1TOfJtCK6P8E0Bmwx3f7njbpL7abjHWxJJ8dN5uTbU8ikiYaDAZbkISuOIreQCS9YL6bbDYZ2ygWkTkz82hzIuufROSWB4PB4C1jH8Uit4MFczRBeIr7RT3nwWBAiE+N1kMy2GxuIMgPi7KRJIWhgtajyCWB+o1Go3GBoj54KOT/zwIkFTTCIlDYAGo0tMa5N8Z4KLQ2xtSdpOA0Un3loayNWbqqvnKTgiK9RCKXVQlXOYu0h3T2KQ==")
@@ -377,6 +373,9 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8uwif"]
+size = Vector2(9, 10)
+
 [node name="Player_v3" type="RigidBody2D"]
 collision_layer = 9
 can_sleep = false
@@ -392,15 +391,6 @@ air_control_factor = 0.1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -15)
 shape = SubResource("CapsuleShape2D_qek5x")
-
-[node name="HangDetector" type="Area2D" parent="."]
-collision_layer = 8
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HangDetector"]
-position = Vector2(0, -17)
-shape = SubResource("RectangleShape2D_8uwif")
-debug_color = Color(0.98374575, 0, 0.3545233, 0.41960785)
 
 [node name="GroundRay" type="RayCast2D" parent="."]
 position = Vector2(0, -15)

@@ -26,11 +26,9 @@ func _ready() -> void:
 	_camera_controller._set_level_size()
 
 func _process(_delta: float) -> void:
-	pass
 
-func _input(_event: InputEvent) -> void:
-	pass
-
+	for node in get_tree().get_nodes_in_group("Hangable"):
+		print(node)
 func _init_signals() -> void:
 	MessageBus.player_exit_attempt.connect(_handle_level_exit)
 	MessageBus.player_entered_kill_zone.connect(_handle_player_entered_killzone)

@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ghbyf"]
 radius = 2.0
 
-[node name="SwingRope" type="Node2D" groups=["Hangable"]]
+[node name="SwingRope" type="Node2D"]
 script = ExtResource("1_0jxq0")
 segment_scene = ExtResource("2_b1jvx")
 
@@ -23,6 +23,4 @@ node_a = NodePath("..")
 bias = 0.9
 softness = 1.0
 
-[node name="RopeLine" type="Line2D" parent="." groups=["Hangable"]]
-width = 2.0
-default_color = Color(0.1330441, 0.05720486, 0.009275974, 1)
+[node name="RopeLine" type="Line2D" parent="."]
