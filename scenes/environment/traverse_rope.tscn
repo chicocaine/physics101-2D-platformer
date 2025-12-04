@@ -32,3 +32,5 @@ shape = SubResource("CircleShape2D_hcajc")
 
 [node name="Joint" type="PinJoint2D" parent="EndAnchor"]
 node_a = NodePath("..")
+
+[node name="RopeLine" type="Line2D" parent="."]
