@@ -904,6 +904,7 @@ debug_color = Color(0.2180979, 0.52742815, 0.9491175, 0.41960785)
 
 [node name="PressurePlate" parent="." instance=ExtResource("8_xmnyv")]
 position = Vector2(375, 131)
+current_color = 1
 
 [node name="Player_v3" parent="." instance=ExtResource("6_limtx")]
 position = Vector2(303, 131)
