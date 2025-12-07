@@ -46,6 +46,7 @@ var _is_grounded := false
 var _was_grounded := false
 var _is_running := false
 var _input_dir := 0.0
+var _ground_normal := Vector2.UP
 
 var _env_gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -96,10 +97,15 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	var force := Vector2.ZERO
 	if _input_dir != 0.0:
 		var control := move_force if _is_grounded else move_force * air_control_factor
-		force.x = _input_dir * control
-
+		var target_dir = Vector2(_input_dir, 0)
+		
+		if _is_grounded:
+			target_dir = target_dir.slide(_ground_normal).normalized()
+		
+		force = target_dir * control
+		
 		if _is_running:
-			force.x *= run_multiplier
+			force *= run_multiplier
 
 	if Input.is_action_just_pressed("jump"):
 		_jump_buffer_timer = jump_input_buffer
@@ -112,7 +118,13 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 		_coyote_timer = 0.0
 
 	var final_gravity := _env_gravity * gravity_scale_override if use_environment_gravity else _env_gravity
-	state.apply_central_force(Vector2(0, final_gravity * mass))
+	var gravity_vector := Vector2(0, final_gravity * mass)
+	
+	if _is_grounded and _ground_normal != Vector2.UP:
+		var gravity_slide_component = gravity_vector.slide(_ground_normal)
+		state.apply_central_force(-gravity_slide_component)
+	
+	state.apply_central_force(gravity_vector)
 	
 	if _swing_controller.is_swinging:
 		var jump_pressed = Input.is_action_just_pressed("jump")
@@ -153,16 +165,19 @@ func _apply_drag(state: PhysicsDirectBodyState2D) -> void:
 
 func _check_ground(state: PhysicsDirectBodyState2D) -> bool:
 	var threshold := _slope_dot_threshold()
+	_ground_normal = Vector2.UP
 	# Check contacts
 	for i in range(state.get_contact_count()):
 		var n := state.get_contact_local_normal(i)
 		# Rotation locked → Vector2.UP is the character's local up
 		if n.dot(Vector2.UP) >= threshold:
+			_ground_normal = n
 			return true
 	# Fallback ray (world-space normal)
 	if ground_ray.is_colliding():
 		var rn := ground_ray.get_collision_normal()
 		if rn.dot(Vector2.UP) >= threshold:
+			_ground_normal = rn
 			return true
 	return false
 

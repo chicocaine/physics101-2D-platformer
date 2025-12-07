@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://btlia5tjey0gh" path="res://assets/sprites/tiles/TX Tileset Ground.png" id="1_a1osm"]
 [ext_resource type="Texture2D" uid="uid://b7sesoj2yx6j7" path="res://assets/sprites/tiles/TX Village Props.png" id="2_limtx"]
+[ext_resource type="PackedScene" uid="uid://cwet1bhuwwok" path="res://scenes/environment/lever.tscn" id="3_7rg7d"]
 [ext_resource type="Texture2D" uid="uid://p21gfo0xv5l4" path="res://icon.svg" id="4_xmnyv"]
 [ext_resource type="PackedScene" uid="uid://bxbvmb15uiomg" path="res://scenes/player/player_v3.tscn" id="6_limtx"]
 [ext_resource type="PackedScene" uid="uid://b4da87r0jukj1" path="res://scenes/environment/traverse_rope.tscn" id="7_xmnyv"]
@@ -794,6 +795,9 @@ tile_set = SubResource("TileSet_lbhrr")
 [node name="PropTileMap" type="TileMapLayer" parent="Tiles"]
 tile_map_data = PackedByteArray("AAAGAP7/AAAcABIAAAAGAPv/AAAaAA0AAAD+////AAASABIAAAD/////AAATABIAAAAAAP//AAAUABIAAAD///7/AAATABEAAAABAP//AAAMAA4AAAA=")
 tile_set = SubResource("TileSet_iywne")
+
+[node name="Lever" parent="Tiles" instance=ExtResource("3_7rg7d")]
+position = Vector2(-186, -17)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." groups=["Pushable"]]
 position = Vector2(626, -2)

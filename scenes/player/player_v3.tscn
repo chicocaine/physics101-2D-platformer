@@ -377,7 +377,7 @@ animations = [{
 size = Vector2(9, 10)
 
 [node name="Player_v3" type="RigidBody2D"]
-collision_layer = 9
+collision_layer = 25
 can_sleep = false
 lock_rotation = true
 contact_monitor = true
