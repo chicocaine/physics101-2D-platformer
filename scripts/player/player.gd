@@ -9,9 +9,13 @@ const PUSH_FORCE = 20
 const MAX_VELOCITY = 100
 
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var latch_area: Area2D = $LatchArea
+
+
 var attack_string = ["attack_1", "attack_2", "attack_3"]
 var attack_string_counter = 0
 var is_attacking = false
+var is_hanging = false
 var combo_timer = 0.0
 var coyote_timer = 0.0
 
@@ -97,3 +101,9 @@ func push():
 		
 		if collision_object.is_in_group("Pushable") and abs(collision_object.get_linear_velocity().x) < MAX_VELOCITY:
 			collision_object.apply_impulse(collision.get_normal() * -PUSH_FORCE)
+
+func handle_latch():
+	pass
+
+func _on_body_entered(body: Node2D) -> void:
+	print("nisulod ka boi")
