@@ -12,6 +12,9 @@ enum PlateColor {
 @export var current_color: PlateColor = PlateColor.RED
 @export var target_node: Node2D
 
+signal stepped_on
+signal stepped_off
+
 const DOWN_OFFSET = 4
 
 func _ready():
@@ -22,14 +25,14 @@ func _ready():
 	
 	if target_node:
 		if target_node.has_method("activate"):
-			MessageBus.stepped_on.connect(target_node.activate)
+			self.stepped_on.connect(target_node.activate)
 		if target_node.has_method("deactivate"):
-			MessageBus.stepped_off.connect(target_node.deactivate)
+			self.stepped_off.connect(target_node.deactivate)
 
 func _on_body_entered(_body):
-	MessageBus.stepped_on.emit()
+	self.stepped_on.emit()
 	sprite.frame = current_color + DOWN_OFFSET
 
 func _on_body_exited(_body):
-	MessageBus.stepped_off.emit()
+	self.stepped_off.emit()
 	sprite.frame = current_color
