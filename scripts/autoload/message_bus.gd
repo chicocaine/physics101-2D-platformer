@@ -17,3 +17,7 @@ signal closest_player_updated
 
 # input_signals
 signal up_is_pressed
+
+# pressure plate
+signal stepped_on
+signal stepped_off

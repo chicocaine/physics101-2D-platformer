@@ -400,7 +400,7 @@ target_position = Vector2(0, 18)
 texture_filter = 1
 position = Vector2(0, -20)
 sprite_frames = SubResource("SpriteFrames_pi6yl")
-animation = &"hold"
+animation = &"idle"
 autoplay = "idle"
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
