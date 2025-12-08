@@ -1,6 +1,8 @@
 extends Node2D
 
 @export var action_name : String = ""
+@export var target_node : Node2D
+
 var _interaction_area : InteractionArea
 var _animated_sprite : AnimatedSprite2D
 
@@ -20,6 +22,8 @@ func _ready() -> void:
 
 func _on_interact() -> void:
 	print(self.action_name, ": Interacted")
+	if (self.target_node and self.target_node.has_method("interact")):
+		await target_node.interact()
 
 func _handle_closest_player_updated() -> void:
 	_highlight_check()
