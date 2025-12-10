@@ -1,9 +1,13 @@
-[gd_scene load_steps=8 format=4 uid="uid://c8wr4gqe1m548"]
+[gd_scene load_steps=13 format=4 uid="uid://c8wr4gqe1m548"]
 
 [ext_resource type="PackedScene" uid="uid://cg2idg1n16c6v" path="res://scenes/environment/player_spawnpoint.tscn" id="1_wt1nn"]
 [ext_resource type="PackedScene" uid="uid://bwy3q75iwd0fg" path="res://scenes/environment/door.tscn" id="2_k4eft"]
 [ext_resource type="Texture2D" uid="uid://srysgn7uchl6" path="res://assets/sprites/tiles/Industrial Zone/1 Tiles/IndustrialTile_21.png" id="3_2gnpl"]
 [ext_resource type="Texture2D" uid="uid://b8xc7ueup5t6v" path="res://assets/sprites/tiles/Industrial Zone/1 Tiles/IndustrialTile_09.png" id="4_3r1tb"]
+[ext_resource type="PackedScene" uid="uid://dj56p4ktxhi4d" path="res://scenes/environment/console_1.tscn" id="5_y071n"]
+[ext_resource type="PackedScene" uid="uid://birt8mxudb6f4" path="res://scenes/environment/piston.tscn" id="6_wt1nn"]
+[ext_resource type="PackedScene" uid="uid://kptrnhe1nbj4" path="res://scenes/environment/box_small.tscn" id="7_wt1nn"]
+[ext_resource type="PackedScene" uid="uid://bpdgwkokx31l4" path="res://scenes/environment/spring.tscn" id="8_k4eft"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u8smc"]
 texture = ExtResource("3_2gnpl")
@@ -29,10 +33,14 @@ physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_u8smc")
 sources/1 = SubResource("TileSetAtlasSource_oikb5")
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wt1nn"]
+friction = 0.0
+bounce = 0.8
+
 [node name="Node2D" type="Node2D"]
 
 [node name="PlayerSpawnpoint" parent="." instance=ExtResource("1_wt1nn")]
-position = Vector2(-356, 19)
+position = Vector2(-351, -176)
 
 [node name="LevelExits" type="Node2D" parent="."]
 
@@ -49,3 +57,25 @@ tile_map_data = PackedByteArray("AAAAAAMAAAABAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAA
 tile_set = SubResource("TileSet_sc64n")
 
 [node name="Keys" type="Node2D" parent="."]
+
+[node name="Console1" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("5_y071n")]
+position = Vector2(-147, 27)
+action_name = "activate piston"
+target_node = NodePath("../Piston")
+
+[node name="Piston" parent="." instance=ExtResource("6_wt1nn")]
+position = Vector2(-129, 38)
+
+[node name="BoxSmall" parent="." instance=ExtResource("7_wt1nn")]
+position = Vector2(-130, -28)
+mass = 1.0
+physics_material_override = SubResource("PhysicsMaterial_wt1nn")
+
+[node name="BoxSmall2" parent="." instance=ExtResource("7_wt1nn")]
+position = Vector2(78, 23)
+mass = 1.0
+physics_material_override = SubResource("PhysicsMaterial_wt1nn")
+
+[node name="SpringBlock" parent="." instance=ExtResource("8_k4eft")]
+position = Vector2(-348, 38)
+damping = 0.2

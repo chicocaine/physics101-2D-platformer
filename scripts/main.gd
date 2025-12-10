@@ -21,9 +21,9 @@ func _ready() -> void:
 	_init_signals()
 	
 	_camera_controller.set_target(Global.player)
+	_camera_controller.set_zoom_value(Vector2(1.5, 1.5))
 	_camera_controller.follow_target = true
 	_camera_controller.cam_process_callback = Util.CamProcessCallback.PHYSICS
-	_camera_controller._set_level_size()
 
 func _process(_delta: float) -> void:
 

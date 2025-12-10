@@ -22,8 +22,8 @@ func _ready() -> void:
 
 func _on_interact() -> void:
 	print(self.action_name, ": Interacted")
-	if (self.target_node and self.target_node.has_method("interact")):
-		await target_node.interact()
+	if (self.target_node and self.target_node.has_method("activate")):
+		await target_node.activate()
 
 func _handle_closest_player_updated() -> void:
 	_highlight_check()

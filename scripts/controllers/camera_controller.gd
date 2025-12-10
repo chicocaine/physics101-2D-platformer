@@ -26,16 +26,16 @@ func _ready() -> void:
 	self.make_current()
 
 func _process(delta: float) -> void:
+	_update_zoom(delta)
 	if (follow_target and cam_process_callback == Util.CamProcessCallback.IDLE):
 		_update_follow(delta)
-		_update_zoom(delta)
 	if (shake_time > 0 and cam_process_callback == Util.CamProcessCallback.IDLE):
 		_apply_screen_shake(delta)	
 
 func _physics_process(delta: float) -> void:
+	_update_zoom(delta)
 	if (follow_target and cam_process_callback == Util.CamProcessCallback.PHYSICS):
 		_update_follow(delta)
-		_update_zoom(delta)
 	if (shake_time > 0 and cam_process_callback == Util.CamProcessCallback.PHYSICS):
 		_apply_screen_shake(delta)
 

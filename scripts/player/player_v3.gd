@@ -140,7 +140,7 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 
 	_apply_drag(state)
 	state.apply_central_force(force)
-	_clamp_velocity(state)
+	# _clamp_velocity(state)
 
 
 func _update_timers(state: PhysicsDirectBodyState2D, was_grounded : bool) -> void:

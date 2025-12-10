@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpdgwkokx31l4"]
+
+[ext_resource type="Script" uid="uid://dd6vkibsotgnv" path="res://scripts/environment/spring.gd" id="1_boo62"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdqcc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4wyfg"]
+size = Vector2(1, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_boo62"]
+size = Vector2(7.7862263, 5.655126)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0gmq7"]
+size = Vector2(10, 2)
+
+[node name="SpringBlock" type="Area2D"]
+collision_layer = 0
+collision_mask = 24
+script = ExtResource("1_boo62")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tdqcc")
+debug_color = Color(0, 0.2919768, 0.17315224, 0.41960785)
+
+[node name="SpringRestLengthMark" type="Area2D" parent="."]
+position = Vector2(10, 0)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpringRestLengthMark"]
+shape = SubResource("RectangleShape2D_4wyfg")
+debug_color = Color(0.4485314, 0.45133257, 1, 0.41960785)
+
+[node name="block_1" type="StaticBody2D" parent="."]
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="block_1"]
+position = Vector2(-4.966904, -11)
+scale = Vector2(1.2758181, 0.3536615)
+shape = SubResource("RectangleShape2D_boo62")
+
+[node name="block_2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="block_2"]
+position = Vector2(-5, 11)
+shape = SubResource("RectangleShape2D_0gmq7")

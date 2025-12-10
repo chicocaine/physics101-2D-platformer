@@ -11,6 +11,8 @@ radius = 1.0
 [node name="Lever" type="Node2D"]
 
 [node name="LeverBeam" type="RigidBody2D" parent="."]
+collision_mask = 25
+continuous_cd = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeverBeam"]
 position = Vector2(0, -0.5)
