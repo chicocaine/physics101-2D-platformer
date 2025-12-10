@@ -1,0 +1,1233 @@
+{
+	"textures": [
+		{
+			"image": "Industrial Zone Tileset.png",
+			"size": {
+				"w": 512,
+				"h": 192
+			},
+			"sprites": [
+				{
+					"filename": "1 Tiles/IndustrialTile_01.png",
+					"region": {
+						"x": 0,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_02.png",
+					"region": {
+						"x": 32,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_03.png",
+					"region": {
+						"x": 64,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_04.png",
+					"region": {
+						"x": 96,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_05.png",
+					"region": {
+						"x": 128,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_06.png",
+					"region": {
+						"x": 160,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_07.png",
+					"region": {
+						"x": 192,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_08.png",
+					"region": {
+						"x": 224,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_09.png",
+					"region": {
+						"x": 256,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_10.png",
+					"region": {
+						"x": 288,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_11.png",
+					"region": {
+						"x": 320,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_12.png",
+					"region": {
+						"x": 352,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_13.png",
+					"region": {
+						"x": 384,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_14.png",
+					"region": {
+						"x": 416,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_15.png",
+					"region": {
+						"x": 448,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_16.png",
+					"region": {
+						"x": 480,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_17.png",
+					"region": {
+						"x": 0,
+						"y": 32,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_18.png",
+					"region": {
+						"x": 32,
+						"y": 32,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_19.png",
+					"region": {
+						"x": 64,
+						"y": 32,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_20.png",
+					"region": {
+						"x": 96,
+						"y": 32,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_21.png",
+					"region": {
+						"x": 128,
+						"y": 32,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_22.png",
+					"region": {
+						"x": 160,
+						"y": 32,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_23.png",
+					"region": {
+						"x": 192,
+						"y": 32,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_24.png",
+					"region": {
+						"x": 224,
+						"y": 32,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_25.png",
+					"region": {
+						"x": 256,
+						"y": 32,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_26.png",
+					"region": {
+						"x": 288,
+						"y": 32,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_27.png",
+					"region": {
+						"x": 320,
+						"y": 32,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_28.png",
+					"region": {
+						"x": 352,
+						"y": 32,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_29.png",
+					"region": {
+						"x": 384,
+						"y": 32,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_30.png",
+					"region": {
+						"x": 416,
+						"y": 32,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_31.png",
+					"region": {
+						"x": 448,
+						"y": 32,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_32.png",
+					"region": {
+						"x": 480,
+						"y": 32,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_33.png",
+					"region": {
+						"x": 0,
+						"y": 64,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_34.png",
+					"region": {
+						"x": 32,
+						"y": 64,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_35.png",
+					"region": {
+						"x": 64,
+						"y": 64,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_36.png",
+					"region": {
+						"x": 96,
+						"y": 64,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_37.png",
+					"region": {
+						"x": 128,
+						"y": 64,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_38.png",
+					"region": {
+						"x": 160,
+						"y": 64,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_39.png",
+					"region": {
+						"x": 192,
+						"y": 64,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_40.png",
+					"region": {
+						"x": 224,
+						"y": 64,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_41.png",
+					"region": {
+						"x": 256,
+						"y": 64,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_42.png",
+					"region": {
+						"x": 288,
+						"y": 64,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_43.png",
+					"region": {
+						"x": 320,
+						"y": 64,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_44.png",
+					"region": {
+						"x": 352,
+						"y": 64,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_45.png",
+					"region": {
+						"x": 384,
+						"y": 64,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_46.png",
+					"region": {
+						"x": 416,
+						"y": 64,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_47.png",
+					"region": {
+						"x": 448,
+						"y": 64,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_48.png",
+					"region": {
+						"x": 480,
+						"y": 64,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_49.png",
+					"region": {
+						"x": 0,
+						"y": 96,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_50.png",
+					"region": {
+						"x": 32,
+						"y": 96,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_51.png",
+					"region": {
+						"x": 64,
+						"y": 96,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_52.png",
+					"region": {
+						"x": 96,
+						"y": 96,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_53.png",
+					"region": {
+						"x": 128,
+						"y": 96,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_54.png",
+					"region": {
+						"x": 160,
+						"y": 96,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_55.png",
+					"region": {
+						"x": 192,
+						"y": 96,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_56.png",
+					"region": {
+						"x": 224,
+						"y": 96,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_57.png",
+					"region": {
+						"x": 256,
+						"y": 96,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_58.png",
+					"region": {
+						"x": 288,
+						"y": 96,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_59.png",
+					"region": {
+						"x": 320,
+						"y": 96,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_60.png",
+					"region": {
+						"x": 352,
+						"y": 96,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_61.png",
+					"region": {
+						"x": 384,
+						"y": 96,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_62.png",
+					"region": {
+						"x": 416,
+						"y": 96,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_63.png",
+					"region": {
+						"x": 448,
+						"y": 96,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_64.png",
+					"region": {
+						"x": 480,
+						"y": 96,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_65.png",
+					"region": {
+						"x": 0,
+						"y": 128,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_66.png",
+					"region": {
+						"x": 32,
+						"y": 128,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_67.png",
+					"region": {
+						"x": 64,
+						"y": 128,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_68.png",
+					"region": {
+						"x": 96,
+						"y": 128,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_69.png",
+					"region": {
+						"x": 128,
+						"y": 128,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_70.png",
+					"region": {
+						"x": 160,
+						"y": 128,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_71.png",
+					"region": {
+						"x": 192,
+						"y": 128,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_72.png",
+					"region": {
+						"x": 224,
+						"y": 128,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_73.png",
+					"region": {
+						"x": 256,
+						"y": 128,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_74.png",
+					"region": {
+						"x": 288,
+						"y": 128,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_75.png",
+					"region": {
+						"x": 320,
+						"y": 128,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_76.png",
+					"region": {
+						"x": 352,
+						"y": 128,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_77.png",
+					"region": {
+						"x": 384,
+						"y": 128,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_78.png",
+					"region": {
+						"x": 416,
+						"y": 128,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_79.png",
+					"region": {
+						"x": 448,
+						"y": 128,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_80.png",
+					"region": {
+						"x": 480,
+						"y": 128,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/IndustrialTile_81.png",
+					"region": {
+						"x": 0,
+						"y": 160,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "http://free-tex-packer.com",
+		"version": "0.6.7",
+		"format": "RGBA8888",
+	}
+}

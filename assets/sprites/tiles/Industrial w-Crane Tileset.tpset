@@ -1,0 +1,933 @@
+{
+	"textures": [
+		{
+			"image": "Industrial w-Crane Tiles.png",
+			"size": {
+				"w": 512,
+				"h": 512
+			},
+			"sprites": [
+				{
+					"filename": "1 Tiles/Tile_02.png",
+					"region": {
+						"x": 0,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/Tile_03.png",
+					"region": {
+						"x": 32,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/Tile_04.png",
+					"region": {
+						"x": 64,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/Tile_05.png",
+					"region": {
+						"x": 96,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/Tile_06.png",
+					"region": {
+						"x": 128,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/Tile_07.png",
+					"region": {
+						"x": 160,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/Tile_08.png",
+					"region": {
+						"x": 192,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/Tile_09.png",
+					"region": {
+						"x": 224,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/Tile_10.png",
+					"region": {
+						"x": 256,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/Tile_11.png",
+					"region": {
+						"x": 288,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/Tile_12.png",
+					"region": {
+						"x": 320,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/Tile_13.png",
+					"region": {
+						"x": 352,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/Tile_14.png",
+					"region": {
+						"x": 384,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/Tile_15.png",
+					"region": {
+						"x": 416,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/Tile_16.png",
+					"region": {
+						"x": 448,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/Tile_17.png",
+					"region": {
+						"x": 480,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/Tile_18.png",
+					"region": {
+						"x": 0,
+						"y": 32,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/Tile_19.png",
+					"region": {
+						"x": 32,
+						"y": 32,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/Tile_20.png",
+					"region": {
+						"x": 64,
+						"y": 32,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_01.png",
+					"region": {
+						"x": 96,
+						"y": 32,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_02.png",
+					"region": {
+						"x": 128,
+						"y": 32,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_03.png",
+					"region": {
+						"x": 160,
+						"y": 32,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_04.png",
+					"region": {
+						"x": 192,
+						"y": 32,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_05.png",
+					"region": {
+						"x": 224,
+						"y": 32,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_06.png",
+					"region": {
+						"x": 256,
+						"y": 32,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_07.png",
+					"region": {
+						"x": 288,
+						"y": 32,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_08.png",
+					"region": {
+						"x": 320,
+						"y": 32,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_09.png",
+					"region": {
+						"x": 352,
+						"y": 32,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_10.png",
+					"region": {
+						"x": 384,
+						"y": 32,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_11.png",
+					"region": {
+						"x": 416,
+						"y": 32,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_12.png",
+					"region": {
+						"x": 448,
+						"y": 32,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_13.png",
+					"region": {
+						"x": 480,
+						"y": 32,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_14.png",
+					"region": {
+						"x": 0,
+						"y": 64,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_15.png",
+					"region": {
+						"x": 32,
+						"y": 64,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_16.png",
+					"region": {
+						"x": 64,
+						"y": 64,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_17.png",
+					"region": {
+						"x": 96,
+						"y": 64,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_18.png",
+					"region": {
+						"x": 128,
+						"y": 64,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_19.png",
+					"region": {
+						"x": 160,
+						"y": 64,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_20.png",
+					"region": {
+						"x": 192,
+						"y": 64,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_21.png",
+					"region": {
+						"x": 224,
+						"y": 64,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_22.png",
+					"region": {
+						"x": 256,
+						"y": 64,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_23.png",
+					"region": {
+						"x": 288,
+						"y": 64,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_24.png",
+					"region": {
+						"x": 320,
+						"y": 64,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_25.png",
+					"region": {
+						"x": 352,
+						"y": 64,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_26.png",
+					"region": {
+						"x": 384,
+						"y": 64,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_27.png",
+					"region": {
+						"x": 416,
+						"y": 64,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_28.png",
+					"region": {
+						"x": 448,
+						"y": 64,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_29.png",
+					"region": {
+						"x": 480,
+						"y": 64,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_30.png",
+					"region": {
+						"x": 0,
+						"y": 96,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_31.png",
+					"region": {
+						"x": 32,
+						"y": 96,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_32.png",
+					"region": {
+						"x": 64,
+						"y": 96,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_33.png",
+					"region": {
+						"x": 96,
+						"y": 96,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_34.png",
+					"region": {
+						"x": 128,
+						"y": 96,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_35.png",
+					"region": {
+						"x": 160,
+						"y": 96,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_36.png",
+					"region": {
+						"x": 192,
+						"y": 96,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_37.png",
+					"region": {
+						"x": 224,
+						"y": 96,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_38.png",
+					"region": {
+						"x": 256,
+						"y": 96,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_39.png",
+					"region": {
+						"x": 288,
+						"y": 96,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTile_40.png",
+					"region": {
+						"x": 320,
+						"y": 96,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/Tileset.png",
+					"region": {
+						"x": 352,
+						"y": 96,
+						"w": 160,
+						"h": 128
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "1 Tiles/WaterTiles.png",
+					"region": {
+						"x": 0,
+						"y": 128,
+						"w": 128,
+						"h": 320
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "http://free-tex-packer.com",
+		"version": "0.6.7",
+		"format": "RGBA8888",
+	}
+}
