@@ -9,16 +9,11 @@ func _init() -> void:
 	_player = Global.player
 	self.can_interact = true
 	self.active_interactions = []
+	MessageBus.interact_is_pressed.connect(_handle_interact_is_action_pressed)
 
 func interaction_service_loop() -> void:
 	if (!self.active_interactions.is_empty() and self.can_interact):
 		_sort_interactions_custom(self.active_interactions, _sort_by_distance_to_player)
-
-func handle_interact_is_action_pressed() -> void:
-	if (self.can_interact and self.active_interactions.size() > 0):
-		self.can_interact = false
-		await self.active_interactions[0].interact.call()
-		self.can_interact = true
 
 func register_interaction(interaction: InteractionArea) -> void:
 	if (interaction.is_interactable):
@@ -49,3 +44,9 @@ func _sort_by_distance_to_player(area1: InteractionArea, area2: InteractionArea)
 	var area1_distance_to_player = _player.global_position.distance_to(area1.global_position)
 	var area2_distance_to_player = _player.global_position.distance_to(area2.global_position)
 	return area1_distance_to_player > area2_distance_to_player
+
+func _handle_interact_is_action_pressed() -> void:
+	if (self.can_interact and self.active_interactions.size() > 0):
+		self.can_interact = false
+		await self.active_interactions[0].interact.call()
+		self.can_interact = true

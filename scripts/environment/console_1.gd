@@ -21,8 +21,8 @@ func _ready() -> void:
 	_interaction_area.body_exited.connect(_handle_interaction_body_exited)
 
 func _on_interact() -> void:
-	print(self.action_name, ": Interacted")
 	if (self.target_node and self.target_node.has_method("activate")):
+		AudioManager.sfx_controller.play_sfx_2d("test", self.global_position, "environment")
 		await target_node.activate()
 
 func _handle_closest_player_updated() -> void:

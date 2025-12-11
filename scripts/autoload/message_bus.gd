@@ -17,3 +17,4 @@ signal closest_player_updated
 
 # input_signals
 signal up_is_pressed
+signal interact_is_pressed

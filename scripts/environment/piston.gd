@@ -23,9 +23,6 @@ func _ready() -> void:
 func activate() -> void:
 	var direction : Vector2 = Vector2(cos(self.piston_rotation_rad), sin(self.piston_rotation_rad))
 	for node in pushable:
-		print("Applied impulse to: ", node)
-		print("Direction normalized: ", direction.normalized())
-		print("Impulse: ", direction.normalized() * impulse_strength)
 		node.apply_impulse(direction.normalized() * impulse_strength)
 
 func _on_body_entered_piston_area(body: Node2D) -> void:

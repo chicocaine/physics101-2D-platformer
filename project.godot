@@ -18,12 +18,12 @@ config/features=PackedStringArray("4.5")
 
 [autoload]
 
-Util="*res://scripts/autoload/util.gd"
-MessageBus="*res://scripts/autoload/message_bus.gd"
-Global="*res://scripts/autoload/global.gd"
-AudioManager="*res://scripts/autoload/audio_manager.gd"
-GameSettingsManager="*res://scripts/autoload/game_settings_manager.gd"
-InputManager="*res://scripts/autoload/input_manager.gd"
+Util="*res://scenes/autoload/util.tscn"
+MessageBus="*res://scenes/autoload/message_bus.tscn"
+InputManager="*res://scenes/autoload/input_manager.tscn"
+AudioManager="*res://scenes/autoload/audio_manager.tscn"
+GameSettingsManager="*res://scenes/autoload/game_settings_manager.tscn"
+Global="*res://scenes/autoload/global.tscn"
 
 [editor_plugins]
 

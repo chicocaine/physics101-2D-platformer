@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjfmgw4ti0pis"]
+
+[ext_resource type="Script" uid="uid://dob7roohr65cr" path="res://scripts/autoload/message_bus.gd" id="1_qx3jh"]
+
+[node name="MessageBus" type="Node"]
+script = ExtResource("1_qx3jh")
