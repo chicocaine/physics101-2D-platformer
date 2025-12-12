@@ -20,5 +20,5 @@ shape = SubResource("CapsuleShape2D_vdp7w")
 [node name="Joint" type="PinJoint2D" parent="."]
 position = Vector2(0, 8)
 node_a = NodePath("..")
-bias = 0.9
+bias = 0.769
 softness = 1.0

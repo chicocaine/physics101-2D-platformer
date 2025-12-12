@@ -378,7 +378,7 @@ size = Vector2(9, 10)
 
 [node name="Player_v3" type="RigidBody2D"]
 collision_layer = 8
-collision_mask = 25
+collision_mask = 17
 can_sleep = false
 lock_rotation = true
 continuous_cd = 2
@@ -447,8 +447,8 @@ script = ExtResource("3_oo0dc")
 metadata/_custom_type_script = "uid://betdpy3ramv5t"
 
 [node name="SwingDetector" type="Area2D" parent="SwingController"]
-collision_layer = 8
-collision_mask = 4
+collision_layer = 0
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SwingController/SwingDetector"]
 position = Vector2(0, -33)

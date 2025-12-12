@@ -30,9 +30,11 @@ func _ready():
 			self.stepped_off.connect(target_node.deactivate)
 
 func _on_body_entered(_body):
-	self.stepped_on.emit()
-	sprite.frame = current_color + DOWN_OFFSET
+	if get_overlapping_bodies().size() == 1:
+		self.stepped_on.emit()
+		sprite.frame = current_color + DOWN_OFFSET
 
 func _on_body_exited(_body):
-	self.stepped_off.emit()
-	sprite.frame = current_color
+	if not has_overlapping_bodies():
+		self.stepped_off.emit()
+		sprite.frame = current_color

@@ -20,10 +20,10 @@ config/features=PackedStringArray("4.5")
 
 Util="*res://scenes/autoload/util.tscn"
 MessageBus="*res://scenes/autoload/message_bus.tscn"
-InputManager="*res://scenes/autoload/input_manager.tscn"
+Global="*res://scenes/autoload/global.tscn"
 AudioManager="*res://scenes/autoload/audio_manager.tscn"
 GameSettingsManager="*res://scenes/autoload/game_settings_manager.tscn"
-Global="*res://scenes/autoload/global.tscn"
+InputManager="*res://scenes/autoload/input_manager.tscn"
 
 [editor_plugins]
 
