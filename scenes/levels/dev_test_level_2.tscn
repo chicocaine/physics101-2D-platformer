@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://c8wr4gqe1m548"]
+[gd_scene load_steps=14 format=4 uid="uid://c8wr4gqe1m548"]
 
 [ext_resource type="PackedScene" uid="uid://cg2idg1n16c6v" path="res://scenes/environment/player_spawnpoint.tscn" id="1_wt1nn"]
 [ext_resource type="PackedScene" uid="uid://bwy3q75iwd0fg" path="res://scenes/environment/door.tscn" id="2_k4eft"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://birt8mxudb6f4" path="res://scenes/environment/piston.tscn" id="6_wt1nn"]
 [ext_resource type="PackedScene" uid="uid://kptrnhe1nbj4" path="res://scenes/environment/box_small.tscn" id="7_wt1nn"]
 [ext_resource type="PackedScene" uid="uid://bpdgwkokx31l4" path="res://scenes/environment/spring.tscn" id="8_k4eft"]
+[ext_resource type="PackedScene" uid="uid://cn745mtdbwirt" path="res://scenes/environment/door_tp.tscn" id="9_2gnpl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u8smc"]
 texture = ExtResource("3_2gnpl")
@@ -79,3 +80,11 @@ physics_material_override = SubResource("PhysicsMaterial_wt1nn")
 [node name="SpringBlock" parent="." instance=ExtResource("8_k4eft")]
 position = Vector2(-348, 38)
 damping = 0.2
+
+[node name="DoorTp" parent="." node_paths=PackedStringArray("door_pair") instance=ExtResource("9_2gnpl")]
+position = Vector2(201, 17)
+door_pair = NodePath("../DoorTp2")
+
+[node name="DoorTp2" parent="." node_paths=PackedStringArray("door_pair") instance=ExtResource("9_2gnpl")]
+position = Vector2(464, 17)
+door_pair = NodePath("../DoorTp")
