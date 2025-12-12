@@ -22,6 +22,8 @@ func _ready() -> void:
 
 func activate() -> void:
 	var direction : Vector2 = Vector2(cos(self.piston_rotation_rad), sin(self.piston_rotation_rad))
+	_animated_sprite.speed_scale = 2.0
+	_animated_sprite.play("activate")
 	for node in pushable:
 		node.apply_impulse(direction.normalized() * impulse_strength)
 

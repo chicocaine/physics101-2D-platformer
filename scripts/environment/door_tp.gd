@@ -18,7 +18,7 @@ func _ready() -> void:
 	_animated_sprite = $AnimatedSprite2D
 	_level_exit_area = $LevelExitArea
 	
-	if (_animated_sprite): 
+	if (_animated_sprite):
 		_animated_sprite.play("close")
 		self.can_play_animation = false
 		await _animated_sprite.animation_finished

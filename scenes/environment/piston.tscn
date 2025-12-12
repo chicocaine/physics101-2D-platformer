@@ -1,22 +1,104 @@
-[gd_scene load_steps=5 format=3 uid="uid://birt8mxudb6f4"]
+[gd_scene load_steps=11 format=4 uid="uid://birt8mxudb6f4"]
 
 [ext_resource type="Script" uid="uid://cwcp8qpr3mka8" path="res://scripts/environment/piston.gd" id="1_svajq"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_msj6c"]
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_svajq"]
+_data = PackedByteArray("AAADAAUAAAABAAAAIAEAAEAAAAAYBAAAUklGRhAEAABXRUJQVlA4TAQEAAAvH8EPEF+gGADQKItL4uYOIZcMem0qqiFboa7EJbgAPTwDiaevLDLIUGQb/yOBDrJo++8SKCGH8/wHAAD4XkoiTN+K3sMePee2ba3JADoOKNmNI+kG6kCwlPpLOPUVfAHvbmNGF3D+J6GsBQgqKVM0rBPY0473fzuxWPWqyP2EEf13oEhSJGWB0M5B9h7qG5KZhbhPKmABPMdZ6TagJ9yMpfShFTl1rciTVc+8TWV4zgb0VCisZevxBBga3dHQJ0jZ5Zy53+W8DmbVZy3rUMrQ4lXps5DI/ZFENsIoXTFATwXW8XgCXN30zDumoYjmrBexKIVJvoU2RdA9QECeKqSDe0KUge4B4Uj0XfJYL9gAecZypL9/wDxe1CHnWlVORN/r/kSIsu35x9BXGqcjLRvQ82/haUc0Kvo0P7dca6XNpxv33GGAnm/GaXVcnnZEox3CqIO9B9CzjmPg8rSz9zEemjDUIQh8aBTeZSPrz55p0PPtOAYuTzufxbSD523bfquvhyU8mo+tliehiEa1PgsZ2bz0AHq+H8fA5WnnZQR33PzTuGv+d9E9fXoKwPT0gXnG8oroY8AtpqcPzDP0lu7QHJqT4LkH0BN9kccz6EUNNQc6CFzrMOiJrsMeT9c6bKPvUzFY+1QEvn0KQ9/HY7D28Qh8+7gN0YhPURA5B9zTec4Bf+fFMw16pnE6HZennaJMg+tA6Zkf66Vn3tqAnmOfFbGWbYCnJiYaFX2a66TGjrsHCNPTB+bpYif6BPeRq4CwwfQ0OetgnjCiUeod7HJeJ/FcNKyfrkIRLYo+QcqNzP0U9JNRvKx65m0qExSLMlmxsopkRohIGxvQU+tHt4nwhMxAT8xS9rgM6kv/HKfJh1bk1I1OBNC3uE2JmHkZ47lQf2fzRP6tzpxzjkL9H05EIZH7I/o7l8tOEqCeoOh1vshl+TwUUajr+OTkWwCKpB1APUHR7mEOHP/4+wfIY60E8evfwhMUvUw65Fyr1hd2Cqm1JaJljGdSz0nTF7VW2ryx8unGPZ8FqCco2s0CkU21sleJ8az7mYEPH2HwoZmQd9nI+q2Vz+o06gmK7ufL87Ztv9X6sW1bGFD09bBlhBaec8h7Ky9VUE9b9J/AHZ+juePmfy/d06enAEzPefOK6GPALabnrG/pDs2hOQlcLwI9Z/qihpoDHQSudRj0dK3D0+PbpzB8+9Q88O3jGL59fHqIBM5zDuTpPOfM5JZkpajTMZ6paNMzeZGt1TM/1krMvEQ9QdFLz7yNx1xXHexuxQDqCYp2D1NDRARylYgB9QRFqZ8vu5zXKXHOGQYUFc/Nk3Ij89kFKNrPl1XPvE3JVYCiZcIimcG8Fqt0yxL1xESl3TQsAA==")
+size_override = Vector2(288, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_krd3l"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_msj6c"]
+atlas = SubResource("PortableCompressedTexture2D_svajq")
+region = Rect2(0, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krd3l"]
+atlas = SubResource("PortableCompressedTexture2D_svajq")
+region = Rect2(96, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6r2ox"]
+atlas = SubResource("PortableCompressedTexture2D_svajq")
+region = Rect2(192, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_of2my"]
+atlas = SubResource("PortableCompressedTexture2D_svajq")
+region = Rect2(0, 32, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6oxfq"]
+atlas = SubResource("PortableCompressedTexture2D_svajq")
+region = Rect2(96, 32, 96, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yrttn"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_msj6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krd3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6r2ox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_of2my")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6oxfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_of2my")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6r2ox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krd3l")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_msj6c")
+}],
+"loop": false,
+"name": &"activate",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_msj6c"]
+size = Vector2(35, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_svajq"]
 
 [node name="Piston" type="StaticBody2D"]
 script = ExtResource("1_svajq")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(21.000002, 0)
+scale = Vector2(0.65, 0.65)
+sprite_frames = SubResource("SpriteFrames_yrttn")
+animation = &"activate"
+frame = 8
+frame_progress = 1.0
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://assets/sprites/materials/Piston.aseprite",
+"source_uid": 7152834544954503909
+}
+metadata/_aseprite_wizard_source_file_hash_ = "b909e18b449185d0cc99eee1fa6ad5ab"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7.5, 0)
 shape = SubResource("RectangleShape2D_msj6c")
 debug_color = Color(0.46959037, 0.2730322, 0.88757765, 0.41960785)
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_krd3l")
 
 [node name="PistonZone" type="Area2D" parent="."]
 position = Vector2(20, 0)
@@ -24,4 +106,5 @@ collision_layer = 0
 collision_mask = 24
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PistonZone"]
+position = Vector2(15, 0)
 shape = SubResource("RectangleShape2D_svajq")
