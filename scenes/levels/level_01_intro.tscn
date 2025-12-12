@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://0tb0ceupk5n" path="res://scenes/environment/pressure_plate.tscn" id="7_tq640"]
 [ext_resource type="PackedScene" uid="uid://bdx0rf45snqmw" path="res://scenes/environment/keys.tscn" id="8_b5dhe"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n6rdj"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aqa0k"]
 texture = ExtResource("2_cwb5c")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -178,7 +178,7 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_jvc1v"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_n6rdj")
+sources/0 = SubResource("TileSetAtlasSource_aqa0k")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jvc1v"]
 size = Vector2(66, 16)
@@ -186,7 +186,7 @@ size = Vector2(66, 16)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_f8ned"]
 friction = 0.3
 
-[node name="Level01Intro" type="Node2D"]
+[node name="Level01Box" type="Node2D"]
 
 [node name="DoorLarge" parent="." instance=ExtResource("1_aqa0k")]
 position = Vector2(704, 32)
