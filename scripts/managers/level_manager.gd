@@ -38,7 +38,6 @@ func switch_level(level_name: String) -> int:
 		remove_player()
 		unload_level(self.current_level_2D)
 	load_level(level_name)
-	spawn_player()
 	return 0
 
 func spawn_player() -> int:
@@ -54,7 +53,7 @@ func spawn_player() -> int:
 	return 0
 
 func remove_player() -> int:
-	var level = Global.current_level_2D
+	var level = self.current_level_2D
 	if (!level or !level.has_node("Player")):
 		return 1
 	level.remove_child(Global.player)

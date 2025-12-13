@@ -13,6 +13,7 @@ const BUS_TAGS : Dictionary = {
 }
 
 func _ready() -> void:
+	self.process_mode = Node.PROCESS_MODE_ALWAYS
 	self.music_controller = MusicController.new()
 	self.sfx_controller = SFXController.new()
 

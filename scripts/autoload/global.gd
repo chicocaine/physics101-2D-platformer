@@ -12,6 +12,8 @@ var camera_controller : CameraController
 var dev_mode : int 
 
 func _ready() -> void:
+	self.process_mode = Node.PROCESS_MODE_ALWAYS
+	
 	player = PLAYER.instantiate()
 	player.name = "Player"
 	

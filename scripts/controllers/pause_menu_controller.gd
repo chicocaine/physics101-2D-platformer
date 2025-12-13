@@ -1,11 +1,25 @@
-extends Node
+class_name PauseMenuController extends Control
 
+@onready var resume_btn : Button = $PanelContainer/VBoxContainer/ResumeButton
+@onready var restart_btn : Button = $PanelContainer/VBoxContainer/RestartButton
+@onready var settings_btn : Button = $PanelContainer/VBoxContainer/SettingsButton
+@onready var main_menu_btn : Button = $PanelContainer/VBoxContainer/MainMenuButton
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	self.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
+	self.resume_btn.pressed.connect(_handle_resume_btn_pressed)
+	self.restart_btn.pressed.connect(_handle_restart_btn_pressed)
+	self.settings_btn.pressed.connect(_handle_settings_btn_pressed)
+	self.main_menu_btn.pressed.connect(_handle_main_menu_btn_pressed)
 
+func _handle_resume_btn_pressed() -> void:
+	MessageBus.resume_game_requested.emit()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _handle_restart_btn_pressed() -> void:
+	MessageBus.restart_level_requested.emit()
+
+func _handle_settings_btn_pressed() -> void:
+	MessageBus.settings_requested.emit()
+
+func _handle_main_menu_btn_pressed() -> void:
+	MessageBus.main_menu_requested.emit()

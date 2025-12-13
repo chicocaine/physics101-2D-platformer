@@ -7,7 +7,8 @@ var _level_manager : LevelManager
 var _gui_manager : GUIManager
 var _camera_controller : CameraController
 
-func _ready() -> void:	
+func _ready() -> void:
+	self.process_mode = Node.PROCESS_MODE_ALWAYS
 	Global.main_manager = self
 	_main2D = $Main2D
 	_gui = $GUI
@@ -42,8 +43,7 @@ func _camera_release_player_focus() -> void:
 	_camera_controller.follow_target = false
 
 func _process(_delta: float) -> void:
-	for node in get_tree().get_nodes_in_group("Hangable"):
-		print(node)
+	pass
 
 func _init_signals() -> void:
 	MessageBus.player_next_level_attempt.connect(_handle_next_level_attempt)
@@ -53,6 +53,10 @@ func _init_signals() -> void:
 	MessageBus.settings_requested.connect(_go_to_settings)
 	MessageBus.quit_requested.connect(_quit_game)
 	MessageBus.back_gui_requested.connect(_gui_handle_back_pressed)
+	MessageBus.resume_game_requested.connect(_handle_resume_game)
+	MessageBus.main_menu_requested.connect(_handle_main_menu_request)
+	MessageBus.restart_level_requested.connect(_handle_restart_level_request)
+	MessageBus.escape_is_pressed.connect(_handle_escape_pressed)
 
 func _load_initial_level() -> int:
 	if (Global.dev_mode == Util.DevMode.TEST):
@@ -82,6 +86,7 @@ func _start_play() -> void:
 	_camera_follow_player()
 
 func _start_lab() -> void:
+	_gui_manager.push_active_gui("HUD")
 	if (_level_manager.load_level("level_00_laboratory") == 0):
 		_level_manager.spawn_player()
 	_camera_follow_player()
@@ -92,19 +97,63 @@ func _go_to_settings() -> void:
 func _gui_handle_back_pressed() -> void:
 	_gui_manager.pop_active_gui()
 
+func _handle_resume_game() -> void:
+	_resume_game()
+
+func _handle_restart_level_request() -> void:
+	_reset_current_level()
+
+func _handle_escape_pressed() -> void:
+	var current_gui : String = _gui_manager.current_top_gui_name()
+	match current_gui:
+		"main_menu":
+			return
+		"HUD":
+			_pause_game()
+		"pause_menu":
+			_resume_game()
+		"settings":
+			_gui_manager.clear_active_gui()
+
+func _pause_game() -> void:
+	if (get_tree().paused == false):
+		_gui_manager.push_active_gui("pause_menu")
+		get_tree().paused = true
+
+func _resume_game() -> void:
+	if (get_tree().paused == true):
+		_gui_manager.pop_active_gui()
+		get_tree().paused = false
+
+func _handle_main_menu_request() -> void:
+	_resume_game()
+	_level_manager.remove_player()
+	_level_manager.unload_level(_level_manager.current_level_2D)
+	_gui_manager.clear_active_gui()
+	_gui_manager.push_active_gui("main_menu")
+	pass
+
 func _quit_game() -> void:
 	get_tree().quit()
 
 func _handle_next_level_attempt(next_level_name: String) -> void:
+	_camera_release_player_focus()
 	_level_manager.switch_level(next_level_name)
+	if (is_instance_valid(_level_manager.current_level_2D)):
+		_level_manager.spawn_player()
+		_camera_follow_player()
+		MessageBus.level_switched.emit()
 
 func _reset_current_level() -> void:
+	_resume_game()
 	if (!_level_manager.current_level_2D):
 		return
+	var current_level_file_name : String = _level_manager.current_level_2D_file_name
 	_level_manager.remove_player()
 	_level_manager.unload_level(_level_manager.current_level_2D)
-	_level_manager.load_level(_level_manager.current_level_file_name)
+	_level_manager.load_level(current_level_file_name)
 	_level_manager.spawn_player()
+	MessageBus.level_restarted.emit()
 
 func _handle_player_entered_killzone() -> void:
 	_camera_release_player_focus()
