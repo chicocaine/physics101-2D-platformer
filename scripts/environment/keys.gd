@@ -26,4 +26,4 @@ func _handle_collected() -> void:
 		self.is_collected = true
 		_animated_sprite_2d.stop()
 		self.visible = false
-		MessageBus.key_collected.emit(self)
+		MessageBus.key_collected.emit(self.key_type)
