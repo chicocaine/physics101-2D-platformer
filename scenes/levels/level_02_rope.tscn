@@ -1,16 +1,32 @@
-[gd_scene load_steps=16 format=4 uid="uid://b35nv5h224nca"]
+[gd_scene load_steps=23 format=4 uid="uid://b35nv5h224nca"]
 
+[ext_resource type="Texture2D" uid="uid://d0hf45b67ljuy" path="res://assets/sprites/tiles/Industrial Zone/2 Background/1.png" id="1_0qafe"]
 [ext_resource type="Texture2D" uid="uid://7smbh0pk8ly5" path="res://assets/sprites/tiles/Industrial Zone Tileset.png" id="1_t0167"]
 [ext_resource type="PackedScene" uid="uid://cg2idg1n16c6v" path="res://scenes/environment/player_spawnpoint.tscn" id="2_fanwh"]
+[ext_resource type="Texture2D" uid="uid://dh4mxha6uf8wo" path="res://assets/sprites/tiles/Industrial Zone/2 Background/2.png" id="2_kfiti"]
 [ext_resource type="PackedScene" uid="uid://cj6qurdhvta4t" path="res://scenes/environment/door_large.tscn" id="2_vvg0k"]
 [ext_resource type="PackedScene" uid="uid://bwy3q75iwd0fg" path="res://scenes/environment/door.tscn" id="3_2l631"]
+[ext_resource type="Texture2D" uid="uid://cmwt2bed1wduo" path="res://assets/sprites/tiles/Industrial Zone/2 Background/3.png" id="3_x68uy"]
 [ext_resource type="PackedScene" uid="uid://bdx0rf45snqmw" path="res://scenes/environment/keys.tscn" id="4_7teif"]
+[ext_resource type="Texture2D" uid="uid://c7lvuj3wpvjco" path="res://assets/sprites/tiles/Industrial Zone/2 Background/4.png" id="4_c7hij"]
 [ext_resource type="PackedScene" uid="uid://ddvqv0se7pa7f" path="res://scenes/environment/swing_rope.tscn" id="5_fanwh"]
+[ext_resource type="Texture2D" uid="uid://b2x08qlbvvwqa" path="res://assets/sprites/tiles/Industrial Zone/2 Background/5.png" id="5_p6bn8"]
 [ext_resource type="PackedScene" uid="uid://yacrosxa527j" path="res://scenes/environment/killzone.tscn" id="6_2l631"]
 [ext_resource type="PackedScene" uid="uid://kptrnhe1nbj4" path="res://scenes/environment/box_small.tscn" id="7_7teif"]
 [ext_resource type="PackedScene" uid="uid://c27xsggr2xnct" path="res://scenes/environment/door_large_2.tscn" id="8_ismvr"]
 [ext_resource type="PackedScene" uid="uid://0tb0ceupk5n" path="res://scenes/environment/pressure_plate.tscn" id="9_3s0k7"]
 [ext_resource type="PackedScene" uid="uid://b4da87r0jukj1" path="res://scenes/environment/traverse_rope.tscn" id="10_3s0k7"]
+
+[sub_resource type="Gradient" id="Gradient_0qafe"]
+colors = PackedColorArray(0, 0, 0, 1, 0.21568628, 0.26666668, 0.43137255, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kfiti"]
+gradient = SubResource("Gradient_0qafe")
+width = 576
+height = 324
+fill_from = Vector2(0.5302013, 1)
+fill_to = Vector2(0.5402685, 0)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rpqo3"]
 texture = ExtResource("1_t0167")
@@ -190,6 +206,73 @@ size = Vector2(139.75, 17)
 friction = 0.3
 
 [node name="Level02Rope" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Parallax2D" type="Parallax2D" parent="Background"]
+repeat_size = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2D"]
+position = Vector2(0, 120.00001)
+scale = Vector2(3.486111, 3.1728394)
+texture = ExtResource("1_0qafe")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Background"]
+scale = Vector2(1.5, 1.5)
+scroll_scale = Vector2(0.05, 0.05)
+scroll_offset = Vector2(288, 200)
+repeat_size = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2D2"]
+texture = ExtResource("2_kfiti")
+offset = Vector2(288, 50)
+
+[node name="Parallax2D3" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.2, 0.2)
+scroll_offset = Vector2(288, 300)
+repeat_size = Vector2(576, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2D3"]
+texture = ExtResource("3_x68uy")
+offset = Vector2(288, 30)
+region_enabled = true
+region_rect = Rect2(0, 0, 576, 493)
+region_filter_clip_enabled = true
+
+[node name="Parallax2D4" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.35, 0.35)
+scroll_offset = Vector2(-288, 350)
+repeat_size = Vector2(576, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2D4"]
+position = Vector2(0, -100)
+texture = ExtResource("4_c7hij")
+offset = Vector2(288, 30)
+region_enabled = true
+region_rect = Rect2(0, 0, 576, 491.5)
+
+[node name="Parallax2D5" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.5, 0.5)
+scroll_offset = Vector2(-288, 350)
+repeat_size = Vector2(576, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2D5"]
+texture = ExtResource("5_p6bn8")
+offset = Vector2(288, 400)
+region_enabled = true
+region_rect = Rect2(0, 0, 576, 1397.7688)
+
+[node name="Parallax2D6" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.5, 0.5)
+scroll_offset = Vector2(576, 550)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2D6"]
+texture = SubResource("GradientTexture2D_kfiti")
+region_enabled = true
+region_rect = Rect2(0, 0, 1430.533, 324)
 
 [node name="Doors" type="Node2D" parent="."]
 
