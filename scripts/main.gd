@@ -17,14 +17,21 @@ func _ready() -> void:
 	
 	_init_signals()
 	_setup_camera()
+	_load_gui()
 	_start()
 
 func _start() -> void:
-	_gui_manager.load_gui("main_menu")
+	_gui_manager.push_active_gui("main_menu")
 
 func _setup_camera() -> void:
 	_camera_controller.cam_process_callback = Util.CamProcessCallback.PHYSICS
 	_camera_controller.set_zoom_value(Vector2(1.5, 1.5))
+
+func _load_gui() -> void:
+	_gui_manager.load_gui("settings")
+	_gui_manager.load_gui("pause_menu")
+	_gui_manager.load_gui("main_menu")
+	_gui_manager.load_gui("HUD")
 
 func _camera_follow_player() -> void:
 	_camera_controller.set_target(Global.player)
@@ -45,6 +52,7 @@ func _init_signals() -> void:
 	MessageBus.lab_requested.connect(_start_lab)
 	MessageBus.settings_requested.connect(_go_to_settings)
 	MessageBus.quit_requested.connect(_quit_game)
+	MessageBus.back_gui_requested.connect(_gui_handle_back_pressed)
 
 func _load_initial_level() -> int:
 	if (Global.dev_mode == Util.DevMode.TEST):
@@ -68,6 +76,7 @@ func _load_initial_level() -> int:
 	return 0
 
 func _start_play() -> void:
+	_gui_manager.push_active_gui("HUD")
 	if (_load_initial_level() == 0):
 		_level_manager.spawn_player()
 	_camera_follow_player()
@@ -78,7 +87,10 @@ func _start_lab() -> void:
 	_camera_follow_player()
 
 func _go_to_settings() -> void:
-	pass
+	_gui_manager.push_active_gui("settings")
+
+func _gui_handle_back_pressed() -> void:
+	_gui_manager.pop_active_gui()
 
 func _quit_game() -> void:
 	get_tree().quit()
@@ -86,7 +98,15 @@ func _quit_game() -> void:
 func _handle_next_level_attempt(next_level_name: String) -> void:
 	_level_manager.switch_level(next_level_name)
 
+func _reset_current_level() -> void:
+	if (!_level_manager.current_level_2D):
+		return
+	_level_manager.remove_player()
+	_level_manager.unload_level(_level_manager.current_level_2D)
+	_level_manager.load_level(_level_manager.current_level_file_name)
+	_level_manager.spawn_player()
+
 func _handle_player_entered_killzone() -> void:
 	_camera_release_player_focus()
-	_level_manager.reset_level()
+	_reset_current_level()
 	_camera_follow_player()

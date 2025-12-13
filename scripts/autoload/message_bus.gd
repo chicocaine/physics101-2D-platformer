@@ -23,3 +23,6 @@ signal play_game_requested
 signal lab_requested
 signal settings_requested
 signal quit_requested
+
+# gui_signals
+signal back_gui_requested
