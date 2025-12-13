@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb3l4ldmbvscj"]
+
+[ext_resource type="Theme" uid="uid://dlpwehfmq3b07" path="res://gui/game_theme.tres" id="1_dtslm"]
+[ext_resource type="Script" uid="uid://2kynjs7c8bn3" path="res://scripts/controllers/settings_controller.gd" id="2_ag4o2"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_dtslm")
+script = ExtResource("2_ag4o2")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="SFXToggle" type="CheckButton" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "SFX"
+
+[node name="MusicToggle" type="CheckButton" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Music"
+
+[node name="BackButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back"
