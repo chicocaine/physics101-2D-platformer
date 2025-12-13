@@ -425,6 +425,11 @@ position = Vector2(4216, 11)
 mass = 0.5
 physics_material_override = SubResource("PhysicsMaterial_lg8bv")
 
+[node name="BoxSmall10" parent="Boxes" instance=ExtResource("5_sy7ai")]
+position = Vector2(4277, 12)
+mass = 0.5
+physics_material_override = SubResource("PhysicsMaterial_lg8bv")
+
 [node name="Ropes" type="Node2D" parent="."]
 
 [node name="SwingRope" parent="Ropes" instance=ExtResource("6_gfqaa")]
