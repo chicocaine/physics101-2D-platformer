@@ -45,6 +45,7 @@ animations = [{
 
 [node name="Console1" type="Node2D"]
 script = ExtResource("1_772v0")
+action_name = null
 
 [node name="InteractionArea" parent="." instance=ExtResource("1_n1aa8")]
 collision_mask = 8

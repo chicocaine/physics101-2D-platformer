@@ -203,7 +203,7 @@ position = Vector2(1728, 0)
 position = Vector2(692, 320)
 rotation = 3.1415927
 key_count_requirement = 3
-next_level_name = "dev_test_level_1"
+next_level_name = "level_03_lever_piston_spring"
 
 [node name="Ropes" type="Node2D" parent="."]
 

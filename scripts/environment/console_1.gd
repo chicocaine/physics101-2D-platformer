@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var action_name : String = ""
-@export var target_node : Node2D
+@export var target_nodes : Array[Node2D]
 
 var _interaction_area : InteractionArea
 var _animated_sprite : AnimatedSprite2D
@@ -21,9 +21,10 @@ func _ready() -> void:
 	_interaction_area.body_exited.connect(_handle_interaction_body_exited)
 
 func _on_interact() -> void:
-	if (self.target_node and self.target_node.has_method("activate")):
-		AudioManager.sfx_controller.play_sfx_2d("test", self.global_position, "environment")
-		await target_node.activate()
+	for node in self.target_nodes:
+		if (node and node.has_method("activate")):
+			AudioManager.sfx_controller.play_sfx_2d("test", self.global_position, "environment")
+			await node.activate()
 
 func _handle_closest_player_updated() -> void:
 	_highlight_check()

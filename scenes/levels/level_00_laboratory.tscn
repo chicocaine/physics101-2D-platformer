@@ -503,13 +503,13 @@ position = Vector2(4170, 22)
 position = Vector2(4459, 22)
 piston_rotation = 90.0
 
-[node name="Console1" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("11_lg8bv")]
+[node name="Console1" parent="." node_paths=PackedStringArray("target_nodes") instance=ExtResource("11_lg8bv")]
 position = Vector2(4150, 11)
-target_node = NodePath("../Piston")
+target_nodes = [NodePath("../Piston")]
 
-[node name="Console2" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("11_lg8bv")]
+[node name="Console2" parent="." node_paths=PackedStringArray("target_nodes") instance=ExtResource("11_lg8bv")]
 position = Vector2(4440, 11)
-target_node = NodePath("../Piston2")
+target_nodes = [NodePath("../Piston2")]
 
 [node name="TraverseRope" parent="." instance=ExtResource("7_wcypb")]
 position = Vector2(4951, -65)
