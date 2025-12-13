@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://crgg3umb721ya"]
+[gd_scene load_steps=23 format=4 uid="uid://crgg3umb721ya"]
 
 [ext_resource type="PackedScene" uid="uid://cj6qurdhvta4t" path="res://scenes/environment/door_large.tscn" id="1_fvhm3"]
 [ext_resource type="Texture2D" uid="uid://7smbh0pk8ly5" path="res://assets/sprites/tiles/Industrial Zone Tileset.png" id="1_nppfe"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://d1xuxwcbtth03" path="res://assets/font/Pix32.ttf" id="4_y6y7g"]
 [ext_resource type="PackedScene" uid="uid://kptrnhe1nbj4" path="res://scenes/environment/box_small.tscn" id="5_sy7ai"]
 [ext_resource type="PackedScene" uid="uid://ddvqv0se7pa7f" path="res://scenes/environment/swing_rope.tscn" id="6_gfqaa"]
+[ext_resource type="PackedScene" uid="uid://bpdgwkokx31l4" path="res://scenes/environment/spring.tscn" id="7_1r3es"]
 [ext_resource type="PackedScene" uid="uid://b4da87r0jukj1" path="res://scenes/environment/traverse_rope.tscn" id="7_wcypb"]
 [ext_resource type="PackedScene" uid="uid://cwet1bhuwwok" path="res://scenes/environment/lever.tscn" id="9_fhxif"]
 [ext_resource type="PackedScene" uid="uid://birt8mxudb6f4" path="res://scenes/environment/piston.tscn" id="10_ot5y8"]
@@ -430,6 +431,21 @@ position = Vector2(4277, 12)
 mass = 0.5
 physics_material_override = SubResource("PhysicsMaterial_lg8bv")
 
+[node name="SpringBlock" parent="Boxes" instance=ExtResource("7_1r3es")]
+position = Vector2(4843, 32)
+
+[node name="SpringBlock2" parent="Boxes" instance=ExtResource("7_1r3es")]
+position = Vector2(5066, 32)
+
+[node name="SpringBlock3" parent="Boxes" instance=ExtResource("7_1r3es")]
+position = Vector2(5087, 32)
+
+[node name="SpringBlock4" parent="Boxes" instance=ExtResource("7_1r3es")]
+position = Vector2(5108, 32)
+
+[node name="SpringBlock5" parent="Boxes" instance=ExtResource("7_1r3es")]
+position = Vector2(5130, 32)
+
 [node name="Ropes" type="Node2D" parent="."]
 
 [node name="SwingRope" parent="Ropes" instance=ExtResource("6_gfqaa")]
@@ -495,7 +511,17 @@ target_node = NodePath("../Piston")
 position = Vector2(4440, 11)
 target_node = NodePath("../Piston2")
 
+[node name="TraverseRope" parent="." instance=ExtResource("7_wcypb")]
+position = Vector2(4951, -65)
+
+[node name="StartAnchor" parent="TraverseRope" index="0"]
+position = Vector2(-60, 31)
+
+[node name="EndAnchor" parent="TraverseRope" index="1"]
+position = Vector2(152, -237)
+
 [editable path="Ropes/TraverseRope"]
 [editable path="Ropes/TraverseRope2"]
 [editable path="Ropes/TraverseRope3"]
 [editable path="Lever"]
+[editable path="TraverseRope"]

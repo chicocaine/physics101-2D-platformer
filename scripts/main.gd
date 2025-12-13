@@ -35,7 +35,7 @@ func _init_signals() -> void:
 
 func load_initial_level() -> int:
 	if (Global.dev_mode == Util.DevMode.TEST):
-		var s = _level_manager.load_level("level_01_intro")
+		var s = _level_manager.load_level("level_00_laboratory")
 		if(s == 1):
 			return 1
 		print("Test Level Loaded")
