@@ -212,7 +212,7 @@ size = Vector2(242, 0)
 repeat_size = Vector2(576, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2D"]
-position = Vector2(0, 120.00001)
+position = Vector2(0, 121.00001)
 scale = Vector2(3.486111, 3.1728394)
 texture = ExtResource("1_qp7pt")
 region_enabled = true
@@ -309,7 +309,7 @@ position = Vector2(1151, -251)
 position = Vector2(1467, -66)
 
 [node name="Keys3" parent="Keys" instance=ExtResource("8_yon1r")]
-position = Vector2(402, -187)
+position = Vector2(496, -305)
 
 [node name="Springs" type="Node2D" parent="."]
 
@@ -412,7 +412,7 @@ mass = 0.7
 physics_material_override = SubResource("PhysicsMaterial_5dypx")
 
 [node name="BoxSmall2" parent="Boxes" instance=ExtResource("5_thlau")]
-position = Vector2(516, -301)
+position = Vector2(1182, 15)
 mass = 1.0
 physics_material_override = SubResource("PhysicsMaterial_lsqpf")
 
