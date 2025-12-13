@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dlpwehfmq3b07"]
+
+[ext_resource type="FontFile" uid="uid://d1xuxwcbtth03" path="res://assets/font/Pix32.ttf" id="1_ney6d"]
+
+[resource]
+default_font = ExtResource("1_ney6d")
+default_font_size = 35
+/fonts/font = ExtResource("1_ney6d")
