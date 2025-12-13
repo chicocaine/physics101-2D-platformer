@@ -21,7 +21,7 @@ func _ready() -> void:
 	player = PLAYER.instantiate()
 	player.name = "Player"
 	
-	dev_mode = Util.DevMode.TEST
+	dev_mode = Util.DevMode.DEV
 	gui_manager = GUIManager.new()
 	level_manager = LevelManager.new()
 	interaction_manager = InteractionManager.new()
