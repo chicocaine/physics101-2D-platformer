@@ -67,10 +67,10 @@ door_pair = NodePath("../DoorTp")
 
 [node name="Keys" type="Node2D" parent="."]
 
-[node name="Console1" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("5_y071n")]
+[node name="Console1" parent="." node_paths=PackedStringArray("target_nodes") instance=ExtResource("5_y071n")]
 position = Vector2(-147, 27)
 action_name = "activate piston"
-target_node = NodePath("../Piston")
+target_nodes = [NodePath("../Piston")]
 
 [node name="Piston" parent="." instance=ExtResource("6_wt1nn")]
 position = Vector2(-129, 38)
