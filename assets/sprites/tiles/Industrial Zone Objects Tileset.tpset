@@ -1,0 +1,678 @@
+{
+	"textures": [
+		{
+			"image": "Industrial Zone Objects Tileset.png",
+			"size": {
+				"w": 252,
+				"h": 260
+			},
+			"sprites": [
+				{
+					"filename": "3 Objects/Flag.png",
+					"region": {
+						"x": 2,
+						"y": 2,
+						"w": 32,
+						"h": 64
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/0.png",
+					"region": {
+						"x": 38,
+						"y": 2,
+						"w": 32,
+						"h": 36
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/3.png",
+					"region": {
+						"x": 38,
+						"y": 42,
+						"w": 32,
+						"h": 36
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/4.png",
+					"region": {
+						"x": 2,
+						"y": 70,
+						"w": 32,
+						"h": 36
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/5.png",
+					"region": {
+						"x": 74,
+						"y": 2,
+						"w": 32,
+						"h": 36
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/6.png",
+					"region": {
+						"x": 74,
+						"y": 42,
+						"w": 32,
+						"h": 36
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/7.png",
+					"region": {
+						"x": 110,
+						"y": 2,
+						"w": 32,
+						"h": 36
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/8.png",
+					"region": {
+						"x": 110,
+						"y": 42,
+						"w": 32,
+						"h": 36
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/9.png",
+					"region": {
+						"x": 2,
+						"y": 110,
+						"w": 32,
+						"h": 36
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2.png",
+					"region": {
+						"x": 38,
+						"y": 82,
+						"w": 32,
+						"h": 36
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/Locker4.png",
+					"region": {
+						"x": 74,
+						"y": 82,
+						"w": 32,
+						"h": 36
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/Bench.png",
+					"region": {
+						"x": 110,
+						"y": 82,
+						"w": 32,
+						"h": 36
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1.png",
+					"region": {
+						"x": 146,
+						"y": 2,
+						"w": 32,
+						"h": 36
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/Bucket.png",
+					"region": {
+						"x": 146,
+						"y": 42,
+						"w": 32,
+						"h": 36
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/Fire-extinguisher1.png",
+					"region": {
+						"x": 146,
+						"y": 82,
+						"w": 32,
+						"h": 36
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/Fire-extinguisher2.png",
+					"region": {
+						"x": 2,
+						"y": 150,
+						"w": 32,
+						"h": 36
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/Fire-extinguisher3.png",
+					"region": {
+						"x": 38,
+						"y": 122,
+						"w": 32,
+						"h": 36
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/Mop.png",
+					"region": {
+						"x": 74,
+						"y": 122,
+						"w": 32,
+						"h": 36
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/Box1.png",
+					"region": {
+						"x": 110,
+						"y": 122,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/Box2.png",
+					"region": {
+						"x": 146,
+						"y": 122,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/Box3.png",
+					"region": {
+						"x": 182,
+						"y": 2,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/Box4.png",
+					"region": {
+						"x": 182,
+						"y": 38,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/Pointer1.png",
+					"region": {
+						"x": 182,
+						"y": 74,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/Box6.png",
+					"region": {
+						"x": 182,
+						"y": 110,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/Box7.png",
+					"region": {
+						"x": 182,
+						"y": 146,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/Box8.png",
+					"region": {
+						"x": 2,
+						"y": 190,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/Locker3.png",
+					"region": {
+						"x": 38,
+						"y": 182,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/Fence1.png",
+					"region": {
+						"x": 74,
+						"y": 182,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/Fence2.png",
+					"region": {
+						"x": 110,
+						"y": 182,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/Fence3.png",
+					"region": {
+						"x": 146,
+						"y": 158,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/Pointer2.png",
+					"region": {
+						"x": 182,
+						"y": 182,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/Board1.png",
+					"region": {
+						"x": 218,
+						"y": 2,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/Board2.png",
+					"region": {
+						"x": 218,
+						"y": 38,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/Board3.png",
+					"region": {
+						"x": 218,
+						"y": 74,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/Ladder1.png",
+					"region": {
+						"x": 218,
+						"y": 110,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/Ladder2.png",
+					"region": {
+						"x": 218,
+						"y": 146,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/Ladder3.png",
+					"region": {
+						"x": 218,
+						"y": 182,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/Locker1.png",
+					"region": {
+						"x": 146,
+						"y": 194,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/Locker2.png",
+					"region": {
+						"x": 2,
+						"y": 226,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/Box5.png",
+					"region": {
+						"x": 38,
+						"y": 218,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/Barrel4.png",
+					"region": {
+						"x": 74,
+						"y": 230,
+						"w": 18,
+						"h": 26
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/Barrel3.png",
+					"region": {
+						"x": 96,
+						"y": 230,
+						"w": 18,
+						"h": 26
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/Barrel2.png",
+					"region": {
+						"x": 118,
+						"y": 230,
+						"w": 18,
+						"h": 26
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/Barrel1.png",
+					"region": {
+						"x": 140,
+						"y": 230,
+						"w": 18,
+						"h": 26
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "http://free-tex-packer.com",
+		"version": "0.6.7",
+		"format": "RGBA8888",
+	}
+}

@@ -1,0 +1,78 @@
+{
+	"textures": [
+		{
+			"image": "Power Station Animated Objects Tileset.png",
+			"size": {
+				"w": 196,
+				"h": 144
+			},
+			"sprites": [
+				{
+					"filename": "4 Animated objects/Card.png",
+					"region": {
+						"x": 2,
+						"y": 2,
+						"w": 192,
+						"h": 24
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "4 Animated objects/Money.png",
+					"region": {
+						"x": 2,
+						"y": 30,
+						"w": 144,
+						"h": 24
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "4 Animated objects/Chest.png",
+					"region": {
+						"x": 2,
+						"y": 58,
+						"w": 128,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "4 Animated objects/Trap.png",
+					"region": {
+						"x": 2,
+						"y": 94,
+						"w": 128,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "http://free-tex-packer.com",
+		"version": "0.6.7",
+		"format": "RGBA8888",
+	}
+}
