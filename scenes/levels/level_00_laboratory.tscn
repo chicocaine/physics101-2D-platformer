@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://crgg3umb721ya"]
+[gd_scene load_steps=24 format=4 uid="uid://c52hytk78vanw"]
 
 [ext_resource type="PackedScene" uid="uid://cj6qurdhvta4t" path="res://scenes/environment/door_large.tscn" id="1_fvhm3"]
 [ext_resource type="Texture2D" uid="uid://7smbh0pk8ly5" path="res://assets/sprites/tiles/Industrial Zone Tileset.png" id="1_nppfe"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cwet1bhuwwok" path="res://scenes/environment/lever.tscn" id="9_fhxif"]
 [ext_resource type="PackedScene" uid="uid://birt8mxudb6f4" path="res://scenes/environment/piston.tscn" id="10_ot5y8"]
 [ext_resource type="PackedScene" uid="uid://dj56p4ktxhi4d" path="res://scenes/environment/console_1.tscn" id="11_lg8bv"]
+[ext_resource type="PackedScene" uid="uid://bwy3q75iwd0fg" path="res://scenes/environment/door.tscn" id="13_sr8oo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fvhm3"]
 texture = ExtResource("1_nppfe")
@@ -515,12 +516,17 @@ target_nodes = [NodePath("../Piston2")]
 
 [node name="TraverseRope" parent="." instance=ExtResource("7_wcypb")]
 position = Vector2(4951, -65)
+target_segment_length = 10.0
 
 [node name="StartAnchor" parent="TraverseRope" index="0"]
 position = Vector2(-60, 31)
 
 [node name="EndAnchor" parent="TraverseRope" index="1"]
 position = Vector2(152, -237)
+
+[node name="Door" parent="." instance=ExtResource("13_sr8oo")]
+position = Vector2(5506, 1)
+next_level_name = "level_01_laboratory"
 
 [editable path="Ropes/TraverseRope"]
 [editable path="Ropes/TraverseRope2"]
