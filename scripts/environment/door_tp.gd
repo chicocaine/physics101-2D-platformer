@@ -64,17 +64,15 @@ func _exit_area_body_entered(body: Node2D):
 		if (self.is_unlocked and !self.is_open):
 			_open_door()
 		self.is_player_in_exit_area = true
-		MessageBus.player_entered_exit_area.emit()
 
 func _exit_area_body_exited(body: Node2D):
 	if (body.name == "Player"):
 		if (self.is_unlocked and self.is_open):
 			_close_door()
 		self.is_player_in_exit_area = false
-		MessageBus.player_exited_exit_area.emit()
 
-func _handle_key_collected(key: Node2D):
-	if (key.is_in_group("Keys") and key.key_type == self.key_type_requirement):
+func _handle_key_collected(key_type: Util.KeyType):
+	if (key_type == self.key_type_requirement):
 		self.key_count_requirement -= 1
 		_check_unlock_requirement()
 

@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7rf6wum8flb2"]
+
+[ext_resource type="Theme" uid="uid://dlpwehfmq3b07" path="res://gui/game_theme.tres" id="1_7uvn2"]
+[ext_resource type="Script" uid="uid://8gon704tlurb" path="res://scripts/controllers/pause_menu_controller.gd" id="3_qdbs5"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_7uvn2")
+script = ExtResource("3_qdbs5")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.18039216)
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.5
+offset_top = -114.0
+offset_right = 91.5
+offset_bottom = 114.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_7uvn2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "RESUME"
+
+[node name="RestartButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "RESTART"
+
+[node name="SettingsButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "SETTINGS"
+
+[node name="MainMenuButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "MAIN MENU"

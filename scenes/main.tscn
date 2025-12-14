@@ -14,15 +14,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Menu" type="Control" parent="GUI"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="HUD" type="Control" parent="GUI"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="CanvasLayer" type="CanvasLayer" parent="GUI"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("2_0wfyh")

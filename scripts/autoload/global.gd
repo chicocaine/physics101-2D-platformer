@@ -11,17 +11,13 @@ var camera_controller : CameraController
 
 var dev_mode : int 
 
-var current_gui : Control
-var current_gui_file_name : String
-var current_level_2D : Node2D
-var current_level_2D_file_name : String
-
-
 func _ready() -> void:
+	self.process_mode = Node.PROCESS_MODE_ALWAYS
+	
 	player = PLAYER.instantiate()
 	player.name = "Player"
 	
-	dev_mode = Util.DevMode.TEST
+	dev_mode = Util.DevMode.DEV
 	gui_manager = GUIManager.new()
 	level_manager = LevelManager.new()
 	interaction_manager = InteractionManager.new()

@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvnaq1jsxkjh0"]
+
+[ext_resource type="Theme" uid="uid://dlpwehfmq3b07" path="res://gui/game_theme.tres" id="1_reecx"]
+[ext_resource type="Script" uid="uid://bqb24vb5y1soc" path="res://scripts/controllers/main_menu_controller.gd" id="2_xkvi0"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_reecx")
+script = ExtResource("2_xkvi0")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.5
+offset_top = -114.0
+offset_right = 91.5
+offset_bottom = 114.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_reecx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "THE GAME"
+horizontal_alignment = 1
+
+[node name="PlayButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "PLAY"
+
+[node name="LaboratoryButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "LABORATORY"
+
+[node name="SettingsButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "SETTINGS"
+
+[node name="QuitButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "QUIT"
