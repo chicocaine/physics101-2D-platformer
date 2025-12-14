@@ -1,0 +1,1053 @@
+{
+	"textures": [
+		{
+			"image": "Industrial Zone W Crane Objects Tileset.png",
+			"size": {
+				"w": 744,
+				"h": 631
+			},
+			"sprites": [
+				{
+					"filename": "3 Objects/4 Overhead crane/1 Base/Move.png",
+					"region": {
+						"x": 2,
+						"y": 2,
+						"w": 384,
+						"h": 64
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/4 Overhead crane/2 Cart/Move.png",
+					"region": {
+						"x": 2,
+						"y": 70,
+						"w": 384,
+						"h": 64
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/4 Overhead crane/3 Grab/1Grab.png",
+					"region": {
+						"x": 2,
+						"y": 138,
+						"w": 384,
+						"h": 64
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/4 Overhead crane/3 Grab/2Grab.png",
+					"region": {
+						"x": 2,
+						"y": 206,
+						"w": 384,
+						"h": 64
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/4 Overhead crane/3 Grab/3Grab.png",
+					"region": {
+						"x": 2,
+						"y": 274,
+						"w": 384,
+						"h": 64
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/4 Overhead crane/3 Grab/4Grab.png",
+					"region": {
+						"x": 2,
+						"y": 342,
+						"w": 384,
+						"h": 64
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/4 Overhead crane/Overhead-crane.png",
+					"region": {
+						"x": 390,
+						"y": 2,
+						"w": 352,
+						"h": 160
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/4 Overhead crane/Cart.png",
+					"region": {
+						"x": 390,
+						"y": 166,
+						"w": 96,
+						"h": 128
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Cargos/29.png",
+					"region": {
+						"x": 390,
+						"y": 298,
+						"w": 115,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Cargos/19.png",
+					"region": {
+						"x": 390,
+						"y": 350,
+						"w": 113,
+						"h": 52
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Cargos/11.png",
+					"region": {
+						"x": 507,
+						"y": 350,
+						"w": 111,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Cargos/3.png",
+					"region": {
+						"x": 622,
+						"y": 166,
+						"w": 111,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Cargos/15.png",
+					"region": {
+						"x": 622,
+						"y": 218,
+						"w": 111,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Cargos/7.png",
+					"region": {
+						"x": 622,
+						"y": 270,
+						"w": 111,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Cargos/21.png",
+					"region": {
+						"x": 509,
+						"y": 166,
+						"w": 109,
+						"h": 47
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Cargos/20.png",
+					"region": {
+						"x": 509,
+						"y": 217,
+						"w": 100,
+						"h": 54
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Cargos/26.png",
+					"region": {
+						"x": 509,
+						"y": 275,
+						"w": 100,
+						"h": 47
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Cargos/12.png",
+					"region": {
+						"x": 622,
+						"y": 322,
+						"w": 98,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Cargos/4.png",
+					"region": {
+						"x": 2,
+						"y": 410,
+						"w": 98,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Cargos/16.png",
+					"region": {
+						"x": 104,
+						"y": 410,
+						"w": 98,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Cargos/8.png",
+					"region": {
+						"x": 206,
+						"y": 410,
+						"w": 98,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Cargos/23.png",
+					"region": {
+						"x": 308,
+						"y": 410,
+						"w": 96,
+						"h": 47
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/4 Overhead crane/2 Cart/Cart.png",
+					"region": {
+						"x": 622,
+						"y": 374,
+						"w": 96,
+						"h": 64
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/4 Overhead crane/1 Base/Base.png",
+					"region": {
+						"x": 2,
+						"y": 462,
+						"w": 96,
+						"h": 64
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/4 Overhead crane/3 Grab/1.png",
+					"region": {
+						"x": 102,
+						"y": 462,
+						"w": 96,
+						"h": 64
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/4 Overhead crane/3 Grab/4.png",
+					"region": {
+						"x": 202,
+						"y": 462,
+						"w": 96,
+						"h": 64
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/4 Overhead crane/1 Base/Tile3.png",
+					"region": {
+						"x": 507,
+						"y": 402,
+						"w": 96,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/4 Overhead crane/3 Grab/3.png",
+					"region": {
+						"x": 302,
+						"y": 462,
+						"w": 96,
+						"h": 64
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/4 Overhead crane/3 Grab/2.png",
+					"region": {
+						"x": 402,
+						"y": 461,
+						"w": 96,
+						"h": 64
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Cargos/18.png",
+					"region": {
+						"x": 408,
+						"y": 406,
+						"w": 93,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Cargos/10.png",
+					"region": {
+						"x": 502,
+						"y": 458,
+						"w": 88,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Cargos/6.png",
+					"region": {
+						"x": 594,
+						"y": 442,
+						"w": 88,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Cargos/14.png",
+					"region": {
+						"x": 2,
+						"y": 530,
+						"w": 88,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Cargos/2.png",
+					"region": {
+						"x": 94,
+						"y": 530,
+						"w": 88,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Cargos/22.png",
+					"region": {
+						"x": 186,
+						"y": 530,
+						"w": 86,
+						"h": 47
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Cargos/30.png",
+					"region": {
+						"x": 276,
+						"y": 530,
+						"w": 68,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Cargos/28.png",
+					"region": {
+						"x": 348,
+						"y": 530,
+						"w": 60,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Cargos/27.png",
+					"region": {
+						"x": 686,
+						"y": 442,
+						"w": 56,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Cargos/13.png",
+					"region": {
+						"x": 412,
+						"y": 529,
+						"w": 47,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Cargos/9.png",
+					"region": {
+						"x": 463,
+						"y": 529,
+						"w": 47,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Cargos/5.png",
+					"region": {
+						"x": 514,
+						"y": 510,
+						"w": 47,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Cargos/1.png",
+					"region": {
+						"x": 565,
+						"y": 510,
+						"w": 47,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Cargos/17.png",
+					"region": {
+						"x": 616,
+						"y": 494,
+						"w": 48,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Cargos/25.png",
+					"region": {
+						"x": 668,
+						"y": 494,
+						"w": 46,
+						"h": 47
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Cargos/24.png",
+					"region": {
+						"x": 2,
+						"y": 582,
+						"w": 45,
+						"h": 47
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2 Fencing/3.png",
+					"region": {
+						"x": 505,
+						"y": 438,
+						"w": 40,
+						"h": 9
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2 Fencing/6.png",
+					"region": {
+						"x": 549,
+						"y": 438,
+						"w": 39,
+						"h": 15
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2 Fencing/2.png",
+					"region": {
+						"x": 509,
+						"y": 326,
+						"w": 39,
+						"h": 15
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2 Fencing/7.png",
+					"region": {
+						"x": 552,
+						"y": 326,
+						"w": 38,
+						"h": 8
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2 Fencing/4.png",
+					"region": {
+						"x": 51,
+						"y": 582,
+						"w": 38,
+						"h": 12
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2 Fencing/5.png",
+					"region": {
+						"x": 51,
+						"y": 598,
+						"w": 37,
+						"h": 15
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2 Fencing/1.png",
+					"region": {
+						"x": 92,
+						"y": 598,
+						"w": 37,
+						"h": 15
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2 Fencing/8.png",
+					"region": {
+						"x": 51,
+						"y": 617,
+						"w": 34,
+						"h": 11
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/4 Overhead crane/1 Base/Tile9.png",
+					"region": {
+						"x": 133,
+						"y": 582,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/4 Overhead crane/1 Base/Tile1.png",
+					"region": {
+						"x": 169,
+						"y": 582,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/4 Overhead crane/3 Grab/Rope2.png",
+					"region": {
+						"x": 205,
+						"y": 582,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/4 Overhead crane/1 Base/Tile2.png",
+					"region": {
+						"x": 241,
+						"y": 582,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/4 Overhead crane/3 Grab/Rope1.png",
+					"region": {
+						"x": 277,
+						"y": 582,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/4 Overhead crane/1 Base/Tile4.png",
+					"region": {
+						"x": 313,
+						"y": 582,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/4 Overhead crane/1 Base/Tile5.png",
+					"region": {
+						"x": 349,
+						"y": 582,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/4 Overhead crane/1 Base/Tile6.png",
+					"region": {
+						"x": 385,
+						"y": 582,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/4 Overhead crane/1 Base/Tile7.png",
+					"region": {
+						"x": 421,
+						"y": 581,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/4 Overhead crane/1 Base/Tile8.png",
+					"region": {
+						"x": 457,
+						"y": 581,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/3 Box/3.png",
+					"region": {
+						"x": 493,
+						"y": 581,
+						"w": 29,
+						"h": 18
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/3 Box/2.png",
+					"region": {
+						"x": 493,
+						"y": 603,
+						"w": 27,
+						"h": 18
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/3 Box/6.png",
+					"region": {
+						"x": 718,
+						"y": 494,
+						"w": 24,
+						"h": 14
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/3 Box/5.png",
+					"region": {
+						"x": 514,
+						"y": 562,
+						"w": 22,
+						"h": 14
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/3 Box/1.png",
+					"region": {
+						"x": 594,
+						"y": 326,
+						"w": 22,
+						"h": 18
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/3 Box/4.png",
+					"region": {
+						"x": 724,
+						"y": 322,
+						"w": 16,
+						"h": 14
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "http://free-tex-packer.com",
+		"version": "0.6.7",
+		"format": "RGBA8888",
+	}
+}

@@ -1,0 +1,738 @@
+{
+	"textures": [
+		{
+			"image": "Power Station Objects Tileset.png",
+			"size": {
+				"w": 388,
+				"h": 496
+			},
+			"sprites": [
+				{
+					"filename": "3 Objects/Power Station Objects Tileset.png",
+					"region": {
+						"x": 2,
+						"y": 2,
+						"w": 312,
+						"h": 296
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/3 Power lines/3.png",
+					"region": {
+						"x": 2,
+						"y": 302,
+						"w": 61,
+						"h": 192
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/3 Power lines/4.png",
+					"region": {
+						"x": 67,
+						"y": 302,
+						"w": 69,
+						"h": 192
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Tube/4.png",
+					"region": {
+						"x": 140,
+						"y": 302,
+						"w": 103,
+						"h": 42
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2 Decoration/27.png",
+					"region": {
+						"x": 140,
+						"y": 348,
+						"w": 78,
+						"h": 35
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2 Decoration/25.png",
+					"region": {
+						"x": 222,
+						"y": 348,
+						"w": 68,
+						"h": 77
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2 Decoration/24.png",
+					"region": {
+						"x": 140,
+						"y": 387,
+						"w": 68,
+						"h": 76
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/3 Power lines/2.png",
+					"region": {
+						"x": 212,
+						"y": 429,
+						"w": 73,
+						"h": 64
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2 Decoration/26.png",
+					"region": {
+						"x": 318,
+						"y": 2,
+						"w": 68,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2 Decoration/17.png",
+					"region": {
+						"x": 140,
+						"y": 467,
+						"w": 65,
+						"h": 16
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Tube/3.png",
+					"region": {
+						"x": 289,
+						"y": 429,
+						"w": 26,
+						"h": 64
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/3 Power lines/1.png",
+					"region": {
+						"x": 247,
+						"y": 302,
+						"w": 63,
+						"h": 39
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Tube/10.png",
+					"region": {
+						"x": 294,
+						"y": 345,
+						"w": 22,
+						"h": 57
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2 Decoration/16.png",
+					"region": {
+						"x": 320,
+						"y": 54,
+						"w": 57,
+						"h": 26
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2 Decoration/13.png",
+					"region": {
+						"x": 320,
+						"y": 84,
+						"w": 57,
+						"h": 26
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2 Decoration/14.png",
+					"region": {
+						"x": 320,
+						"y": 114,
+						"w": 57,
+						"h": 26
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2 Decoration/15.png",
+					"region": {
+						"x": 320,
+						"y": 144,
+						"w": 57,
+						"h": 26
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Tube/1.png",
+					"region": {
+						"x": 314,
+						"y": 302,
+						"w": 50,
+						"h": 25
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2 Decoration/18.png",
+					"region": {
+						"x": 294,
+						"y": 406,
+						"w": 49,
+						"h": 16
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Tube/6.png",
+					"region": {
+						"x": 140,
+						"y": 487,
+						"w": 45,
+						"h": 7
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Tube/5.png",
+					"region": {
+						"x": 320,
+						"y": 331,
+						"w": 45,
+						"h": 16
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Tube/9.png",
+					"region": {
+						"x": 320,
+						"y": 351,
+						"w": 45,
+						"h": 11
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Tube/2.png",
+					"region": {
+						"x": 347,
+						"y": 366,
+						"w": 35,
+						"h": 22
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2 Decoration/23.png",
+					"region": {
+						"x": 320,
+						"y": 392,
+						"w": 35,
+						"h": 6
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2 Decoration/9.png",
+					"region": {
+						"x": 347,
+						"y": 402,
+						"w": 35,
+						"h": 19
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2 Decoration/19.png",
+					"region": {
+						"x": 347,
+						"y": 425,
+						"w": 32,
+						"h": 22
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2 Decoration/2.png",
+					"region": {
+						"x": 319,
+						"y": 451,
+						"w": 32,
+						"h": 14
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2 Decoration/3.png",
+					"region": {
+						"x": 319,
+						"y": 469,
+						"w": 32,
+						"h": 6
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2 Decoration/4.png",
+					"region": {
+						"x": 319,
+						"y": 479,
+						"w": 32,
+						"h": 8
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2 Decoration/1.png",
+					"region": {
+						"x": 318,
+						"y": 174,
+						"w": 32,
+						"h": 17
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2 Decoration/12.png",
+					"region": {
+						"x": 355,
+						"y": 451,
+						"w": 26,
+						"h": 18
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2 Decoration/20.png",
+					"region": {
+						"x": 354,
+						"y": 174,
+						"w": 24,
+						"h": 22
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2 Decoration/8.png",
+					"region": {
+						"x": 318,
+						"y": 195,
+						"w": 19,
+						"h": 24
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2 Decoration/22.png",
+					"region": {
+						"x": 320,
+						"y": 366,
+						"w": 7,
+						"h": 22
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2 Decoration/21.png",
+					"region": {
+						"x": 369,
+						"y": 200,
+						"w": 13,
+						"h": 22
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Tube/8.png",
+					"region": {
+						"x": 319,
+						"y": 426,
+						"w": 22,
+						"h": 11
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Tube/7.png",
+					"region": {
+						"x": 341,
+						"y": 200,
+						"w": 21,
+						"h": 11
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/1 Tube/11.png",
+					"region": {
+						"x": 355,
+						"y": 473,
+						"w": 12,
+						"h": 21
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2 Decoration/7.png",
+					"region": {
+						"x": 369,
+						"y": 226,
+						"w": 17,
+						"h": 3
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2 Decoration/11.png",
+					"region": {
+						"x": 371,
+						"y": 473,
+						"w": 13,
+						"h": 17
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2 Decoration/10.png",
+					"region": {
+						"x": 331,
+						"y": 366,
+						"w": 11,
+						"h": 16
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/3 Power lines/9.png",
+					"region": {
+						"x": 369,
+						"y": 233,
+						"w": 16,
+						"h": 4
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/3 Power lines/6.png",
+					"region": {
+						"x": 369,
+						"y": 241,
+						"w": 16,
+						"h": 11
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/3 Power lines/7.png",
+					"region": {
+						"x": 189,
+						"y": 487,
+						"w": 16,
+						"h": 7
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/3 Power lines/8.png",
+					"region": {
+						"x": 359,
+						"y": 392,
+						"w": 16,
+						"h": 5
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/3 Power lines/5.png",
+					"region": {
+						"x": 369,
+						"y": 256,
+						"w": 13,
+						"h": 13
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2 Decoration/5.png",
+					"region": {
+						"x": 381,
+						"y": 54,
+						"w": 5,
+						"h": 6
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "3 Objects/2 Decoration/6.png",
+					"region": {
+						"x": 319,
+						"y": 491,
+						"w": 5,
+						"h": 3
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "http://free-tex-packer.com",
+		"version": "0.6.7",
+		"format": "RGBA8888",
+	}
+}

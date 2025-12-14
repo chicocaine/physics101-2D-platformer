@@ -1,0 +1,63 @@
+{
+	"textures": [
+		{
+			"image": "Sidescroller Objects Tileset.png",
+			"size": {
+				"w": 404,
+				"h": 472
+			},
+			"sprites": [
+				{
+					"filename": "Assets/Buildings.png",
+					"region": {
+						"x": 2,
+						"y": 2,
+						"w": 400,
+						"h": 240
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Assets/Props-01.png",
+					"region": {
+						"x": 2,
+						"y": 246,
+						"w": 128,
+						"h": 224
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Assets/Tiles.png",
+					"region": {
+						"x": 134,
+						"y": 246,
+						"w": 96,
+						"h": 144
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "http://free-tex-packer.com",
+		"version": "0.6.7",
+		"format": "RGBA8888",
+	}
+}
