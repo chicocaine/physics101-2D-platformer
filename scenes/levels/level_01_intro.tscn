@@ -360,6 +360,10 @@ debug_color = Color(0.9151472, 8.952319e-05, 0.7222053, 0.41960785)
 [node name="PlayerSpawnpoint" parent="." instance=ExtResource("4_3jcxj")]
 position = Vector2(-107, -7)
 
+[node name="PressurePlate" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("7_tq640")]
+position = Vector2(544, 32)
+target_node = NodePath("../DoorLarge")
+
 [node name="BoxSmall" parent="." instance=ExtResource("5_ba6i6")]
 position = Vector2(625, 20)
 collision_layer = 24
@@ -370,10 +374,6 @@ physics_material_override = SubResource("PhysicsMaterial_f8ned")
 position = Vector2(954, 1)
 key_count_requirement = 3
 next_level_name = "level_02_rope"
-
-[node name="PressurePlate" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("7_tq640")]
-position = Vector2(544, 32)
-target_node = NodePath("../DoorLarge")
 
 [node name="Keys" type="Node2D" parent="."]
 
