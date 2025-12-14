@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvnaq1jsxkjh0"]
+[gd_scene load_steps=5 format=3 uid="uid://cvnaq1jsxkjh0"]
 
 [ext_resource type="Theme" uid="uid://dlpwehfmq3b07" path="res://gui/game_theme.tres" id="1_reecx"]
 [ext_resource type="Script" uid="uid://bqb24vb5y1soc" path="res://scripts/controllers/main_menu_controller.gd" id="2_xkvi0"]
+[ext_resource type="Texture2D" uid="uid://daivwd5crmhda" path="res://assets/art/backgrounds/DomeKeeperInterface.jpg" id="3_rhnsr"]
+[ext_resource type="Texture2D" uid="uid://si4lvw08x10g" path="res://assets/menu&gui/aaaa.png" id="4_laybc"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -13,28 +15,80 @@ grow_vertical = 2
 theme = ExtResource("1_reecx")
 script = ExtResource("2_xkvi0")
 
+[node name="DomeKeeperInterface" type="Sprite2D" parent="."]
+modulate = Color(0.7750634, 0.7750634, 0.7750633, 1)
+position = Vector2(578, 313.00003)
+scale = Vector2(0.60989773, 0.66269654)
+texture = ExtResource("3_rhnsr")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"pending_changes": {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "",
+"source_uid": -1
+},
+"slice_section": false
+}
+
+[node name="PhysicsLogo" type="Sprite2D" parent="."]
+position = Vector2(578, 209)
+scale = Vector2(0.20506331, 0.20506328)
+texture = ExtResource("4_laybc")
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"pending_changes": {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "",
+"source_uid": -1
+}
+}
+
 [node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -91.5
-offset_top = -114.0
-offset_right = 91.5
-offset_bottom = 114.0
+offset_left = -150.0
+offset_top = 50.0
+offset_right = 150.0
+offset_bottom = 238.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_reecx")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
-layout_mode = 2
-text = "THE GAME"
-horizontal_alignment = 1
 
 [node name="PlayButton" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
@@ -43,11 +97,15 @@ text = "PLAY"
 [node name="LaboratoryButton" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "LABORATORY"
+icon_alignment = 1
 
 [node name="SettingsButton" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "SETTINGS"
+icon_alignment = 1
 
 [node name="QuitButton" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "QUIT"
+autowrap_trim_flags = 192
+icon_alignment = 1
