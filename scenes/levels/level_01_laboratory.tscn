@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://crgg3umb721ya"]
+[gd_scene load_steps=19 format=4 uid="uid://crgg3umb721ya"]
 
 [ext_resource type="PackedScene" uid="uid://cj6qurdhvta4t" path="res://scenes/environment/door_large.tscn" id="1_6dyw0"]
 [ext_resource type="Texture2D" uid="uid://7smbh0pk8ly5" path="res://assets/sprites/tiles/Industrial Zone Tileset.png" id="2_5tsmk"]
@@ -193,6 +193,14 @@ bounce = 0.8
 friction = 0.0
 bounce = 0.8
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5tsmk"]
+friction = 0.0
+bounce = 0.8
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1ioqj"]
+friction = 0.0
+bounce = 0.8
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5vfmp"]
 friction = 0.0
 bounce = 0.8
@@ -249,9 +257,15 @@ position = Vector2(1192, 11)
 action_name = ""
 target_nodes = [NodePath("../pistons/Piston2")]
 
-[node name="Console3" parent="Interactibles" instance=ExtResource("12_t341y")]
+[node name="Console3" parent="Interactibles" node_paths=PackedStringArray("target_nodes") instance=ExtResource("12_t341y")]
 position = Vector2(1864, 12)
 action_name = ""
+target_nodes = [NodePath("../pistons/Piston3")]
+
+[node name="Console4" parent="Interactibles" node_paths=PackedStringArray("target_nodes") instance=ExtResource("12_t341y")]
+position = Vector2(2474, 12)
+action_name = ""
+target_nodes = [NodePath("../pistons/Piston4"), NodePath("../pistons/Piston5")]
 
 [node name="pistons" type="Node2D" parent="Interactibles"]
 
@@ -263,6 +277,14 @@ position = Vector2(1224, 22)
 
 [node name="Piston3" parent="Interactibles/pistons" instance=ExtResource("11_dq5si")]
 position = Vector2(1898, 22)
+impulse_strength = 1250.0
+
+[node name="Piston4" parent="Interactibles/pistons" instance=ExtResource("11_dq5si")]
+position = Vector2(2506, 22)
+
+[node name="Piston5" parent="Interactibles/pistons" instance=ExtResource("11_dq5si")]
+position = Vector2(2934, 22)
+piston_rotation = 180.0
 
 [node name="Boxes" type="Node2D" parent="."]
 
@@ -295,6 +317,14 @@ position = Vector2(2067, 21)
 mass = 1.0
 physics_material_override = SubResource("PhysicsMaterial_6dyw0")
 lock_rotation = true
+
+[node name="BoxSmall6" parent="Boxes" instance=ExtResource("6_hlbqj")]
+position = Vector2(2549, 21)
+physics_material_override = SubResource("PhysicsMaterial_5tsmk")
+
+[node name="BoxSmall7" parent="Boxes" instance=ExtResource("6_hlbqj")]
+position = Vector2(2899, 20)
+physics_material_override = SubResource("PhysicsMaterial_1ioqj")
 
 [node name="BoxBig" parent="Boxes" instance=ExtResource("8_rhpcj")]
 position = Vector2(1430, 11)

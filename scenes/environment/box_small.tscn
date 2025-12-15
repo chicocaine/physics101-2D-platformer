@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://kptrnhe1nbj4"]
 
-[ext_resource type="Texture2D" uid="uid://p21gfo0xv5l4" path="res://icon.svg" id="1_4w43p"]
+[ext_resource type="Texture2D" uid="uid://c240eitvm3a3a" path="res://assets/sprites/tiles/Industrial Zone w- Crane/3 Objects/3 Box/4.png" id="1_4w43p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0k1q4"]
 
@@ -11,8 +11,8 @@ mass = 3.0
 continuous_cd = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(5.9604645e-07, 0)
-scale = Vector2(0.15625, 0.15625)
+position = Vector2(4.7683716e-07, -4.7683716e-07)
+scale = Vector2(1.2499999, 1.4285716)
 texture = ExtResource("1_4w43p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
