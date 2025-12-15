@@ -34,3 +34,5 @@ shape = SubResource("CircleShape2D_hcajc")
 node_a = NodePath("..")
 
 [node name="RopeLine" type="Line2D" parent="."]
+width = 3.0
+default_color = Color(0.11858138, 0.11858138, 0.11858138, 1)

@@ -314,7 +314,7 @@ position = Vector2(496, -305)
 [node name="Springs" type="Node2D" parent="."]
 
 [node name="SpringBlock" parent="Springs" instance=ExtResource("9_pqxih")]
-position = Vector2(65, 32)
+position = Vector2(122, 50)
 
 [node name="SpringBlock3" parent="Springs" instance=ExtResource("9_pqxih")]
 position = Vector2(312, -32)
@@ -323,10 +323,10 @@ position = Vector2(312, -32)
 position = Vector2(333, -32)
 
 [node name="SpringBlock7" parent="Springs" instance=ExtResource("9_pqxih")]
-position = Vector2(415, -166)
+position = Vector2(415, -161)
 
 [node name="SpringBlock8" parent="Springs" instance=ExtResource("9_pqxih")]
-position = Vector2(436, -166)
+position = Vector2(436, -161)
 
 [node name="SpringBlock2" parent="Springs" instance=ExtResource("9_pqxih")]
 position = Vector2(85, 32)
