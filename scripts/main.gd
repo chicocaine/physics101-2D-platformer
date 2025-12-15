@@ -87,7 +87,7 @@ func _start_play() -> void:
 
 func _start_lab() -> void:
 	_gui_manager.push_active_gui("HUD")
-	if (_level_manager.load_level("level_01_laboratory") == 0):
+	if (_level_manager.load_level("level_00_laboratory") == 0):
 		_level_manager.spawn_player()
 	_camera_follow_player()
 
