@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpdgwkokx31l4"]
+[gd_scene load_steps=7 format=3 uid="uid://bpdgwkokx31l4"]
 
 [ext_resource type="Script" uid="uid://dd6vkibsotgnv" path="res://scripts/environment/spring.gd" id="1_boo62"]
+[ext_resource type="Texture2D" uid="uid://cbijit73xsnyg" path="res://assets/sprites/tiles/Industrial Zone/3 Objects/Box7.png" id="2_0gmq7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tdqcc"]
 
@@ -17,6 +18,12 @@ size = Vector2(10, 2)
 collision_layer = 0
 collision_mask = 24
 script = ExtResource("1_boo62")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(13.000001, 0)
+rotation = 1.5707964
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_0gmq7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_tdqcc")

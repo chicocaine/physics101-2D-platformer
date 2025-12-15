@@ -433,19 +433,19 @@ mass = 0.5
 physics_material_override = SubResource("PhysicsMaterial_lg8bv")
 
 [node name="SpringBlock" parent="Boxes" instance=ExtResource("7_1r3es")]
-position = Vector2(4843, 22)
+position = Vector2(4843, 31)
 
 [node name="SpringBlock2" parent="Boxes" instance=ExtResource("7_1r3es")]
-position = Vector2(5065, 23)
+position = Vector2(5065, 32)
 
 [node name="SpringBlock3" parent="Boxes" instance=ExtResource("7_1r3es")]
-position = Vector2(5086, 23)
+position = Vector2(5086, 32)
 
 [node name="SpringBlock4" parent="Boxes" instance=ExtResource("7_1r3es")]
-position = Vector2(5107, 23)
+position = Vector2(5107, 32)
 
 [node name="SpringBlock5" parent="Boxes" instance=ExtResource("7_1r3es")]
-position = Vector2(5129, 23)
+position = Vector2(5129, 32)
 
 [node name="Ropes" type="Node2D" parent="."]
 
@@ -515,7 +515,7 @@ action_name = ""
 target_nodes = [NodePath("../Piston2")]
 
 [node name="TraverseRope" parent="." instance=ExtResource("7_wcypb")]
-position = Vector2(4951, -65)
+position = Vector2(4951, -63)
 target_segment_length = 10.0
 
 [node name="StartAnchor" parent="TraverseRope" index="0"]

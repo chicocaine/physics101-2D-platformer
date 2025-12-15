@@ -24,3 +24,5 @@ bias = 0.9
 softness = 1.0
 
 [node name="RopeLine" type="Line2D" parent="."]
+width = 3.0
+default_color = Color(0.11858138, 0.11858138, 0.11858138, 1)
